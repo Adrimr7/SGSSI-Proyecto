@@ -1,5 +1,7 @@
 <?php
-  echo '<h1>Yeah, it works!<h1>';
+  echo '<h1>Funciona!<h1>';
+  echo '<h1>Hola!<h1>';
+  echo '<h1>Primer commmit!<h1>';
   // phpinfo();
   $hostname = "db";
   $username = "admin";
