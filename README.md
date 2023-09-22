@@ -17,3 +17,11 @@ $ docker-compose stop
 Feel free to make pull requests and help to improve this.
 
 If you are looking for phpMyAdmin, take a look at [this](https://github.com/celsocelante/docker-lamp/issues/2).
+
+#NOMBRES DE LOS INTEGRANTES
+"Adrian Mena"
+"Ander Gutierrez"
+"Asier Cardoso"
+"Aritz Blasco"
+"Eneko Etxaniz"
+"Jon Marcos"
