@@ -1,7 +1,9 @@
 
+<link rel= stylesheet href=styles.css>
 
 <?php
   include 'index.html';
+
   // phpinfo();
   $hostname = "db";
   $username = "admin";
