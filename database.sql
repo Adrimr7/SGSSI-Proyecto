@@ -38,7 +38,7 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `nombre`) VALUES
 (1, 'mikel'),
-(2, 'aitor');
+(2, 'aitor');s
 
 --
 -- Índices para tablas volcadas
