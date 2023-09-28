@@ -27,18 +27,38 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `usuarios`
 --
 
-CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL,
-  `nombre` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE usuarios (
+  Dni VARCHAR(9) PRIMARY KEY CHECK (Dni REGEXP '^[0-9]{8}[A-Z]$'),
+    nombre VARCHAR(20),
+    primer_apellido VARCHAR(20),
+    segundo_apellido VARCHAR(20),
+    telefono VARCHAR(9) CHECK (telefono REGEXP '^[0-9]{9}$')
+    email VARCHAR(50) CHECK(email LIKE '%@%.%'),
+    nacimiento DATE
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Estructura de tabla para la tabla `pais`
+CREATE TABLE pais (
+    nombre VARCHAR(30) PRIMARY KEY
+);
+
+--Estructura de tabla para la tabla `vuelo`
+CREATE TABLE vuelo (
+    callsign VARCHAR(10) PRIMARY KEY,
+    fecha DATE,
+    numero_pasajeros INT,
+    pais_salida VARCHAR(30),
+    pais_llegada VARCHAR(30),
+    FOREIGN KEY (pais_salida) REFERENCES pais(nombre),
+    FOREIGN KEY (pais_llegada) REFERENCES pais(nombre)
+);
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`) VALUES
-(1, 'mikel'),
-(2, 'aitor');s
+INSERT INTO usuario (Dni, nombre) VALUES
+('14678903L', 'Mikel'),
+('15464903K', 'Aitor');
 
 --
 -- Índices para tablas volcadas
@@ -47,8 +67,6 @@ INSERT INTO `usuarios` (`id`, `nombre`) VALUES
 --
 -- Indices de la tabla `usuarios`
 --
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
