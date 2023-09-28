@@ -19,12 +19,15 @@
     echo "Da blutud dibais is conektidas saksesfuli";
 
 
-$query = mysqli_query($conn, "SELECT * FROM usuarios")
+$as = $conn->query("SELECT * FROM usuarios")
+
+/*$query = mysqli_query($conn, "SELECT * FROM usuarios")
    or die (mysqli_error($conn));
 
-echo "<table>"; 
 
-while ($row = mysqli_fetch_array($query)) {
+echo "<table>";
+
+while ($row = mysqli_fetch_array($as)) {
     echo "<tr>";
     echo "<td>{$row['id']}</td>";
     echo "<td>{$row['nombre']}</td>";
@@ -32,7 +35,6 @@ while ($row = mysqli_fetch_array($query)) {
 }
 
 echo "</table>";
-  
-  
+ */
 
 ?>
