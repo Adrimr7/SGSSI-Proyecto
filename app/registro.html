@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro - Avionair</title>
-    <link rel="stylesheet" href="styles2.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="Logo1.png" type="image/png">
 </head>
 
@@ -13,7 +13,7 @@
 
     <header id="main-header">
         <div class="logo">
-            <img src="images/brand-logo.png" alt="Avionair Logo">
+            <img src="img/brand-logo.png" alt="Avionair Logo">
         </div>
         <div class="titulo">
             <h1>Registro - AVIONAIR</h1>
@@ -27,17 +27,29 @@
         <div class="formulario">
             <h2>Formulario de Registro</h2>
             <form action="procesar_registro.php" method="POST">
+                <div class="campo" >
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" size="" name="nombre" required>
+                </div>
+                <div class="campo">
+                    <label for="apellidos">Apellido:</label>
+                    <input type="text" id="apellidos" name="apellidos" required>
+                </div>
+                <div class="campo">
+                    <label for="dni">DNI:</label>
+                    <input type="text" id="dni" name="dni" required>
+                </div>
+                <div class="campo">
+                    <label for="telef">Teléfono:</label>
+                    <input type="text" id="telef" name="telef" required>
+                </div>
+                <div class="campo">
+                    <label for="fnacimiento">Fecha de nacimiento:</label>
+                    <input type="date" id="fnacimiento" name="fnacimiento" required>
+                </div>
                 <div class="campo">
                     <label for="email">Correo Electrónico (Gmail):</label>
                     <input type="email" id="email" name="email" required>
-                </div>
-                <div class="campo">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" required>
-                </div>
-                <div class="campo">
-                    <label for="apellidos">Apellidos:</label>
-                    <input type="text" id="apellidos" name="apellidos" required>
                 </div>
                 <div class="campo">
                     <label>
@@ -53,4 +65,3 @@
     </div>
 </body>
 </html>
-
