@@ -5,15 +5,14 @@
   include 'index.html';
 
   // phpinfo();
-  $hostname = "db";
-  $username = "admin";
-  $password = "test";
-  $db = "database";
+  include 'db_connection.php';
+  $conn = OpenCon();
 
-  $conn = mysqli_connect($hostname,$username,$password,$db);
+
   if ($conn->connect_error) {
     die("Database connection failed: " . $conn->connect_error);
   }
+   echo "Connected Successfully";
 
 
 
@@ -29,5 +28,5 @@ while ($row = mysqli_fetch_array($query)) {
    
 
 }
-
+  CloseCon($conn);
 ?>
