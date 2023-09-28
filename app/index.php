@@ -2,18 +2,21 @@
 <link rel= stylesheet href=styles.css>
 
 <?php
-  include 'db_connection.php';
+    include 'index.html';
+    $hostname = "db";
+    $username = "admin";
+    $password = "test";
+    $db = "database";
 
+    // Intenta establecer la conexión
+    $conn = new mysqli($hostname, $username, $password, $db);
+
+    // Verifica si se produjo un error en la conexión
+    if ($conn->connect_error) {
+        die("Database connection failed: " . $conn->connect_error);
+    }
   
-  $conn = OpenCon();
-
-
-  if ($conn->connect_error) 
-  {
-    die("Database connection failed: " . $conn->connect_error);
-  }
-   echo "Da blutud dibais is conektidas saksesfuli";
-
+    echo "Da blutud dibais is conektidas saksesfuli";
 
 
 $query = mysqli_query($conn, "SELECT * FROM usuarios")
@@ -29,7 +32,7 @@ while ($row = mysqli_fetch_array($query)) {
 }
 
 echo "</table>";
-   
-CloseCon($conn);
+  
+  
 
 ?>

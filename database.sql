@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE usuarios (
-  Dni VARCHAR(9) PRIMARY KEY CHECK (Dni REGEXP '^[0-9]{8}[A-Z]$'),
+    Dni VARCHAR(9) PRIMARY KEY CHECK (Dni REGEXP '^[0-9]{8}[A-Z]$'),
     nombre VARCHAR(20),
     primer_apellido VARCHAR(20),
     segundo_apellido VARCHAR(20),
@@ -39,11 +39,13 @@ CREATE TABLE usuarios (
 
 --
 -- Estructura de tabla para la tabla `pais`
+
 CREATE TABLE pais (
     nombre VARCHAR(30) PRIMARY KEY
 );
 
 --Estructura de tabla para la tabla `vuelo`
+
 CREATE TABLE vuelo (
     callsign VARCHAR(10) PRIMARY KEY,
     fecha DATE,
