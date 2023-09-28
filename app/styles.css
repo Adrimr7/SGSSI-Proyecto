@@ -1,96 +1,72 @@
-p
-{
-  line-height: 20px;
+body {
+    background-color: rgb(183, 195, 231);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-
-a
-{
-  text-decoration: none;
+p {
+    line-height: 20px;
 }
 
-
-div
-{
-  margin-left: 20px; 
-  margin-right: 20px; 
-  margin-top: 20px;
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-
-.avion
-{
-  display: inline-block; 
-  /* padding: 5px; */
-  margin-left: 20px; 
-  margin-right: 20px; 
-  margin-right: 20px; 
-  
-  background-color:rgb(223, 234, 246);
-  border: solid rgb(193, 196, 219);
+.avion {
+    display: inline-block;
+    margin: 20px;
+    padding: 10px;
+    background-color: rgb(223, 234, 246);
+    border: 1px solid rgb(193, 196, 219);
+    transition: transform 0.2s ease;
+    border-radius: 10px;
 }
 
-.lista
-{
-  display: flex;
-  flex-wrap: wrap;
-  margin: 100px;
+.lista {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 120px 20px 20px;
+    border-radius: 10px;
 }
 
-
- .caja:hover
- {
-  animation-direction: alternate;
-  display: inline-block;
-  animation-name: caja;
-  animation-duration: 0.2s;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
- }
-  @keyframes caja
-  {
-    0%
-    {
-      transform: translate(0px, 0px);
-    }
-    100%
-    {
-      transform: translate(4px, -4px); 
-    }
- }
-
-
-
-#main-header 
-{
-  width:100%;
-  height:10%;
-  position:absolute;
-  border: 10%;
-  top:0;
-  left:0;
-  background-color:rgb(126, 126, 188);
-}    
-
-.news-cards{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  /*gap: 25px;
-  margin: 10px 0;*/
-  padding-bottom: 0px;
+.caja:hover {
+    transform: translate(4px, -4px);
 }
 
-.titulo{
-  text-align: center;
-  margin: 0px
+#main-header {
+    background-color: rgb(126, 126, 188);
+    padding: 10px 0;
+    overflow: auto;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 
-.registrar{
-  text-align: right;
-
+.titulo {
+    text-align: center;
+    margin: 0;
 }
 
-.registrar:hover
-{
-color: rgb(20, 28, 149);
+.registrar {
+    text-align: right;
+    margin-right: 20px;
 }
+
+.registrar a:hover {
+    color: rgb(20, 28, 149);
+}
+
+.logo {
+    float: left;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.logo img {
+    max-height: 90px;
+}
+

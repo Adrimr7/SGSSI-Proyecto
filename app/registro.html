@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Avionair</title>
+    <link rel="stylesheet" href="styles2.css">
+    <link rel="icon" href="Logo1.png" type="image/png">
+</head>
+
+<body style="background-color: rgb(183, 195, 231);">
+<div style="height: 10px;"></div>
+
+    <header id="main-header">
+        <div class="logo">
+            <img src="images/brand-logo.png" alt="Avionair Logo">
+        </div>
+        <div class="titulo">
+            <h1>Registro - AVIONAIR</h1>
+        </div>
+        <div class="index">
+            <h4><a href="index.html">Volver al inicio</a></h4>
+        </div>
+    </header>
+    
+    <div class="formulario-container">
+        <div class="formulario">
+            <h2>Formulario de Registro</h2>
+            <form action="procesar_registro.php" method="POST">
+                <div class="campo">
+                    <label for="email">Correo Electrónico (Gmail):</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="campo">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="campo">
+                    <label for="apellidos">Apellidos:</label>
+                    <input type="text" id="apellidos" name="apellidos" required>
+                </div>
+                <div class="campo">
+                    <label>
+                        <input type="checkbox" name="terminos" required>
+                        Aceptas los Términos y Condiciones de la Empresa
+                    </label>
+                </div>
+                <div class="campo">
+                    <button type="submit">Registrarse</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
