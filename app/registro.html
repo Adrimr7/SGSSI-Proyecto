@@ -3,65 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro - Avionair</title>
+    <title>SIGN UP - AVIONAIR</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="Logo1.png" type="image/png">
 </head>
 
-<body style="background-color: rgb(183, 195, 231);">
-<div style="height: 10px;"></div>
+<body>
 
     <header id="main-header">
-        <div class="logo">
-            <img src="img/brand-logo.png" alt="Avionair Logo">
-        </div>
         <div class="titulo">
-            <h1>Registro - AVIONAIR</h1>
+            <h1>Registrarse</h1>
         </div>
-        <div class="index">
-            <h4><a href="index.html">Volver al inicio</a></h4>
+        <div class="logo">
+            <a href="home.html"> <img src="img/brand-logo.png" alt="Avionair Logo"></a>
         </div>
+        <nav> 
+            <ul class="navbar">
+                <li class="elem"> <a class="link" href="home.html">HOME </a></li>
+                <li class="elem"> <a class="link" href="vuelos.html">FLIGHTS </a></li>
+                <li class="elem"> <a class="link" href="iniciosesion.html">LOG IN </a></li>
+                <li class="elem" style="background-color: rgb(105, 105, 188);"> <a class="link" href="registro.html">SIGN UP </a></li>
+                <li class="elem"> <a class="link" href="sobrenosotros.html">ABOUT US </a></li>
+            </ul>
+        </nav>
     </header>
     
+    
+
     <div class="formulario-container">
         <div class="formulario">
             <h2>Formulario de Registro</h2>
             <form action="procesar_registro.php" method="POST">
                 <div class="campo" >
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" size="" name="nombre" required>
+                    <input class="input" type="text" placeholder="Nombre"id="nombre" size="" name="nombre" required>
                 </div>
                 <div class="campo">
-                    <label for="apellidos">Apellido:</label>
-                    <input type="text" id="apellidos" name="apellidos" required>
+                    <input class="input" type="text" placeholder="Apellido"id="apellidos" name="apellidos" required>
                 </div>
                 <div class="campo">
-                    <label for="dni">DNI:</label>
-                    <input type="text" id="dni" name="dni" required>
+                    <input class="input"type="text" placeholder="DNI"id="dni" name="dni" required>
                 </div>
                 <div class="campo">
-                    <label for="telef">Teléfono:</label>
-                    <input type="text" id="telef" name="telef" required>
+                    <input class="input"type="text" placeholder="Teléfono"id="telef" name="telef" required>
                 </div>
                 <div class="campo">
                     <label for="fnacimiento">Fecha de nacimiento:</label>
-                    <input type="date" id="fnacimiento" name="fnacimiento" required>
+                    <input class="input" type="date" id="fnacimiento" name="fnacimiento" required>
                 </div>
                 <div class="campo">
-                    <label for="email">Correo Electrónico (Gmail):</label>
-                    <input type="email" id="email" name="email" required>
+                    <input class="input" type="email" placeholder="Correo Electrónico"id="email" name="email" required>
+                </div>
+                <div class="campo">
+                    <input class="input"type="password" placeholder="Contraseña" id="contraseña" name="contraseña" required>
                 </div>
                 <div class="campo">
                     <label>
                         <input type="checkbox" name="terminos" required>
-                        Aceptas los Términos y Condiciones de la Empresa
+                        Aceptar los Términos y Condiciones de la Empresa
                     </label>
                 </div>
-                <div class="campo">
+                <div style="margin-top: 20px;">
                     <button type="submit">Registrarse</button>
                 </div>
             </form>
         </div>
     </div>
 </body>
+<footer class="footer">
+    <p>Propiedad de AVIONAIR. Marca registrada.</p>
+</footer>
 </html>

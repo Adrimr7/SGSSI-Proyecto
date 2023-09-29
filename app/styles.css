@@ -4,14 +4,23 @@ body {
     margin: 0;
     padding: 0;
 }
-
+/*
+background-image: url("img/background.jpg");
+background-position: center;
+background-repeat: no-repeat; 
+background-size: cover;
+background-size: 1000px;
+*/
 p {
-    line-height: 20px;
+    line-height: 25px;
 }
-
+h4{
+    margin-left: 200px;
+}
 a {
     text-decoration: none;
     color: inherit;
+
 }
 
 .avion {
@@ -35,65 +44,111 @@ a {
     transform: translate(4px, -4px);
 }
 
+/*Cabezera pincipal */
 #main-header {
     background-color: rgb(126, 126, 188);
     padding: 10px 0;
     overflow: auto;
     text-align: center;
-    position: fixed;
+    position:sticky;
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 1;
 }
+
+/*Elementos de la barra de navegacion */
+.navbar{
+    padding: 20px 0;
+    overflow: auto;
+    list-style-type: none;
+    display:flex;
+    margin-right: 0%;
+}
+.elem {
+    display: inline;
+    padding: 10px;
+    text-align: center;
+    margin-left: 10px;
+    border-radius: 25px;
+}.elem:hover{
+    background-color: rgb(105, 105, 188);
+}
+.link{
+    padding: 10px;
+}
+.elemhome{
+    display: inline;
+    padding: 10px;
+    margin-right: 5px;
+    border-radius: 25px;
+}.elemhome:hover{
+    background-color: rgb(105, 105, 188);
+}.elemhome.last-child{
+    border-right: none;
+    margin-left: -500px;
+}
+
 
 .titulo {
     text-align: center;
     margin: 0;
 }
 
-.registrar {
-    text-align: right;
-    margin-right: 20px;
-}
-
-.registrar a:hover {
-    color: rgb(20, 28, 149);
-}
-
+/*Logo arriba izquierda */
 .logo {
     float: left;
     margin-left: 20px;
-    margin-top: 10px;
-}
-.logo img {
+    margin-top: -70px;
+}.logo img {
     max-height: 90px;
+}
+/*Logo Github*/
+.logogithub{
+    width: 35px;
+    height: 35px;
+    float: left;
+    margin-left: 20%;
 }
 
 .formulario-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 70vh;
+    padding: 30px;
 }
-
 .formulario {
     text-align: center;
-    padding: 20px;
+    padding:40px;
     background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
+    border-radius: 20px;
 }
-
 .campo {
     margin: 10px 0;
     text-align: left;
+}
+.input{
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 30px;
+    border: 1px solid #949292;
+    padding: 10px 8px;
+    &:focus{
+        outline:none;
+    }
 }
 
 .index {
     text-align: right;
     margin-right: 20px;
+    margin-top: -20px;
 }
 
 .index a:hover {
     color: rgb(20, 28, 149);
+}
+/*Pie de página*/
+.footer {
+    text-align:right;
+    margin-right: 30px;
 }
