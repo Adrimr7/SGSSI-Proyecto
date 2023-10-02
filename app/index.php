@@ -2,32 +2,51 @@
 <link rel= stylesheet href=styles.css>
 
 <?php
-    include 'index.html';
-    $hostname = "db";
-    $username = "admin";
-    $password = "test";
-    $db = "database";
+include 'home.html';
+$hostname = "db";
+$username = "admin";
+$password = "test";
+$db = "database";
 
-    // Intenta establecer la conexión
-    $conn = new mysqli($hostname, $username, $password, $db);
+// Intenta establecer la conexión
+$conn = new mysqli($hostname, $username, $password, $db);
 
-    // Verifica si se produjo un error en la conexión
-    if ($conn->connect_error) {
-        die("Database connection failed: " . $conn->connect_error);
-    }
-  
-    echo "Da blutud dibais is conektidas saksesfuli";
+// Verifica si se produjo un error en la conexión
+if ($conn->connect_error) {
+    die("Database connection failed: " . $conn->connect_error);
+}
 
+echo "La conexión a la base de datos se ha realizado con éxito";
 
-$as = $conn->query("SELECT * FROM usuarios")
+// ESTA PARTE ERA PARA MOSTRAR LOS NOMBRES DE LAS TABLAS DE LA BASE DE DATOS, PERO NO FUNCIONA
 
-/*$query = mysqli_query($conn, "SELECT * FROM usuarios")
-   or die (mysqli_error($conn));
+/*
+$query = "SHOW TABLES";
+$result = $conn->query($query);
 
+while ($row = $result->fetch_row()) {
+    echo $row[0] . "<br>";
+}
 
+$conn->close();
+
+*/
+
+//ESTA PARTE COMENTADA SE OCUPA DE MOSTRAR LA TABLA PERO NO LA DETECTA
+
+/*
+
+/*$query = "SELECT * FROM usuarios";
+$result = $conn->query($query);
+
+if (!$result) {
+    die("Error en la consulta: " . $conn->error);
+}
+
+//Crea una tabla con los datos de la consulta
 echo "<table>";
 
-while ($row = mysqli_fetch_array($as)) {
+while ($row = $result->fetch_assoc()) {
     echo "<tr>";
     echo "<td>{$row['id']}</td>";
     echo "<td>{$row['nombre']}</td>";
@@ -35,6 +54,7 @@ while ($row = mysqli_fetch_array($as)) {
 }
 
 echo "</table>";
- */
 
+// Cierra la conexión
+$conn->close();*/
 ?>

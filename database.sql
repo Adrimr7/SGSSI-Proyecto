@@ -32,7 +32,7 @@ CREATE TABLE usuarios (
     nombre VARCHAR(20),
     primer_apellido VARCHAR(20),
     segundo_apellido VARCHAR(20),
-    telefono VARCHAR(9) CHECK (telefono REGEXP '^[0-9]{9}$')
+    telefono VARCHAR(9) CHECK (telefono REGEXP '^[0-9]{9}$'),
     email VARCHAR(50) CHECK(email LIKE '%@%.%'),
     nacimiento DATE
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -58,9 +58,9 @@ CREATE TABLE vuelo (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO usuario (Dni, nombre) VALUES
-('14678903L', 'Mikel'),
-('15464903K', 'Aitor');
+INSERT INTO usuarios (Dni, nombre) VALUES
+('14678903L', 'Mikel', 'ap1','ap2'),
+('15464903K', 'Aitor', 'ap1','ap2');
 
 --
 -- Índices para tablas volcadas
