@@ -14,13 +14,9 @@ background-size: 1000px;
 p {
     line-height: 25px;
 }
-h4{
-    margin-left: 200px;
-}
 a {
     text-decoration: none;
     color: inherit;
-
 }
 
 .avion {
@@ -58,13 +54,12 @@ a {
 
 /*Elementos de la barra de navegacion */
 .navbar{
-    padding: 20px 0;
+    padding: 20px 20px 10px;
     overflow: auto;
     list-style-type: none;
-    display:flex;
-    margin-right: 0%;
-}
-.elem {
+    float: right;
+    margin-top: -2rem;
+}.elem {
     display: inline;
     padding: 10px;
     text-align: center;
@@ -76,24 +71,12 @@ a {
 .link{
     padding: 10px;
 }
-.elemhome{
-    display: inline;
-    padding: 10px;
-    margin-right: 5px;
-    border-radius: 25px;
-}.elemhome:hover{
-    background-color: rgb(105, 105, 188);
-}.elemhome.last-child{
-    border-right: none;
-    margin-left: -500px;
-}
-
 
 .titulo {
     text-align: center;
     margin: 0;
 }
-
+/*LOGOS*/
 /*Logo arriba izquierda */
 .logo {
     float: left;
@@ -107,8 +90,23 @@ a {
     width: 35px;
     height: 35px;
     float: left;
-    margin-left: 20%;
+    margin-left: 7%;
+}/*Logo formulario*/
+.logoregistro{
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin-top: -25px;
+    padding: 0;
+}.logoinicio{
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin-top: -17px;
+    margin-left: -10px;
+    padding: 0;
 }
+
 
 .formulario-container {
     display: flex;
@@ -119,7 +117,7 @@ a {
 }
 .formulario {
     text-align: center;
-    padding:40px;
+    padding:20px 40px 40px;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
 }

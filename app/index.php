@@ -2,7 +2,7 @@
 <link rel= stylesheet href=styles.css>
 
 <?php
-    include 'index.html';
+    include 'home.html';
     $hostname = "db";
     $username = "admin";
     $password = "test";
