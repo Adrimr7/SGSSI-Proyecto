@@ -34,9 +34,7 @@ $conn->close();
 
 //ESTA PARTE COMENTADA SE OCUPA DE MOSTRAR LA TABLA PERO NO LA DETECTA
 
-/*
-
-/*$query = "SELECT * FROM usuarios";
+$query = "SELECT * FROM usuarios";
 $result = $conn->query($query);
 
 if (!$result) {
@@ -54,9 +52,6 @@ while ($row = $result->fetch_assoc()) {
 }
 
 echo "</table>";
-
-// Cierra la conexión
-$conn->close();*/
 
 
 /*

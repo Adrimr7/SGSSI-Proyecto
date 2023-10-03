@@ -44,7 +44,7 @@ CREATE TABLE pais (
     nombre VARCHAR(30) PRIMARY KEY
 );
 
---Estructura de tabla para la tabla `vuelo`
+-- Estructura de tabla para la tabla `vuelo`
 
 CREATE TABLE vuelo (
     callsign VARCHAR(10) PRIMARY KEY,
@@ -58,9 +58,10 @@ CREATE TABLE vuelo (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO usuarios (Dni, nombre) VALUES
-('14678903L', 'Mikel', 'ap1','ap2'),
-('15464903K', 'Aitor', 'ap1','ap2');
+INSERT INTO usuarios (Dni, nombre, primer_apellido, segundo_apellido, telefono, email, nacimiento) VALUES
+('14678903L', 'Mikel', 'ap1', 'ap2', '123456789', 'mikel@example.com', '2000-01-01'),
+('15464903K', 'Aitor', 'ap1', 'ap2', '987654321', 'aitor@example.com', '1995-05-05');
+
 
 --
 -- Índices para tablas volcadas
