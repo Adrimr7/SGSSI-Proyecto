@@ -3,7 +3,7 @@
 
 <?php
 include 'connection.php';
-include 'home.html';
+include 'iniciosesion.html';
 
 // ESTA PARTE ERA PARA MOSTRAR LOS NOMBRES DE LAS TABLAS DE LA BASE DE DATOS, PERO NO FUNCIONA
 
