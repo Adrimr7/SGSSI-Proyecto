@@ -23,4 +23,5 @@ function comprobarDNI(dni){
     return true; // El DNI es válido
 }
 
+comprobarDNI("20232682L")
 
