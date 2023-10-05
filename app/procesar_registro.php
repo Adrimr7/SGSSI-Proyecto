@@ -3,7 +3,7 @@
 
 <?php
 include 'connection.php';
-include 'registro.html';
+
 
 // ESTA PARTE ERA PARA MOSTRAR LOS NOMBRES DE LAS TABLAS DE LA BASE DE DATOS, PERO NO FUNCIONA
 
@@ -78,5 +78,26 @@ $conn->close();
 */
 
 
+
+$nombre = $_POST["nombre"];
+$apellidos = $_POST["apellidos"];
+$dni = $_POST["dni"];
+$telef = $_POST["telef"];
+$fnacimiento = $_POST["fnacimiento"];
+$email = $_POST["email"];
+$contraseña = $_POST["contraseña"];
+
+//meter datos tabla
+
+$sql = "INSERT INTO usuarios (dni, nombre, apellidos, telefono, email, contraseña, nacimiento) VALUES ('$dni','$nombre','$apellidos','$telef','$email','$contraseña','$fnacimiento')";
+
+if ($conn->query($sql) === TRUE){
+	echo "Registrado con exito";
+		$conn->close();
+		exit;
+} else {
+	echo "Error: " . $conn->error;
+		$conn->close(); 
+}
 
 ?>
