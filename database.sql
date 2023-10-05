@@ -57,9 +57,9 @@ CREATE TABLE vuelo (
 );-- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO usuarios (Dni, nombre, primer_apellido, segundo_apellido, telefono, email, nacimiento) VALUES
-('14678903L', 'Mikel', 'ap1', 'ap2', '123456789', 'mikel@example.com', '2000-01-01'),
-('15464903K', 'Aitor', 'ap1', 'ap2', '987654321', 'aitor@example.com', '1995-05-05');
+INSERT INTO usuarios (Dni, nombre, apellidos, telefono, email, nacimiento) VALUES
+('14678903L', 'Mikel', 'apell', '123456789', 'mikel@example.com', '2000-01-01'),
+('15464903K', 'Aitor', 'apellido', '987654321', 'aitor@example.com', '1995-05-05');
 
 
 --
