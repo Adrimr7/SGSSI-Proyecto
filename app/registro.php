@@ -21,7 +21,7 @@ $conn->close();
 
 //ESTA PARTE COMENTADA SE OCUPA DE MOSTRAR LA TABLA PERO NO LA DETECTA
 
-$query = "SELECT * FROM usuarios";
+/*$query = "SELECT * FROM usuarios";
 $result = $conn->query($query);
 
 if (!$result) {
@@ -73,8 +73,31 @@ $callsign = "Dragon";
 //$pais_salida = "Francia";
 //$stmt->execute();
 
-*/
-$conn->close();
 
+$conn->close();
+*/
+
+
+
+$nombre = $_POST["nombre"];
+$apellidos = $_POST["apellidos"];
+$dni = $_POST["dni"];
+$telef = $_POST["telef"];
+$fnacimiento = $_POST["fnacimiento"];
+$email = $_POST["email"];
+$contraseña = $_POST["contraseña"];
+
+//meter datos tabla
+
+$sql = "INSERT INTO usuarios (dni, nombre, apellidos, telefono, email, contraseña, nacimiento) VALUES ('$dni','$nombre','$apellidos','$telef','$email','$contraseña','$fnacimiento')";
+
+if ($con->query($sql) === TRUE){
+	echo "Registrado con exito";
+		$con->close();
+		exit;
+} else {
+	echo "Error: " . $con->error;
+		$con->close(); 
+}
 
 ?>
