@@ -28,12 +28,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE usuarios (
-    Dni VARCHAR(9) PRIMARY KEY CHECK (Dni REGEXP '^[0-9]{8}[A-Z]$'),
+    dni VARCHAR(9) PRIMARY KEY CHECK (Dni REGEXP '^[0-9]{8}[A-Z]$'),
     nombre VARCHAR(20),
-    primer_apellido VARCHAR(20),
-    segundo_apellido VARCHAR(20),
-    telefono VARCHAR(9) CHECK (telefono REGEXP '^[0-9]{9}$')
+    apellidos  VARCHAR(20),
+    telefono VARCHAR(9) CHECK (telefono REGEXP '^[0-9]{9}$'),
     email VARCHAR(50) CHECK(email LIKE '%@%.%'),
+    contraseña longtext,
     nacimiento DATE
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -44,7 +44,7 @@ CREATE TABLE pais (
     nombre VARCHAR(30) PRIMARY KEY
 );
 
---Estructura de tabla para la tabla `vuelo`
+-- Estructura de tabla para la tabla `vuelo`
 
 CREATE TABLE vuelo (
     callsign VARCHAR(10) PRIMARY KEY,
@@ -54,13 +54,13 @@ CREATE TABLE vuelo (
     pais_llegada VARCHAR(30),
     FOREIGN KEY (pais_salida) REFERENCES pais(nombre),
     FOREIGN KEY (pais_llegada) REFERENCES pais(nombre)
-);
--- Volcado de datos para la tabla `usuarios`
+);-- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO usuario (Dni, nombre) VALUES
-('14678903L', 'Mikel'),
-('15464903K', 'Aitor');
+INSERT INTO usuarios (Dni, nombre, primer_apellido, segundo_apellido, telefono, email, nacimiento) VALUES
+('14678903L', 'Mikel', 'ap1', 'ap2', '123456789', 'mikel@example.com', '2000-01-01'),
+('15464903K', 'Aitor', 'ap1', 'ap2', '987654321', 'aitor@example.com', '1995-05-05');
+
 
 --
 -- Índices para tablas volcadas
