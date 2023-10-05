@@ -6,7 +6,7 @@ body {
     padding: 0;
 }
 p {
-    line-height: 1.75rem;
+    line-height: 1.5rem;
 }
 a {
     text-decoration: none;
@@ -48,22 +48,22 @@ a {
 
 /*Elementos de la barra de navegacion */
 .navbar{
-    padding: 20px 20px 10px;
+    padding: 2rem 2rem 1rem;
     overflow: auto;
     list-style-type: none;
     float: right;
     margin-top: -2rem;
 }.elem {
     display: inline;
-    padding: 10px;
+    padding: 1rem;
     text-align: center;
-    margin-left: 10px;
+    margin-left: 1rem;
     border-radius: 25px;
 }.elem:hover{
     background-color: rgb(105, 105, 188);
 }
 .link{
-    padding: 10px;
+    padding: 0.5rem;
 }
 
 .titulo {
@@ -74,26 +74,26 @@ a {
 /*Logo arriba izquierda */
 .logo {
     float: left;
-    margin-left: 5rm;
-    margin-top: -3m;
+    margin-left: 3rem;
+    margin-top: -4rem;
 }
 .logo img {
-    max-width: 2rm;
-    max-height: 2rm;
+    max-width: 8rem;
+    max-height: 8rem;
 }
 /*Logo Github*/
 .logogithub{
-    width: 35px;
-    height: 35px;
+    width: 2rem;
+    height: 2rem;
     float: left;
-    margin-left: 7%;
+    margin-left: 10%;
 }/*Logo formulario*/
 .logoregistro{
-    width: 40px;
-    height: 40px;
+    width: 4rem;
+    height: 4rem;
     float: left;
-    margin-top: -25px;
-    padding: 0;
+    margin-top: -2rem;
+    padding: 0.5rem;
 }.logoinicio{
     width: 40px;
     height: 40px;
