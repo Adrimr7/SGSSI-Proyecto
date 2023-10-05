@@ -6,7 +6,7 @@ body {
     padding: 0;
 }
 p {
-    line-height: 25px;
+    line-height: 2.5rem;
 }
 a {
     text-decoration: none;
@@ -15,8 +15,8 @@ a {
 
 .avion {
     display: inline-block;
-    margin: 20px;
-    padding: 10px;
+    margin: 20rem;
+    padding: 10rem;
     background-color: rgb(223, 234, 246);
     border: 1px solid rgb(193, 196, 219);
     transition: transform 0.2s ease;
@@ -26,7 +26,7 @@ a {
 .lista {
     display: flex;
     flex-wrap: wrap;
-    margin: 120px 20px 20px;
+    margin: 10rem 2rem 1rem;
     border-radius: 10px;
 }
 
