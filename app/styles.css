@@ -1,16 +1,10 @@
 body {
+    height: 100%;
     background-color: rgb(183, 195, 231);
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
-/*
-background-image: url("img/background.jpg");
-background-position: center;
-background-repeat: no-repeat; 
-background-size: cover;
-background-size: 1000px;
-*/
 p {
     line-height: 25px;
 }
@@ -40,7 +34,7 @@ a {
     transform: translate(4px, -4px);
 }
 
-/*Cabezera pincipal */
+/*Cabecera pincipal */
 #main-header {
     background-color: rgb(126, 126, 188);
     padding: 10px 0;
@@ -82,8 +76,10 @@ a {
     float: left;
     margin-left: 20px;
     margin-top: -70px;
-}.logo img {
-    max-height: 90px;
+}
+.logo img {
+    max-width: 100px;
+    max-height: 100px;
 }
 /*Logo Github*/
 .logogithub{
@@ -149,4 +145,5 @@ a {
 .footer {
     text-align:right;
     margin-right: 30px;
+    width: 100%;
 }
