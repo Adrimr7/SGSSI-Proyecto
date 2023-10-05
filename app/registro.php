@@ -78,6 +78,7 @@ $conn->close();
 */
 
 
+if (isset($_POST['submit'])) {
 
 $nombre = $_POST["nombre"];
 $apellidos = $_POST["apellidos"];
@@ -91,13 +92,14 @@ $contraseña = $_POST["contraseña"];
 
 $sql = "INSERT INTO usuarios (dni, nombre, apellidos, telefono, email, contraseña, nacimiento) VALUES ('$dni','$nombre','$apellidos','$telef','$email','$contraseña','$fnacimiento')";
 
-if ($con->query($sql) === TRUE){
+if ($conn->query($sql) === TRUE){
 	echo "Registrado con exito";
 		$con->close();
 		exit;
 } else {
-	echo "Error: " . $con->error;
-		$con->close(); 
+	echo "Error: " . $conn->error;
+		$conn->close(); 
+}
 }
 
 ?>
