@@ -78,29 +78,27 @@ a {
     margin-top: -4rem;
 }
 .logo img {
-    max-width: 8rem;
-    max-height: 8rem;
+    max-width: 6rem;
+    max-height: 6rem;
 }
 /*Logo Github*/
 .logogithub{
     width: 2rem;
     height: 2rem;
     float: left;
-    margin-left: 10%;
+    margin-left: 0;
 }/*Logo formulario*/
 .logoregistro{
     width: 4rem;
     height: 4rem;
     float: left;
-    margin-top: -2rem;
     padding: 0.5rem;
+    margin-top: -1.5rem;
 }.logoinicio{
-    width: 40px;
-    height: 40px;
+    width: 4rem;
+    height: 4rem;
     float: left;
-    margin-top: -17px;
-    margin-left: -10px;
-    padding: 0;
+    margin-top: -0.6rem;
 }
 
 
@@ -108,25 +106,25 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70vh;
-    padding: 30px;
+    height: 30rem;
+    padding: 10rem;
 }
 .formulario {
     text-align: center;
-    padding:20px 40px 40px;
+    padding: 2rem 3rem 3rem;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
 }
 .campo {
-    margin: 10px 0;
+    margin: 1rem 0;
     text-align: left;
 }
 .input{
     width: 100%;
     margin-bottom: 10px;
-    border-radius: 30px;
+    border-radius: 3rem;
     border: 1px solid #949292;
-    padding: 10px 8px;
+    padding: 0.7rem 0.8rem;
     &:focus{
         outline:none;
     }
@@ -143,7 +141,6 @@ a {
 }
 /*Pie de página*/
 .footer {
-    text-align:right;
-    margin-right: 30px;
+    text-align: right;
     width: 100%;
 }
