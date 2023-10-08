@@ -113,6 +113,11 @@
             return true; // El DNI es válido
         }
 
+        function limpiarForm(){
+            var formulario = document.getElementById("Formulario");
+            formulario.reset();
+        }
+
         function comprobar()
         {
             console.log("Funciona");
@@ -135,6 +140,8 @@
                                 {
                                     console.log("DNI Valido");
                                     console.log("Errorn't");
+                                    window.alert("Te has registrado con exito!");
+                                    limpiarForm();
                                     // Llamar a botonregistro.php
                                 }
                                 else
@@ -179,28 +186,28 @@
             </div>
             <h2 class="titulo">Registrarse</h2>
             <!-- <form action="botonregistro.php" method="POST"> -->
-            <form method="POST"> 
+            <form id= "Formulario" method="POST"> 
                 <div class="campo" >
-                    <input class="input" type="text" placeholder="Nombre"id="nombre" size="" name="nombre" required>
+                    <input class="input" type="text" placeholder="Nombre: Jon"id="nombre" size="" name="nombre" required>
                 </div>
                 <div class="campo">
-                    <input class="input" type="text" placeholder="Apellido"id="apellidos" name="apellidos" required>
+                    <input class="input" type="text" placeholder="Apellido: Marcos"id="apellidos" name="apellidos" required>
                 </div>
                 <div class="campo">
-                    <input class="input"type="text" placeholder="DNI Formato : 00000000-A"id="dni" name="dni" required>
+                    <input class="input"type="text" placeholder="DNI Formato : 79435399-E"id="dni" name="dni" required>
                 </div>
                 <div class="campo">
-                    <input class="input"type="text" placeholder="Teléfono"id="telef" name="telef" required>
+                    <input class="input"type="text" placeholder="Teléfono: 635 57 44 02"id="telef" name="telef" required>
                 </div>
                 <div class="campo">
                     <label for="fnacimiento">Fecha de nacimiento:</label>
                     <input class="input" type="date" id="fnacimiento" name="fnacimiento" required>
                 </div>
                 <div class="campo">
-                    <input class="input" type="email" placeholder="Correo Electrónico" id="email" name="email" required>
+                    <input class="input" type="email" placeholder="Correo Electrónico: jmarcos021@ikasle.ehu.eus" id="email" name="email" required>
                 </div>
                 <div class="campo">
-                    <input class="input"type="password" placeholder="Contraseña" id="contraseña" name="contraseña" required>
+                    <input class="input"type="password" placeholder="Contraseña: 123" id="contraseña" name="contraseña" required>
                 </div>
                 <div class="campo">
                     <label>
