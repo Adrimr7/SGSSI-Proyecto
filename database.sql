@@ -27,6 +27,8 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `usuarios`
 --
 
+
+
 CREATE TABLE usuarios (
     dni VARCHAR(9) PRIMARY KEY CHECK (Dni REGEXP '^[0-9]{8}[A-Z]$'),
     nombre VARCHAR(20),
@@ -40,7 +42,7 @@ CREATE TABLE usuarios (
 --
 -- Estructura de tabla para la tabla `pais`
 
-CREATE TABLE pais (
+CREATE TABLE ciudad (
     nombre VARCHAR(30) PRIMARY KEY
 );
 
@@ -50,10 +52,10 @@ CREATE TABLE vuelo (
     callsign VARCHAR(10) PRIMARY KEY,
     fecha DATE,
     numero_pasajeros INT,
-    pais_salida VARCHAR(30),
-    pais_llegada VARCHAR(30),
-    FOREIGN KEY (pais_salida) REFERENCES pais(nombre),
-    FOREIGN KEY (pais_llegada) REFERENCES pais(nombre)
+    ciudad_salida VARCHAR(30),
+    ciudad_llegada VARCHAR(30),
+    FOREIGN KEY (ciudad_salida) REFERENCES ciudad(nombre),
+    FOREIGN KEY (ciudad_llegada) REFERENCES ciudad(nombre)
 );-- Volcado de datos para la tabla `usuarios`
 --
 

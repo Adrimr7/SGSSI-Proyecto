@@ -3,106 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VUELOS - AVIONAIR</title>
+    <title>VUELOS - AVIONAIR </title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="Logo.png" type="image/png">
+    <link rel="icon" href="Logo1.png" type="image/png">
 </head>
 <body >
-    <header id="main-header" class="news-cards">
-        <div class="titulo">
-            <h1>Vuelos registrados</h1>
-        </div>
-	    <div class="logo">
-    	    <a href="index.php"> <img src="img/brand-logo.png"  alt="Avionair Logo"></a>
-	    </div>
-        <nav > 
-            <ul class="navbar">
-                <li class="elem"> <a class="link" href="index.php">HOME </a></li>
-                <li class="elem" style="background-color: rgb(105, 105, 188);"> <a class="link" href="vuelos.php">VUELOS </a></li>
-                <li class="elem"> <a class="link" href="iniciosesion.php">INICIO DE SESIÓN </a></li>
-                <li class="elem"> <a class="link" href="registro.php">REGISTRO </a></li>
-                <li class="elem"> <a class="link" href="sobrenosotros.html">SOBRE NOSOTROS </a></li>
-            </ul>
-        </nav>
-    </header>
-	
     <div class="formulario-container">
         <div class="formulario">
             <h2 style="margin-top: 0px;">Añadir nuevo vuelo</h2>
             <form action="botonanadirvuelo.php" method="POST">
                 <div class="campo" >
-                    <input class="input" type="text" placeholder="Callsign" id="callsign" size="" name="callsign" required>
+                    <input class="input" type="text" placeholder="Callsign (Identificador del vuelo)" id="callsign" size="" name="callsign" required>
                 </div>
                 <div class="campo">
-                    <input class="input" type="text" placeholder="Origen" id="origen" name="origen" required>
+                    <input class="input" type="text" placeholder="Ciudad ORIGEN" id="origen" name="origen" required>
                 </div>
                 <div class="campo">
-                    <input class="input" type="text" placeholder="Destino" id="destino" name="destino" required>
+                    <input class="input" type="text" placeholder="Ciudad DESTINO" id="destino" name="destino" required>
                 </div>
                 <div class="campo">
-                    <input class="input" type="number" placeholder="NumPasajeros" id="npasajeros" name="npasajeros" required>
+                    <input class="input" type="number" placeholder="Número de Pasajeros" id="npasajeros" name="npasajeros" required>
                 </div>
                 <div class="campo">
                     <label for="fnacimiento">Fecha del vuelo:</label>
                     <input class="input" type="date" id="fvuelo" name="fvuelo" required>
                 </div>
-                <div style="margin-bottom: 15px;">
+                <div style="margin-bottom: 12px;">
                     <button  class="input" type="submit">Añadir Vuelo</button>
                 </div >
             </form>
         <div class="formulario">
-            <h2 style="margin-top: -10px;">Añadir nuevo país</h2>
-            <form action="botonanadirpais.php" method="POST">
+            <h2 style="margin-top: -10px;">Añadir nueva ciudad</h2>
+            <form action="botonanadirciudad.php" method="POST">
                 <div class="campo" >
-                    <input class="input" type="text" placeholder="País" id="pais" size="" name="pais" required>
+                    <input class="input" type="text" placeholder="Ciudad" id="ciudad" size="" name="ciudad" required>
                 </div>
-                <div style="margin-bottom: 15px;">
-                    <button class="input" type="submit">Añadir País</button>
+                <div style="margin-bottom: 0px;">
+                    <button class="input" type="submit">Añadir Ciudad</button>
                 </div >
             </form>
         </div>
         </div>
     </div>
-    
-    
-    <!----
-    <div class="lista">
-        <div id="Avion1" class="avion caja texto">
-            <div class="div-imagen">
-                <p>
-                    <b>Origen:</b> Argentina<br>
-                    <b>Destino:</b> Bilbao<br>
-                    <b>CallSign:</b> DLH422<br>
-                    <b>Nº Pasajeros:</b> 90<br>
-                    <b>Fecha:</b> 25/09/2023<br>
-                </p>
-            </div>
-            
-        </div>
-        <div id="Avion2" class="avion caja texto">
-            <div class="div-imagen">
-                <p>
-                    <b>Origen:</b> París<br>
-                    <b>Destino:</b> Argentina<br>
-                    <b>CallSign:</b> DLH421<br>
-                    <b>Nº Pasajeros:</b> 90<br>
-                    <b>Fecha:</b> 25/09/2023<br>
-                </p>
-            </div>
-        </div>
-        <div id="Avion3" class="avion caja texto">
-            <div class="div-imagen">
-                <p>
-                    <b>Origen:</b> París<br>
-                    <b>Destino:</b> Bilbao<br>
-                    <b>CallSign:</b> DLH432<br>
-                    <b>Nº Pasajeros:</b> 90<br>
-                    <b>Fecha:</b> 25/09/2023<br>
-                </p>
-            </div>
-        </div>
-    </div>
-    !--->
 </body>
 <footer class="footer">
     <p>Propiedad de AVIONAIR. Marca registrada.</p>

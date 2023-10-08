@@ -41,19 +41,15 @@ echo '
 
 
 
-$callsign = $_POST["callsign"];
-$origen = $_POST["origen"];
-$destino = $_POST["destino"];
-$npasajeros = $_POST["npasajeros"];
-$fvuelo = $_POST["fvuelo"];
+$nombre = $_POST["ciudad"];
 
 
 //meter datos tabla
 
-$sql = "INSERT INTO vuelo (callsign, fecha, numero_pasajeros, ciudad_salida, ciudad_llegada) VALUES ('$callsign','$fvuelo','$npasajeros','$origen','$destino')";
+$sql = "INSERT INTO ciudad (nombre) VALUES ('$nombre')";
 
 if ($conn->query($sql) === TRUE){
-	echo "Vuelo introducido correctamente.";
+	echo "Ciudad introducida correctamente.";
 		$conn->close();
 		exit;
 } else {
