@@ -25,8 +25,47 @@
             </ul>
         </nav>
     </header>
-
+	
+    <div class="formulario-container">
+        <div class="formulario">
+            <h2 style="margin-top: 0px;">Añadir nuevo vuelo</h2>
+            <form action="botonanadirvuelo.php" method="POST">
+                <div class="campo" >
+                    <input class="input" type="text" placeholder="Callsign" id="callsign" size="" name="callsign" required>
+                </div>
+                <div class="campo">
+                    <input class="input" type="text" placeholder="Origen" id="origen" name="origen" required>
+                </div>
+                <div class="campo">
+                    <input class="input" type="text" placeholder="Destino" id="destino" name="destino" required>
+                </div>
+                <div class="campo">
+                    <input class="input" type="number" placeholder="NumPasajeros" id="npasajeros" name="npasajeros" required>
+                </div>
+                <div class="campo">
+                    <label for="fnacimiento">Fecha del vuelo:</label>
+                    <input class="input" type="date" id="fvuelo" name="fvuelo" required>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <button  class="input" type="submit">Añadir Vuelo</button>
+                </div >
+            </form>
+        <div class="formulario">
+            <h2 style="margin-top: -10px;">Añadir nuevo país</h2>
+            <form action="botonanadirpais.php" method="POST">
+                <div class="campo" >
+                    <input class="input" type="text" placeholder="País" id="pais" size="" name="pais" required>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <button class="input" type="submit">Añadir País</button>
+                </div >
+            </form>
+        </div>
+        </div>
+    </div>
     
+    
+    <!----
     <div class="lista">
         <div id="Avion1" class="avion caja texto">
             <div class="div-imagen">
@@ -63,6 +102,7 @@
             </div>
         </div>
     </div>
+    !--->
 </body>
 <footer class="footer">
     <p>Propiedad de AVIONAIR. Marca registrada.</p>
