@@ -1,14 +1,19 @@
 <?php
 session_start();
 include 'connection.php';
+
+//Ponemos la cabecera de la pagina
 include 'navbar.html';
 
 
 //ESTA PARTE SE OCUPA DE MOSTRAR LA TABLA
 
+//Preparamos la instruccion
 $query = "SELECT * FROM vuelo";
+//Y la ejecutamos
 $result = $conn->query($query);
 
+//Comprobamos que el resultado sea correcto
 if (!$result) {
     die("Error en la consulta: " . $conn->error);
 }
@@ -17,11 +22,15 @@ if (!$result) {
 echo "<table>";
 echo "<div class='lista'>";
 $i = 0;
+
+//fetch_assoc() dos devuelve para cada vuelta del while una fila del conjunto de resultados, en este caso, de los diferentes vuelos
+//Entonces row contiene los datos de un vuelo
 while ($row = $result->fetch_assoc()) 
 {
     echo "<div id='Avion$i' class='avion caja texto' style='width: 200px; height: 150px;'>
             <div class='div-imagen'>
                 <p>
+                <!-- Para cada elemento del vuelo, lo obtenemos de row y lo ponemos en esta especie de tabla-->
                     <b>Origen:</b> {$row['ciudad_salida']}<br>
                     <b>Destino:</b> {$row['ciudad_llegada']}<br>
                     <b>CallSign:</b> {$row['callsign']}<br>
@@ -36,6 +45,7 @@ while ($row = $result->fetch_assoc())
 
 $conn->close();
 
+//Aqui añadimos el codigo en vuelos.html que nos permitira añadir vuelos
 include 'vuelos.html';
 
 ?>

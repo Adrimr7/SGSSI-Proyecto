@@ -11,6 +11,7 @@
     <div class="titulo">
         <h1>Vuelos</h1>
         <?php
+        //Comprobamos que el usuario haya iniciado sesion para mostrar la opcion de cerrar sesion
         session_start();
         if (isset($_SESSION['autenticado']) && $_SESSION['autenticado']) {
             echo '<a href="cerrarsesion.php">Cerrar sesión</a>';
