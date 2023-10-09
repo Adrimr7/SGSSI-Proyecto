@@ -14,6 +14,7 @@
         <div class="titulo">
             <h1>Registro</h1>
             <?php
+            //El codigo de la cabecera se repite con el de home.html
         session_start();
         if (isset($_SESSION['autenticado']) && $_SESSION['autenticado']) {
             echo '<a href="cerrarsesion.php">Cerrar sesión</a>';
@@ -43,16 +44,20 @@
     </header>
     
     <script> 
+    //Añadimos el codigo en JS directamente al HTML
+
             function comprobarCorreo(correo)
         {
             // Expresión regular para validar direcciones de correo electrónico
-            var expresionRegular =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/ ;
+            var patron =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/ ;
             // Verificar si la dirección de correo electrónico coincide con la expresión regular
-            return expresionRegular.test(correo);
+            // Test devuelve true si el parametro dado cumple la expresion regular (o patron)
+            return patron.test(correo);
         }
 
         function comprobarEdad(ano)
         {
+            //Comprueba que el usuario tenga mas de un año pero este codigo no llega a usarse
             anoActual = new Date().getFullYear();
 
             if (ano < anoActual -1) 
@@ -67,19 +72,18 @@
 
         function comprobarnombreapellidos(textoInput)
         {
-            //var textoInput = document.getElementById('TextBoxNombre').value;
-
             // Patrón que permite solo letras (mayúsculas o minúsculas) y espacios
             var patron = /^[a-zA-Z\s]+$/;
 
             // Verificar si el valor coincide con el patrón
-            if (patron.test(textoInput)) {
-            // Si es válido, limpiar el mensaje de error
-            //document.getElementById('mensajeError').textContent = '';
-            return true;
-            } else {
-            // Si no es válido, mostrar un mensaje de error
-            //document.getElementById('mensajeError').textContent = 'Ingrese solo texto (letras y espacios).';
+            if (patron.test(textoInput)) 
+            {
+                // Si es válido, limpiar el mensaje de error
+                return true;
+            } 
+            else 
+            {
+                // Si no es válido, mostrar un mensaje de error
                 window.alert("Ingresa solo texto (letras). ")
             }
         }
@@ -88,6 +92,7 @@
         {
             var patron = /^[0-9]*$/
             if (patron.test(numero)){
+                //Tecnicamente ya es un String pero por si acaso lo casteamos
                 numeroCadena=numero.toString();
                 if (numeroCadena.length === 9){
                     return true;
