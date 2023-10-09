@@ -120,6 +120,7 @@
 
         function comprobar()
         {
+            var estado = false;
             console.log("Funciona");
             if (comprobarCorreo(document.getElementById("email").value))
             {
@@ -140,9 +141,7 @@
                                 {
                                     console.log("DNI Valido");
                                     console.log("Errorn't");
-                                    window.alert("Te has registrado con exito!");
-                                    limpiarForm();
-                                    // Llamar a botonregistro.php
+                                    var estado = true;
                                 }
                                 else
                                 {
@@ -173,7 +172,7 @@
             {
                 console.log("Error : Correo no valido");
             }
-
+	    return estado;
             //TODO: Comprobar contraseña
         }
 
@@ -185,8 +184,7 @@
                 <p><img class="logoregistro" src="img/brand-logo.png"  alt="Avionair Logo"></p>
             </div>
             <h2 class="titulo">Registrarse</h2>
-            <!-- <form action="botonregistro.php" method="POST"> -->
-            <form id= "Formulario" method="POST"> 
+            <form id= "Formulario" method="POST" action = "botonregistro.php"> 
                 <div class="campo" >
                     <input class="input" type="text" placeholder="Nombre: Jon"id="nombre" size="" name="nombre" required>
                 </div>
@@ -216,7 +214,27 @@
                     </label>
                 </div>
                 <div style="margin-top: 20px;">
-                    <button  onclick = "comprobar()" class="input" type="button">Registrarse</button>
+                    <button class="input" type="button" id="botregistro">Registrarse</button>
+<script>
+    document.getElementById("botregistro").addEventListener("click", function() {
+        // Llamamos a la función comprobar y almacenamos su resultado en una variable
+        var esValido = comprobar();
+
+        if (esValido) 
+        {
+            document.getElementById("Formulario").submit();
+            window.alert("Te has registrado con exito!");
+            limpiarForm();
+
+        } 
+        else {
+            // Si no es válido, puedes mostrar un mensaje de error o tomar otra acción
+            alert("El formulario no es válido. Por favor, revise sus datos.");
+        }
+    });
+</script>
+
+
                 </div>
             </form>
         </div>

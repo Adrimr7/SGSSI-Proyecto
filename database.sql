@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 
 CREATE TABLE usuarios (
-    dni VARCHAR(9) PRIMARY KEY CHECK (Dni REGEXP '^[0-9]{8}[A-Z]$'),
+    dni VARCHAR(10) PRIMARY KEY,
     nombre VARCHAR(20),
     apellidos  VARCHAR(20),
     telefono VARCHAR(9) CHECK (telefono REGEXP '^[0-9]{9}$'),
