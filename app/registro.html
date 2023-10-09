@@ -160,6 +160,8 @@
                                 {
                                     console.log("DNI Valido");
                                     console.log("Errorn't");
+
+                                    //Si todo sale correcto el valor que se devolvera es true
                                     var estado = true;
                                 }
                                 else
@@ -203,6 +205,7 @@
                 <p><img class="logoregistro" src="img/brand-logo.png"  alt="Avionair Logo"></p>
             </div>
             <h2 class="titulo">Registrarse</h2>
+            <!-- Cuando se haga submit de este registro, se le pasara a botonregistro.php-->
             <form id= "Formulario" method="POST" action = "botonregistro.php"> 
                 <div class="campo" >
                     <input class="input" type="text" placeholder="Nombre: Jon"id="nombre" size="" name="nombre" required>
@@ -233,14 +236,19 @@
                     </label>
                 </div>
                 <div style="margin-top: 20px;">
+                    <!-- le damos un id al boton y luego ponemos una parte del codigo a "escuchar" las acciones de este-->
                     <button class="input" type="button" id="botregistro">Registrarse</button>
 <script>
+    //Aqui usamos un listener al boton del formulario
+    //El EventListener ejecutara la funcion definida cuando se de la accion "click", en este caso cuando se intente el usuario registrar
     document.getElementById("botregistro").addEventListener("click", function() {
         // Llamamos a la función comprobar y almacenamos su resultado en una variable
         var esValido = comprobar();
 
         if (esValido) 
         {
+            //Si los datos del formulario pasan la comprobacion, se toman los datos de este (document.getElementById("Formulario")) y se envian 
+            // a botonregistro.php usando .submit()
             document.getElementById("Formulario").submit();
             window.alert("Te has registrado con exito!");
             limpiarForm();
