@@ -1,7 +1,5 @@
-
-<link rel= stylesheet href=styles.css>
-
 <?php
+session_start();
 include 'connection.php';
 include 'navbar.html';
 

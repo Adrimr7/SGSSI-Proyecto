@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'connection.php'; 
 
 $email = $_POST["email"];
@@ -12,15 +13,16 @@ $resultado = $conn->query($sql);
 if ($resultado > 0) {
     
     // Si hay mas de 0 lineas quiere decir que ha habido una busqueda exitosa por lo que deberia de ser un inicio correcto por correo y contraseña
-    echo "Inicio de sesión exitoso";
+    session_start();
+    $_SESSION['autenticado'] = true;
     include 'vuelos.php';
-    $conn->close();
     exit;
     
-} else {
+} 
+else {
     
     echo "Inicio de sesión fallido";    
-    $conn->close(); 
     exit;
 }
+$conn->close(); 
 ?>

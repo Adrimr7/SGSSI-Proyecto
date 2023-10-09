@@ -59,9 +59,18 @@ CREATE TABLE vuelo (
 );-- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO usuarios (Dni, nombre, apellidos, telefono, email, nacimiento) VALUES
-('14678903L', 'Mikel', 'apell', '123456789', 'mikel@example.com', '2000-01-01'),
-('15464903K', 'Aitor', 'apellido', '987654321', 'aitor@example.com', '1995-05-05');
+INSERT INTO usuarios (Dni, nombre, apellidos, telefono, email, nacimiento, contraseña) VALUES
+('14678903L', 'prueba', 'apell', '123456789', 'prueba@gmail.com', '2000-01-01', '123'),
+('15464903K', 'prueba2', 'apellido', '987654321', 'prueba@gmail.com', '1995-05-05', '123');
+
+INSERT INTO ciudad (nombre) VALUES ('Bilbao'),('Dublin'),('Oporto'),('Sao Paulo'),('Buenos Aires');
+
+INSERT INTO vuelo (callsign, fecha, numero_pasajeros, ciudad_salida, ciudad_llegada) VALUES
+('AVA0001','2024-02-09','45','Bilbao','Oporto'),
+('AVA0002','2024-04-02','122','Sao Paulo','Buenos Aires'),
+('AVA0003','2024-01-01','80','Oporto','Dublin'),
+('AVA0004','2024-03-15','110','Dublin','Sao Paulo'),
+('AVA0005','2024-05-20','60','Buenos Aires','Bilbao');
 
 
 --

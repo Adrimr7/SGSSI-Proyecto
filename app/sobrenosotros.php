@@ -1,8 +1,6 @@
 <?php
 session_start();
 include 'connection.php';
-include 'home.html';
+include 'sobrenosotros.html';
 $conn->close();
-
-
 ?>

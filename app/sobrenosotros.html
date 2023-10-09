@@ -9,23 +9,36 @@
 </head>
 
 <body style="background-color: rgb(183, 195, 231);">
-
     <header id="main-header">
-        <div class="titulo">
-            <h1>Sobre nosotros</h1>
-        </div>
-        <div class="logo">
-            <a href="index.php"> <img src="img/brand-logo.png" alt="Avionair Logo"></a>
-        </div>
-        <nav> 
-            <ul class="navbar">
-                <li class="elem"> <a class="link" href="index.php">HOME </a></li>
-                <li class="elem"> <a class="link" href="vuelos.php">VUELOS </a></li>
-                <li class="elem"> <a class="link"href="iniciosesion.php">INICIO DE SESIÓN </a></li>
-                <li class="elem"> <a class="link"href="registro.php">REGISTRO </a></li>
-                <li class="elem" style="background-color: rgb(105, 105, 188);"> <a class="link" href="sobrenosotros.html">SOBRE NOSOTROS </a></li>
-            </ul>
-        </nav>
+    <div class="titulo">
+        <h1>Inicio de Sesión</h1>
+        <?php
+        session_start();
+        if (isset($_SESSION['autenticado']) && $_SESSION['autenticado']) {
+            echo '<a href="cerrarsesion.php">Cerrar sesión</a>';
+            echo '<p>Sesión Iniciada</p>';
+        } else {
+            echo '<p>Usuario Anónimo</p>';
+        }
+        ?>
+    </div>
+    <div class="logo">
+        <a href="index.php"> <img src="img/brand-logo.png" alt="Avionair Logo"></a>
+    </div>
+    <nav>
+        <ul class="navbar">
+            <?php
+            echo '<li class="elem"> <a class="link" href="index.php">HOME </a></li>';
+            if (isset($_SESSION['autenticado']) && $_SESSION['autenticado']) {
+                echo '<li class="elem"> <a class="link" href="vuelos.php">VUELOS </a></li>';
+            } else {
+                echo '<li class="elem"> <a class="link" href="iniciosesion.php">INICIO DE SESIÓN </a></li>';
+                echo '<li class="elem"> <a class="link" href="registro.php">REGISTRO </a></li>';
+            }
+            echo '<li class="elem" style="background-color: rgb(105, 105, 188);"> <a class="link" href="sobrenosotros.html">SOBRE NOSOTROS </a></li>';
+            ?>
+        </ul>
+    </nav>
     </header>
 
     <header id="info-nosotros">
@@ -35,9 +48,6 @@
         <div style="margin-left: 10%;">
             <h4> Grupo de SGSSI formado por 6 integrantes. <br> Aritz Blasco, Ander Gutierrez, Eneko Etxaniz, Asier Cardoso, Adrian Mena y Jon Marcos. <br> Hemos decidido hacer una pagina web sobre vuelos en el que haya un catalogo con varios de ellos. <br>Los usuarios pueden registrar e iniciar sesion en la web además de <br> cambiar, añadir o eliminar vuelos de ese mismo catalogo.</h4>
             <a href="https://github.com/Adrimr7/SGSSI-Proyecto"> <img src="img/github-logo.png"class="logogithub" alt="Github Logo"></a>
-        </div>
-	    <div style="margin-top: -10%; margin-left: 60%;">
-            <p> <img src="img/sobre_nosotros.jpeg"  alt="nosotros" style="max-width: 40rem; max-height: 40rem;"></p>
         </div>
         
     </header>
