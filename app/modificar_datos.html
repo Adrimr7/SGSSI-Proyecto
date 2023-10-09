@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<-- IMPORTANTE ESTE HTML ES UNA COPIA DEL DE REGISTRO, PARA USARLO COMO PLANTILLA, POR LO QUE, HAY QUE REVISARLO BIEN	 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODIFICAR DATOS - AVIONAIR</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="Logo1.png" type="image/png">
+</head>
+
+<body>
+
+    <header id="main-header">
+        <div class="titulo">
+            <h1>Modificar Datos</h1>
+            <?php
+            //El codigo de la cabecera se repite con el de home.html
+        session_start();
+        if (isset($_SESSION['autenticado']) && $_SESSION['autenticado']) {
+            echo '<a href="cerrarsesion.php">Cerrar sesión</a>';
+            echo '<p>Sesión Iniciada</p>';
+        } else {
+            echo '<p>Usuario Anónimo</p>';
+        }
+        ?>
+        </div>
+        <div class="logo">
+            <a href="index.php"> <img src="img/brand-logo.png" alt="Avionair Logo"></a>
+        </div>
+        <nav> 
+            <ul class="navbar">
+            <?php 
+            	echo '<li class="elem"> <a class="link" href="index.php">HOME </a></li>';
+            	if (isset($_SESSION['autenticado']) && $_SESSION['autenticado']) {
+                	echo '<li class="elem"> <a class="link" href="vuelos.php">VUELOS </a></li>';
+                	}
+                	
+                echo '<li class="elem" style="background-color: rgb(105, 105, 188);"> <a class="link" href="registro.php">MODIFICAR DATOS </a></li>';
+                echo '<li class="elem"> <a class="link" href="sobrenosotros.php">SOBRE NOSOTROS </a></li>';
+            ?>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <div class="formulario-container">
+        <div class="formulario">
+            <div>
+                <p><img class="logoregistro" src="img/brand-logo.png"  alt="Avionair Logo"></p>
+            </div>
+            <h2 class="titulo">Registrarse</h2>
+            <form id= "Formulario" method="POST" action = "botonregistro.php"> 
+                <div class="campo" >
+                    <input class="input" type="text" placeholder="Nombre: Jon"id="nombre" size="" name="nombre" required>
+                    <button class="input" type="button" id="botnombre">Cambiar Nombre</button>
+                </div>
+                <div class="campo">
+                    <input class="input" type="text" placeholder="Apellido: Marcos"id="apellidos" name="apellidos" required>
+                    <button class="input" type="button" id="botapellido">Cambiar Apellido</button>
+                </div>
+                <div class="campo">
+                    <input class="input"type="text" placeholder="DNI Formato : 79435399-E"id="dni" name="dni" required>
+                </div>
+                <div class="campo">
+                    <input class="input"type="text" placeholder="Teléfono: 635 57 44 02"id="telef" name="telef" required>
+                </div>
+                <div class="campo">
+                    <label for="fnacimiento">Fecha de nacimiento:</label>
+                    <input class="input" type="date" id="fnacimiento" name="fnacimiento" required>
+                </div>
+                <div class="campo">
+                    <input class="input" type="email" placeholder="Correo Electrónico: jmarcos021@ikasle.ehu.eus" id="email" name="email" required>
+                </div>
+                <div class="campo">
+                    <input class="input"type="password" placeholder="Contraseña: 123" id="contraseña" name="contraseña" required>
+                </div>
+                <div class="campo">
+                    <label>
+                        <input type="checkbox" name="terminos" required>
+                        Aceptar los Términos y Condiciones de la Empresa
+                    </label>
+                </div>
+                <div style="margin-top: 20px;">
+                    <!-- le damos un id al boton y luego ponemos una parte del codigo a "escuchar" las acciones de este-->
+                    <button class="input" type="button" id="botregistro">Registrarse</button>
+<script>
+    //Aqui usamos un listener al boton del formulario
+    //El EventListener ejecutara la funcion definida cuando se de la accion "click", en este caso cuando se intente el usuario registrar
+    document.getElementById("botregistro").addEventListener("click", function() {
+        // Llamamos a la función comprobar y almacenamos su resultado en una variable
+        var esValido = comprobar();
+
+        if (esValido) 
+        {
+            //Si los datos del formulario pasan la comprobacion, se toman los datos de este (document.getElementById("Formulario")) y se envian 
+            // a botonregistro.php usando .submit()
+            document.getElementById("Formulario").submit();
+            window.alert("Te has registrado con exito!");
+            limpiarForm();
+
+        } 
+        else {
+            // Si no es válido, puedes mostrar un mensaje de error o tomar otra acción
+            alert("El formulario no es válido. Por favor, revise sus datos.");
+        }
+    });
+</script>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<footer class="footer">
+    <p>Propiedad de AVIONAIR. Marca registrada.</p>
+</footer>
+</html>

@@ -29,6 +29,7 @@
             echo '<li class="elem"> <a class="link" href="index.php">HOME </a></li>';
             if (isset($_SESSION['autenticado']) && $_SESSION['autenticado']) {
                 echo '<li class="elem" style="background-color: rgb(105, 105, 188);"> <a class="link" href="vuelos.php">VUELOS </a></li>';
+                echo '<li class="elem"> <a class="link" href="modificar_datos.php">MODIFICAR DATOS </a></li>';
             } else {
                 echo '<li class="elem"> <a class="link" href="iniciosesion.php">INICIO DE SESIÓN </a></li>';
                 echo '<li class="elem"> <a class="link" href="registro.php">REGISTRO </a></li>';

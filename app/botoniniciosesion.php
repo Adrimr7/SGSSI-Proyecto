@@ -2,12 +2,12 @@
 session_start();
 include 'connection.php'; 
 
-$email = $_POST["email"];
+$dni = $_POST["dni"];
 $contrasena = $_POST["contrasena"];
 
 // SQL para buscar el usuario por email y contraseña
 //$sql = "SELECT COUNT(nombre) FROM usuarios WHERE email='$email' AND contraseña='$contrasena'";
-$sql = "SELECT * FROM usuarios WHERE email='$email' AND contraseña='$contrasena'";
+$sql = "SELECT * FROM usuarios WHERE dni='$dni' AND contraseña='$contrasena'";
 $resultado = $conn->query($sql);
 $num_resultados = $resultado->num_rows; //Se hace una consulta y luego se cuentan las filas, con COUNT no deja
 
