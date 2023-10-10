@@ -44,6 +44,119 @@
     </header>
     
 
+    <?php
+    /*
+
+    //Todo esto esta comentado, es un intento de hacer que los placeholder sean los datos del usuario
+        session_start();
+
+        $dni = $_SESSION['dni'];
+    
+        $query = "SELECT * FROM usuarios WHERE dni = '$dni'";
+
+        $result = $conn->query($query);
+
+        if (!$result) {
+            die("Error en la consulta: " . $conn->error);
+        }
+
+        $row = $result->fetch_assoc();
+
+        $nom = $row['nombre'];
+
+        echo '
+        <div class="formulario-container">
+            <div class="formulario">
+                <div>
+                    <p><img class="logoregistro" src="img/brand-logo.png"  alt="Avionair Logo"></p>
+                </div>
+                <h2 class="titulo">Registrarse</h2>
+                <form id= "Formulario" method="POST" action = "botonregistro.php"> 
+                    <div class="campo" >
+                        <br>
+                        <label for="nombre">Nombre:</label>
+            ';
+
+            echo "<input class='input' type='text' value=" + $nom + " id='nombre' size='' name='nombre' required>";
+            echo '
+                        <!--
+                        <button class="input" type="button" id="botnombre">Cambiar Nombre</button>
+                        -->
+                    </div>
+                    <div class="campo">
+                        <label for="apellidos">Apellido:</label>
+                        <input class="input" type="text" value="Marcos"id="apellidos" name="apellidos" required>
+                        <!--
+                        <button class="input" type="button" id="botapellido">Cambiar Apellido</button>
+                        -->
+                    </div>
+                    <!--
+                    <div class="campo">
+                        <label for="dni">DNI:</label>
+                        <input class="input"type="text" value= "79435399-E"id="dni" name="dni" required>
+                    </div>
+                    -->
+                    <div class="campo">
+                        <label for="telef">Telefono:</label>
+                        <input class="input"type="text" value="635 57 44 02"id="telef" name="telef" required>
+                    </div>
+                    <div class="campo">
+                        <label for="fnacimiento">Fecha de nacimiento:</label>
+                        <input class="input" type="date" id="fnacimiento" name="fnacimiento" required>
+                    </div>
+                    <div class="campo">
+                        <label for="email">Correo:</label>
+                        <input class="input" type="email" value="jmarcos021@ikasle.ehu.eus" id="email" name="email" required>
+                    </div>
+                    <div class="campo">
+                        <label for="contraseña">Contraseña:</label>
+                        <input class="input"type="password" value="123" id="contraseña" name="contraseña" required>
+                    </div>
+                    <!-- 
+                    <div class="campo">
+                        <label>
+                            <input type="checkbox" name="terminos" required>
+                            Aceptar los Términos y Condiciones de la Empresa
+                        </label>
+                    </div>
+                    -->
+                    <div style="margin-top: 20px;">
+                        <!-- le damos un id al boton y luego ponemos una parte del codigo a "escuchar" las acciones de este-->
+                        <button class="input" type="button" id="botregistro">Registrarse</button>
+    
+    
+                        <script>
+                            //Aqui usamos un listener al boton del formulario
+                            //El EventListener ejecutara la funcion definida cuando se de la accion "click", en este caso cuando se intente el usuario registrar
+                            document.getElementById("botregistro").addEventListener("click", function() {
+                                // Llamamos a la función comprobar y almacenamos su resultado en una variable
+                                var esValido = comprobar();
+    
+                                if (esValido) 
+                                {
+                                    //Si los datos del formulario pasan la comprobacion, se toman los datos de este (document.getElementById("Formulario")) y se envian 
+                                    // a botonregistro.php usando .submit()
+                                    document.getElementById("Formulario").submit();
+                                    window.alert("Te has registrado con exito!");
+                                    limpiarForm();
+    
+                                } 
+                                else {
+                                    // Si no es válido, puedes mostrar un mensaje de error o tomar otra acción
+                                    alert("El formulario no es válido. Por favor, revise sus datos.");
+                                }
+                            });
+                        </script>
+    
+                    </div>
+                </form>
+            </div>
+        </div>'
+        
+    */
+    ?>
+
+    
     <div class="formulario-container">
         <div class="formulario">
             <div>
@@ -52,60 +165,77 @@
             <h2 class="titulo">Registrarse</h2>
             <form id= "Formulario" method="POST" action = "botonregistro.php"> 
                 <div class="campo" >
-                    <input class="input" type="text" placeholder="Nombre: Jon"id="nombre" size="" name="nombre" required>
+                    <br>
+                    <label for="nombre">Nombre:</label>
+                    <input class="input" type="text" value="Jon"id="nombre" size="" name="nombre" required>
+                    <!--
                     <button class="input" type="button" id="botnombre">Cambiar Nombre</button>
+                    -->
                 </div>
                 <div class="campo">
-                    <input class="input" type="text" placeholder="Apellido: Marcos"id="apellidos" name="apellidos" required>
+                    <label for="apellidos">Apellido:</label>
+                    <input class="input" type="text" value="Marcos"id="apellidos" name="apellidos" required>
+                    <!--
                     <button class="input" type="button" id="botapellido">Cambiar Apellido</button>
+                    -->
                 </div>
+                <!--
                 <div class="campo">
-                    <input class="input"type="text" placeholder="DNI Formato : 79435399-E"id="dni" name="dni" required>
+                    <label for="dni">DNI:</label>
+                    <input class="input"type="text" value= "79435399-E"id="dni" name="dni" required>
                 </div>
+                -->
                 <div class="campo">
-                    <input class="input"type="text" placeholder="Teléfono: 635 57 44 02"id="telef" name="telef" required>
+                    <label for="telef">Telefono:</label>
+                    <input class="input"type="text" value="635 57 44 02"id="telef" name="telef" required>
                 </div>
                 <div class="campo">
                     <label for="fnacimiento">Fecha de nacimiento:</label>
                     <input class="input" type="date" id="fnacimiento" name="fnacimiento" required>
                 </div>
                 <div class="campo">
-                    <input class="input" type="email" placeholder="Correo Electrónico: jmarcos021@ikasle.ehu.eus" id="email" name="email" required>
+                    <label for="email">Correo:</label>
+                    <input class="input" type="email" value="jmarcos021@ikasle.ehu.eus" id="email" name="email" required>
                 </div>
                 <div class="campo">
-                    <input class="input"type="password" placeholder="Contraseña: 123" id="contraseña" name="contraseña" required>
+                    <label for="contraseña">Contraseña:</label>
+                    <input class="input"type="password" value="123" id="contraseña" name="contraseña" required>
                 </div>
+                <!-- 
                 <div class="campo">
                     <label>
                         <input type="checkbox" name="terminos" required>
                         Aceptar los Términos y Condiciones de la Empresa
                     </label>
                 </div>
+                -->
                 <div style="margin-top: 20px;">
                     <!-- le damos un id al boton y luego ponemos una parte del codigo a "escuchar" las acciones de este-->
                     <button class="input" type="button" id="botregistro">Registrarse</button>
-<script>
-    //Aqui usamos un listener al boton del formulario
-    //El EventListener ejecutara la funcion definida cuando se de la accion "click", en este caso cuando se intente el usuario registrar
-    document.getElementById("botregistro").addEventListener("click", function() {
-        // Llamamos a la función comprobar y almacenamos su resultado en una variable
-        var esValido = comprobar();
 
-        if (esValido) 
-        {
-            //Si los datos del formulario pasan la comprobacion, se toman los datos de este (document.getElementById("Formulario")) y se envian 
-            // a botonregistro.php usando .submit()
-            document.getElementById("Formulario").submit();
-            window.alert("Te has registrado con exito!");
-            limpiarForm();
 
-        } 
-        else {
-            // Si no es válido, puedes mostrar un mensaje de error o tomar otra acción
-            alert("El formulario no es válido. Por favor, revise sus datos.");
-        }
-    });
-</script>
+                    <script>
+                        //Aqui usamos un listener al boton del formulario
+                        //El EventListener ejecutara la funcion definida cuando se de la accion "click", en este caso cuando se intente el usuario registrar
+                        document.getElementById("botregistro").addEventListener("click", function() {
+                            // Llamamos a la función comprobar y almacenamos su resultado en una variable
+                            var esValido = comprobar();
+
+                            if (esValido) 
+                            {
+                                //Si los datos del formulario pasan la comprobacion, se toman los datos de este (document.getElementById("Formulario")) y se envian 
+                                // a botonregistro.php usando .submit()
+                                document.getElementById("Formulario").submit();
+                                window.alert("Te has registrado con exito!");
+                                limpiarForm();
+
+                            } 
+                            else {
+                                // Si no es válido, puedes mostrar un mensaje de error o tomar otra acción
+                                alert("El formulario no es válido. Por favor, revise sus datos.");
+                            }
+                        });
+                    </script>
 
                 </div>
             </form>

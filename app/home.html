@@ -42,6 +42,7 @@
             //Al igual que antes comprobamos si el usuario ha inicado sesion usando una variable de sesion
             if (isset($_SESSION['autenticado']) && $_SESSION['autenticado']) {
                 echo '<li class="elem"> <a class="link" href="vuelos.php">VUELOS </a></li>';
+                echo '<li class="elem"> <a class="link" href="modificar_datos.php">MODIFICAR DATOS </a></li>';
             } else {
                 echo '<li class="elem"> <a class="link" href="iniciosesion.php">INICIO DE SESIÓN </a></li>';
                 echo '<li class="elem"> <a class="link" href="registro.php">REGISTRO </a></li>';

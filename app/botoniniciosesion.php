@@ -15,6 +15,7 @@ if ($num_resultados > 0) {
     // Si hay mas de 0 lineas quiere decir que ha habido una busqueda exitosa por lo que deberia de ser un inicio correcto por correo y contraseña
     session_start();
     $_SESSION['autenticado'] = true;
+    $_SESSION['dni'] = $dni;
     include 'vuelos.php';
     exit;
     
