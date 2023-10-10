@@ -36,6 +36,7 @@ while ($row = $result->fetch_assoc())
                     <b>CallSign:</b> {$row['callsign']}<br>
                     <b>Nº Pasajeros:</b> {$row['numero_pasajeros']}<br>
                     <b>Fecha:</b> {$row['fecha']}<br>
+                <!-- Posiblemente aqui añadir botones de editar y de eliminar-->
                 </p>
             </div>
         </div>";
