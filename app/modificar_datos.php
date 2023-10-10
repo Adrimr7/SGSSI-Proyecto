@@ -5,4 +5,5 @@ session_start();
 include 'connection.php';
 //Y pasamos a la pagina registro
 include 'modificar_datos.html';
+
 ?>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<-- IMPORTANTE ESTE HTML ES UNA COPIA DEL DE REGISTRO, PARA USARLO COMO PLANTILLA, POR LO QUE, HAY QUE REVISARLO BIEN	 -->
+<!--IMPORTANTE ESTE HTML ES UNA COPIA DEL DE REGISTRO, PARA USARLO COMO PLANTILLA, POR LO QUE, HAY QUE REVISARLO BIEN-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MODIFICAR DATOS - AVIONAIR</title>
@@ -45,9 +45,8 @@
     
 
     <?php
-    /*
 
-    //Todo esto esta comentado, es un intento de hacer que los placeholder sean los datos del usuario
+    //AQUI SE REALIZA LA CONSULTA, LOS DATOS OBTENIDOS DE ELLA SE USAN POSTERIORMENTE EN EL HTML MEDIANTE ECHOS
         session_start();
 
         $dni = $_SESSION['dni'];
@@ -63,29 +62,32 @@
         $row = $result->fetch_assoc();
 
         $nom = $row['nombre'];
+        $apell = $row['apellidos'];
+        $tlf = $row['telefono'];
+        $email = $row['email'];
+        $contrasena = $row['contraseña'];
+        $naci = $row['nacimiento'];
 
-        echo '
+    ?>
         <div class="formulario-container">
             <div class="formulario">
                 <div>
                     <p><img class="logoregistro" src="img/brand-logo.png"  alt="Avionair Logo"></p>
                 </div>
-                <h2 class="titulo">Registrarse</h2>
+                <h2 class="titulo">Modificar datos</h2>
                 <form id= "Formulario" method="POST" action = "botonregistro.php"> 
                     <div class="campo" >
                         <br>
                         <label for="nombre">Nombre:</label>
-            ';
 
-            echo "<input class='input' type='text' value=" + $nom + " id='nombre' size='' name='nombre' required>";
-            echo '
+		    <input class='input' type='text' value="<?php echo $nom; ?>" id='nombre' size='' name='nombre' required>
                         <!--
                         <button class="input" type="button" id="botnombre">Cambiar Nombre</button>
                         -->
                     </div>
                     <div class="campo">
                         <label for="apellidos">Apellido:</label>
-                        <input class="input" type="text" value="Marcos"id="apellidos" name="apellidos" required>
+                        <input class="input" type="text" value="<?php echo $apell; ?>"id="apellidos" name="apellidos" required>
                         <!--
                         <button class="input" type="button" id="botapellido">Cambiar Apellido</button>
                         -->
@@ -98,19 +100,19 @@
                     -->
                     <div class="campo">
                         <label for="telef">Telefono:</label>
-                        <input class="input"type="text" value="635 57 44 02"id="telef" name="telef" required>
+                        <input class="input"type="text" value="<?php echo $tlf; ?>"id="telef" name="telef" required>
                     </div>
                     <div class="campo">
                         <label for="fnacimiento">Fecha de nacimiento:</label>
-                        <input class="input" type="date" id="fnacimiento" name="fnacimiento" required>
+                        <input class="input" type="date" id="fnacimiento" value= "<?php echo $naci; ?>" name="fnacimiento" required>
                     </div>
                     <div class="campo">
                         <label for="email">Correo:</label>
-                        <input class="input" type="email" value="jmarcos021@ikasle.ehu.eus" id="email" name="email" required>
+                        <input class="input" type="email" value="<?php echo $email; ?>" id="email" name="email" required>
                     </div>
                     <div class="campo">
                         <label for="contraseña">Contraseña:</label>
-                        <input class="input"type="password" value="123" id="contraseña" name="contraseña" required>
+                        <input class="input"type="password" value="<?php echo $contrasena; ?>" id="contraseña" name="contraseña" required>
                     </div>
                     <!-- 
                     <div class="campo">
@@ -122,7 +124,7 @@
                     -->
                     <div style="margin-top: 20px;">
                         <!-- le damos un id al boton y luego ponemos una parte del codigo a "escuchar" las acciones de este-->
-                        <button class="input" type="button" id="botregistro">Registrarse</button>
+                        <button class="input" type="button" id="botregistro">Actualizar datos</button>
     
     
                         <script>
@@ -153,8 +155,6 @@
             </div>
         </div>'
         
-    */
-    ?>
 
     
     <div class="formulario-container">
@@ -211,7 +211,7 @@
                 -->
                 <div style="margin-top: 20px;">
                     <!-- le damos un id al boton y luego ponemos una parte del codigo a "escuchar" las acciones de este-->
-                    <button class="input" type="button" id="botregistro">Registrarse</button>
+                    <button class="input" type="button" id="botregistro">Actualizar datos</button>
 
 
                     <script>
