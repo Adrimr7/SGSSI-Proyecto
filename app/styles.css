@@ -132,6 +132,8 @@ a {
     &:focus{
         outline:none;
     }
+    opacity: 0.6;
+    transition: 0.3s;
 }
 
 .index {

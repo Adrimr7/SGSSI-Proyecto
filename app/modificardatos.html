@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<!--IMPORTANTE ESTE HTML ES UNA COPIA DEL DE REGISTRO, PARA USARLO COMO PLANTILLA, POR LO QUE, HAY QUE REVISARLO BIEN-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REGISTRO - AVIONAIR</title>
+    <title>MODIFICAR DATOS - AVIONAIR</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="Logo1.png" type="image/png">
 </head>
@@ -12,7 +13,7 @@
 
     <header id="main-header">
         <div class="titulo">
-            <h1>Registro</h1>
+            <h1>Modificar Datos</h1>
             <?php
             //El codigo de la cabecera se repite con el de home.html
         session_start();
@@ -28,6 +29,8 @@
         <div class="logo">
             <a href="index.php"> <img src="img/brand-logo.png" alt="Avionair Logo"></a>
         </div>
+        
+        
         <nav> 
             <ul class="navbar">
             <?php 
@@ -36,15 +39,101 @@
                 	echo '<li class="elem"> <a class="link" href="vuelos.php">VUELOS </a></li>';
                 	}
                 	
-                echo '<li class="elem"> <a class="link" href="iniciosesion.php">INICIO DE SESIÓN </a></li>';
-                echo '<li class="elem" style="background-color: rgb(105, 105, 188);"> <a class="link" href="registro.php">REGISTRO </a></li>';
+                echo '<li class="elem" style="background-color: rgb(105, 105, 188);"> <a class="link" href="modificardatos.php">MODIFICAR DATOS </a></li>';
                 echo '<li class="elem"> <a class="link" href="sobrenosotros.php">SOBRE NOSOTROS </a></li>';
             ?>
             </ul>
         </nav>
     </header>
     
-    <script> 
+
+    <?php
+
+    //AQUI SE REALIZA LA CONSULTA, LOS DATOS OBTENIDOS DE ELLA SE USAN POSTERIORMENTE EN EL HTML MEDIANTE ECHOS
+	session_start();
+        $dni = $_SESSION['dni'];
+    
+        $query = "SELECT * FROM usuarios WHERE dni = '$dni'";
+
+        $result = $conn->query($query);
+
+        if (!$result) {
+            die("Error en la consulta: " . $conn->error);
+        }
+
+        $row = $result->fetch_assoc();
+
+        $nombre = $row['nombre'];
+        $apellidos = $row['apellidos'];
+        $telef = $row['telefono'];
+        $email = $row['email'];
+        $contraseña = $row['contraseña'];
+        $fnacimiento = $row['nacimiento'];
+
+    ?>
+        <div class="formulario-container">
+            <div class="formulario">
+                <div>
+                    <p><img class="logoregistro" src="img/brand-logo.png"  alt="Avionair Logo"></p>
+                </div>
+                <h2 class="titulo">Modificar datos</h2>
+                <form id= "Formulario" method="POST" action = "botonactualizar.php"> 
+                    <div class="campo" >
+                        <br>
+                        <label for="nombre">Nombre:</label>
+
+		    <input class='input' type='text' value="<?php echo $nombre; ?>" id='nombre' size='' name='nombre' required>
+                    </div>
+                    <div class="campo">
+                        <label for="apellidos">Apellido:</label>
+                        <input class="input" type="text" value="<?php echo $apellidos; ?>"id="apellidos" name="apellidos" required>
+                    </div>
+                    <div class="campo">
+                        <label for="telef">Telefono:</label>
+                        <input class="input"type="text" value="<?php echo $telef; ?>"id="telef" name="telef" required>
+                    </div>
+                    <div class="campo">
+                        <label for="fnacimiento">Fecha de nacimiento:</label>
+                        <input class="input" type="date" value= "<?php echo $fnacimiento; ?>" name="fnacimiento" required>
+                    </div>
+                    <div class="campo">
+                        <label for="email">Correo:</label>
+                        <input class="input" type="email" value="<?php echo $email; ?>" id="email" name="email" required>
+                    </div>
+                    <div class="campo">
+                        <label for="contraseña">Contraseña:</label>
+                        <input class="input"type="password" value="<?php echo $contraseña; ?>" id="contraseña" name="contraseña" required>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <!-- le damos un id al boton y luego ponemos una parte del codigo a "escuchar" las acciones de este-->
+                        <button class="input" type="button" id="botactualizar">Actualizar datos</button>
+                        <script>
+                            	document.getElementById("botactualizar").addEventListener("click", function() {
+                                var esValido = comprobar();
+                                if (esValido) 
+                                {
+                              
+                                    document.getElementById("Formulario").submit();
+                                    window.alert("Has cambiado los datos con éxito!");
+                                    limpiarForm();
+                                } 
+                                else {
+                                    alert("El formulario no es válido. Por favor, revise sus datos.");
+                                }
+                            });
+                        </script>
+    
+                    </div>
+                </form>
+            </div>
+    </div>
+</body>
+<footer class="footer">
+    <p>Propiedad de AVIONAIR. Marca registrada.</p>
+</footer>
+</html>
+
+<script> 
     //Añadimos el codigo en JS directamente al HTML
 
             function comprobarCorreo(correo)
@@ -157,18 +246,11 @@
                             if (comprobarTelefono(document.getElementById("telef").value))
                             {
                                 console.log("Telefono Valido");
-                                if (comprobarDNI(document.getElementById("dni").value))
-                                {
-                                    console.log("DNI Valido");
-                                    console.log("Errorn't");
+                                
+                                console.log("Errorn't");
 
-                                    //Si todo sale correcto el valor que se devolvera es true
-                                    var estado = true;
-                                }
-                                else
-                                {
-                                    console.log("Error : DNI no valido");
-                                }
+                                //Si todo sale correcto el valor que se devolvera es true
+                                var estado = true;
                             }
                             else
                             {
@@ -195,79 +277,6 @@
                 console.log("Error : Correo no valido");
             }
 	    return estado;
-            //TODO: Comprobar contraseña
-        }
+	 }
 
      </script>
-
-    <div class="formulario-container">
-        <div class="formulario">
-            <div>
-                <p><img class="logoregistro" src="img/brand-logo.png"  alt="Avionair Logo"></p>
-            </div>
-            <h2 class="titulo">Registrarse</h2>
-            <!-- Cuando se haga submit de este registro, se le pasara a botonregistro.php-->
-            <form id= "Formulario" method="POST" action = "botonregistro.php"> 
-                <div class="campo" >
-                    <input class="input" type="text" placeholder="Nombre: Jon"id="nombre" size="" name="nombre" required>
-                </div>
-                <div class="campo">
-                    <input class="input" type="text" placeholder="Apellido: Marcos"id="apellidos" name="apellidos" required>
-                </div>
-                <div class="campo">
-                    <input class="input"type="text" placeholder="DNI Formato : 79435399-E"id="dni" name="dni" required>
-                </div>
-                <div class="campo">
-                    <input class="input"type="text" placeholder="Teléfono: 635 57 44 02"id="telef" name="telef" required>
-                </div>
-                <div class="campo">
-                    <label for="fnacimiento">Fecha de nacimiento:</label>
-                    <input class="input" type="date" id="fnacimiento" name="fnacimiento" required>
-                </div>
-                <div class="campo">
-                    <input class="input" type="email" placeholder="Correo Electrónico: jmarcos021@ikasle.ehu.eus" id="email" name="email" required>
-                </div>
-                <div class="campo">
-                    <input class="input"type="password" placeholder="Contraseña: 123" id="contraseña" name="contraseña" required>
-                </div>
-                <div class="campo">
-                    <label>
-                        <input type="checkbox" name="terminos" required>
-                        Aceptar los Términos y Condiciones de la Empresa
-                    </label>
-                </div>
-                <div style="margin-top: 20px;">
-                    <!-- le damos un id al boton y luego ponemos una parte del codigo a "escuchar" las acciones de este-->
-                    <button class="input" type="button" id="botregistro">Registrarse</button>
-		<script>
-   		 //Aqui usamos un listener al boton del formulario
-   		 //El EventListener ejecutara la funcion definida cuando se de la accion "click", en este caso cuando se intente el usuario registrar
-    		document.getElementById("botregistro").addEventListener("click", function() {
-      		  // Llamamos a la función comprobar y almacenamos su resultado en una variable
-        	var esValido = comprobar();
-
-      		  if (esValido) 
-      		  {
-          		  //Si los datos del formulario pasan la comprobacion, se toman los datos de este (document.getElementById("Formulario")) y se envian 
-    		        // a botonregistro.php usando .submit()
-      		      document.getElementById("Formulario").submit();
-  		          window.alert("Te has registrado con exito!");
-   		         limpiarForm();
-
-    		    } 
-  		      else {
-   		         // Si no es válido, puedes mostrar un mensaje de error o tomar otra acción
-   		         alert("El formulario no es válido. Por favor, revise sus datos.");
-      		  }
-    		});
-		</script>
-
-                </div>
-            </form>
-        </div>
-    </div>
-</body>
-<footer class="footer">
-    <p>Propiedad de AVIONAIR. Marca registrada.</p>
-</footer>
-</html>

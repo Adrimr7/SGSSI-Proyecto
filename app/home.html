@@ -18,14 +18,12 @@
         session_start();
 
         //Comprobamos si la variable de sesion 'autenticado' ha sido establecida (isset) y la "obtenemos" ($_SESSION['autenticado']) 
-        if (isset($_SESSION['autenticado']) && $_SESSION['autenticado']) 
-        {
-            //Si ambas son true nos da la opcion de cerrar sesion
-            echo '<a href="cerrarsesion.php">Cerrar sesión</a>';
-            echo '<p>Sesión Iniciada</p>';
+        if (isset($_SESSION['autenticado']) && $_SESSION['autenticado']) {
+            $dni = $_SESSION['dni'];
+            echo '<a href="cerrarsesion.php"> <strong>Cerrar sesión</strong></a>';
+            echo '<p>Sesión iniciada usuario con DNI <strong>' . $dni . '</strong> </p>';
         } else {
-            //Si una de las dos no se da significa que no hemos iniciado sesions
-            echo '<p>Usuario Anónimo</p>';
+            echo '<p>Usuario <strong>Anónimo</strong></p>';
         }
         ?>
     </div>
@@ -42,7 +40,7 @@
             //Al igual que antes comprobamos si el usuario ha inicado sesion usando una variable de sesion
             if (isset($_SESSION['autenticado']) && $_SESSION['autenticado']) {
                 echo '<li class="elem"> <a class="link" href="vuelos.php">VUELOS </a></li>';
-                echo '<li class="elem"> <a class="link" href="modificar_datos.php">MODIFICAR DATOS </a></li>';
+                echo '<li class="elem"> <a class="link" href="modificardatos.php">MODIFICAR DATOS </a></li>';
             } else {
                 echo '<li class="elem"> <a class="link" href="iniciosesion.php">INICIO DE SESIÓN </a></li>';
                 echo '<li class="elem"> <a class="link" href="registro.php">REGISTRO </a></li>';

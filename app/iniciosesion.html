@@ -14,12 +14,14 @@
     <div class="titulo">
         <h1>Inicio de Sesión</h1>
         <?php
+            //El codigo de la cabecera se repite con el de home.html
         session_start();
         if (isset($_SESSION['autenticado']) && $_SESSION['autenticado']) {
-            echo '<a href="cerrarsesion.php">Cerrar sesión</a>';
-            echo '<p>Sesión Iniciada</p>';
+            $dni = $_SESSION['dni'];
+            echo '<a href="cerrarsesion.php"> <strong>Cerrar sesión</strong></a>';
+            echo '<p>Sesión iniciada usuario con DNI <strong>' . $dni . '</strong> </p>';
         } else {
-            echo '<p>Usuario Anónimo</p>';
+            echo '<p>Usuario <strong>Anónimo</strong></p>';
         }
         ?>
     </div>
@@ -67,7 +69,7 @@
 <script>
     document.getElementById("botiniciosesion").addEventListener("click", function() {
     // Llamamos a la función iniciarSesion() y almacenamos su resultado en una variable
-    alert("Funciona");   
+    alert("Has iniciado sesión correctamente!");   
     document.getElementById("form-inicio-sesion").submit();
     limpiarForm();                 
     });

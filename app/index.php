@@ -8,5 +8,4 @@ include 'home.html';
 //Cerramos la conexion con la base de datos
 $conn->close();
 
-
 ?>
