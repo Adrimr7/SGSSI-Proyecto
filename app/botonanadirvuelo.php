@@ -21,7 +21,8 @@ $nombreCiudadDestino = $_POST["destino"];
 
 
 //meter datos tabla
-/*$sql = "SELECT nombre FROM ciudad WHERE nombre = '$nombreCiudadOrigen'";
+
+$sql = "SELECT nombre FROM ciudad WHERE nombre = '$nombreCiudadOrigen'";
 
 $result = $conn->query($sql);
 
@@ -35,7 +36,8 @@ else
 	$sql = "INSERT INTO ciudad (nombre) VALUES ('$nombreCiudadOrigen')";
 
     if ($conn->query($sql) === TRUE){
-	    echo "Ciudad introducida correctamente.";
+	    //echo "Ciudad introducida correctamente.";
+		echo '<script>console.log("Ciudad añadida")</script>';
 		    //$conn->close();
 		    exit;
     } 
@@ -60,7 +62,9 @@ else
 	$sql = "INSERT INTO ciudad (nombre) VALUES ('$nombreCiudadDestino')";
 
     if ($conn->query($sql) === TRUE){
-	    echo "Ciudad introducida correctamente.";
+	    //echo "Ciudad introducida correctamente.";
+		echo '<script>console.log("Ciudad añadida")</script>';
+	
 		    //$conn->close();
 		    exit;
     } 
@@ -71,7 +75,6 @@ else
     }   
 }
 
-*/
 
 //Comprobamos si la ciudad de origen se encuentra en la base de datos
 
