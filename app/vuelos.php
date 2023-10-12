@@ -37,6 +37,7 @@ while ($row = $result->fetch_assoc())
                     <!-- Como no sabia como pasar el callsign a php, he hecho que sea un form de un unico elemento y luego se hace submit del form-->
                     <!-- permitiendo tener el valor en el php, pero me da que no cuela-->
                     <form id= 'callsign$i' method='POST' action = 'eliminarvuelo.php'> 
+                    	<input type='hidden' name='numcallsign' value='{$row['callsign']}'>
                         <b>CallSign:</b> <i id='callsign'>{$row['callsign']}</i><br>
                     </form>
 
@@ -59,21 +60,16 @@ while ($row = $result->fetch_assoc())
                     </script>
 
                     <script>
-                    document.getElementById('botEliminar$i').addEventListener('click', function() 
-                    {
-                        //Aqui pide confirmacion antes de '''''eliminar''''' el vuelo
-                        if (confirm('El vuelo {$row['callsign']} se va a eliminar')) 
-                        {
-
-                            document.getElementById('callsign$i').submit();
-
-                        } 
-                        else 
-                        {
-
-                        }
-                    });
-                    </script>
+			document.getElementById('botEliminar$i').addEventListener('click', function() {
+    			//Aqui pide confirmacion antes de '''''eliminar''''' el vuelo
+    			if (confirm('El vuelo {$row['callsign']} se va a eliminar')) {
+        			// Buscar el formulario y enviarlo
+        			var form = document.getElementById('callsign$i');
+        			form.submit();
+    			} 
+    			else {}
+			});
+		</script>
 
                     
 

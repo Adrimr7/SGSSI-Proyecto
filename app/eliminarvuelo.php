@@ -1,19 +1,18 @@
 <?php
-session_start();
 include 'connection.php';
 
 //Obtenemos los datos del submit usando los id de cada apartado
-$callSign = $_POST["callsign"];
-
-$sql = "DELETE FROM vuelo WHERE callsign = $callSign";
+$calls = $_POST["numcallsign"];
+$sql = "DELETE FROM vuelo WHERE callsign = '$calls'";
 
 if ($conn->query($sql) === TRUE){
-	include 'vuelos.php';
+	echo '<script> alert("Vuelo eliminado correctamente.");
+		       window.location.replace("vuelos.php")</script>';
 	exit;
-}
-else{
-	echo "Error al eliminar el vuelo";
+	$conn->close();
+} else {
+	echo "Error: " . $conn->error;
+		$conn->close(); 
 }
 
-$conn->close();
 ?>

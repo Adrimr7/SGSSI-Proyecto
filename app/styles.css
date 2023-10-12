@@ -132,8 +132,8 @@ a {
     &:focus{
         outline:none;
     }
-    opacity: 0.4;
-    transition: 0.3s;
+    /*opacity: 0.4;
+    transition: 0.3s;*/
 }
 
 .input:hover{
