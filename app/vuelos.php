@@ -29,7 +29,7 @@ while ($row = $result->fetch_assoc())
 {
     echo "<div id='Avion$i' class='avion caja texto' style='width: 200px; height: 220px;'>
             <div class='div-imagen'>
-                <form id= 'Formulario' method='POST' action='modificarvuelo.php'>
+                
                 <!-- Para cada elemento del vuelo, lo obtenemos de row y lo ponemos en esta especie de tabla-->
                     <b>Origen:</b> {$row['ciudad_salida']}<br>
                     <b>Destino:</b> {$row['ciudad_llegada']}<br>
@@ -75,7 +75,7 @@ while ($row = $result->fetch_assoc())
                     
 
 
-                </form>
+                
             </div>
         </div>
         
