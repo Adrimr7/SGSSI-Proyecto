@@ -3,9 +3,9 @@ session_start();
 include 'connection.php';
 
 //Obtenemos los datos del submit usando los id de cada apartado
-$calls = $_POST["calls"];
+$calls = $_POST["numcallsign"];
 $fecha = $_POST["fecha"];
-$numero_pasajeros = $_POST["pasajeros"];
+$numero_pasajeros = $_POST["numero_pasajeros"];
 $ciudad_salida = $_POST["origen"];
 $ciudad_llegada = $_POST["destino"];
 $dni = $_SESSION['dni'];
