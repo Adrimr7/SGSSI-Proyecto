@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<!--IMPORTANTE ESTE HTML ES UNA COPIA DEL DE REGISTRO, PARA USARLO COMO PLANTILLA, POR LO QUE, HAY QUE REVISARLO BIEN-->
+    <!--IMPORTANTE ESTE HTML ES UNA COPIA DEL DE REGISTRO, PARA USARLO COMO PLANTILLA, POR LO QUE, HAY QUE REVISARLO BIEN-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MODIFICAR VUELO - AVIONAIR</title>
@@ -10,51 +10,46 @@
 </head>
 
 <body>
-
     <header id="main-header">
         <div class="titulo">
             <h1>Modificar Vuelo</h1>
             <?php
-            //El codigo de la cabecera se repite con el de home.html
-        session_start();
-        if (isset($_SESSION['autenticado']) && $_SESSION['autenticado']) {
-            $dni = $_SESSION['dni'];
-            echo '<a href="cerrarsesion.php"> <strong>Cerrar sesión</strong></a>';
-            echo '<p>Sesión iniciada usuario con DNI <strong>' . $dni . '</strong> </p>';
-        } else {
-            echo '<p>Usuario <strong>Anónimo</strong></p>';
-        }
-        ?>
+            // El código de la cabecera se repite con el de home.html
+            session_start();
+            if (isset($_SESSION['autenticado']) && $_SESSION['autenticado']) {
+                $dni = $_SESSION['dni'];
+                echo '<a href="cerrarsesion.php"><strong>Cerrar sesión</strong></a>';
+                echo '<p>Sesión iniciada usuario con DNI <strong>' . $dni . '</strong></p>';
+            } else {
+                echo '<p>Usuario <strong>Anónimo</strong></p>';
+            }
+            ?>
         </div>
         <div class="logo">
-            <a href="index.php"> <img src="img/brand-logo.png" alt="Avionair Logo"></a>
+            <a href="index.php"><img src="img/brand-logo.png" alt="Avionair Logo"></a>
         </div>
-       
-       
+
         <nav>
             <ul class="navbar">
             <?php
-            echo '<li class="elem"> <a class="link" href="index.php">HOME </a></li>';
+            echo '<li class="elem"><a class="link" href="index.php">HOME</a></li>';
             if (isset($_SESSION['autenticado']) && $_SESSION['autenticado']) {
-                echo '<li class="elem"> <a class="link" href="vuelos.php">VUELOS </a></li>';
-                }
-               
-                echo '<li class="elem" style="background-color: rgb(105, 105, 188);"> <a class="link" href="modificardatos.php">MODIFICAR DATOS </a></li>';
-                echo '<li class="elem"> <a class="link" href="sobrenosotros.php">SOBRE NOSOTROS </a></li>';
+                echo '<li class="elem"><a class="link" href="vuelos.php">VUELOS</a></li>';
+            }
+
+            echo '<li class="elem" style="background-color: rgb(105, 105, 188);"><a class="link" href="modificardatos.php">MODIFICAR DATOS</a></li>';
+            echo '<li class="elem"><a class="link" href="sobrenosotros.php">SOBRE NOSOTROS</a></li>';
             ?>
             </ul>
         </nav>
     </header>
-   
 
     <?php
-
-    //AQUI SE REALIZA LA CONSULTA, LOS DATOS OBTENIDOS DE ELLA SE USAN POSTERIORMENTE EN EL HTML MEDIANTE ECHOS
-session_start();
-        $calls = $_SESSION['numcallsign'];
-   
-        $query = "SELECT * FROM vuelo WHERE callsign = '$calls'";
-
+    // Verifica si el número de vuelo se ha establecido en la sesión.
+    if (isset($_SESSION['numcallsign'])) {
+        $callsign = $_SESSION['numcallsign'];
+        // Realiza la consulta para obtener los datos del vuelo.
+        $query = "SELECT * FROM vuelo WHERE callsign = '$callsign'";
         $result = $conn->query($query);
 
         if (!$result) {
@@ -63,58 +58,59 @@ session_start();
 
         $row = $result->fetch_assoc();
 
-        $callsign = $row['numcallsign'];
-        $fecha = $row['fecha'];
-        $ciudad_salida = $row['ciudad_salida'];
-        $ciudad_llegada = $row['ciudad_llegada'];
-        $numero_pasajeros = $row['numero_pasajeros'];
-
+        $callsign = $row['callsign'];  // Debe coincidir con el nombre del campo en la base de datos.
+        $fecha = $row['fecha'];  // Debe coincidir con el nombre del campo en la base de datos.
+        $ciudad_salida = $row['ciudad_salida'];  // Debe coincidir con el nombre del campo en la base de datos.
+        $ciudad_llegada = $row['ciudad_llegada'];  // Debe coincidir con el nombre del campo en la base de datos.
+        $numero_pasajeros = $row['numero_pasajeros'];  // Debe coincidir con el nombre del campo en la base de datos.
+    }
     ?>
-        <div class="formulario-container">
-            <div class="formulario">
-                <div>
-                    <p><img class="logoregistro" src="img/brand-logo.png"  alt="Avionair Logo"></p>
-                </div>
-                <h2 class="titulo">Modificar Vuelo</h2>
-                <form id= "Formulario" method="POST" action = "botoncambiarvuelo.php">
-                    <div class="campo" >
-                        <br>
-                        <label for="nombre">CallSign:</label>
 
-   <input class='input' type='text' value="<?php echo $callsign; ?>" id='calls' size='' name='calls' required>
-                    </div>
-                    <div class="campo">
-                        <label for="apellidos">Ciudad Destino:</label>
-                        <input class="input" type="text" value="<?php echo $ciudad_llegada; ?>"id="destino" name="destino" required>
-                    </div>
-                    <div class="campo">
-                        <label for="telef">Ciudad Origen:</label>
-                        <input class="input"type="text" value="<?php echo $ciudad_salida; ?>"id="origen" name="origen" required>
-                    </div>
-                    <div class="campo">
-                        <label for="fnacimiento">Fecha:</label>
-                        <input class="input" type="date" value= "<?php echo $fecha; ?>" id="fecha" name="fecha" required>
-                    </div>
-                    <div class="campo">
-                        <label for="email">Numero Pasajeros:</label>
-                        <input class="input" type="email" value="<?php echo $numero_pasajeros; ?>" id="pasajeros" name="pasajeros" required>
-                    </div>
-                    <div style="margin-top: 20px;">
-                        <!-- le damos un id al boton y luego ponemos una parte del codigo a "escuchar" las acciones de este-->
-                        <button class="input" type="button" id="botactualizar">Actualizar datos</button>
-                        <script>
-                            document.getElementById("botactualizar").addEventListener("click", function() {
-                                                         
-                                    document.getElementById("Formulario").submit();
-                                    alert("Has cambiado los datos del vuelo con éxito!");
-                                    limpiarForm();
-                               
-                            });
-                        </script>
-   
-                    </div>
-                </form>
+    <div class="formulario-container">
+        <div class="formulario">
+            <div>
+                <p><img class="logoregistro" src="img/brand-logo.png" alt="Avionair Logo"></p>
             </div>
+            <h2 class="titulo">Modificar Vuelo</h2>
+            <form id="Formulario" method="POST" action="botoncambiarvuelo.php">
+                <div class="campo">
+                    <br>
+                    <label for="calls">CallSign:</label>
+                    <!-- Cambio: Mostrar el valor actual del callsign en el campo de entrada -->
+                    <input class="input" type="text" value="<?php echo $callsign; ?>" id="calls" name="calls" required>
+                </div>
+                <div class="campo">
+                    <label for="destino">Ciudad Destino:</label>
+                    <!-- Cambio: Mostrar el valor actual de ciudad_llegada en el campo de entrada -->
+                    <input class="input" type="text" value="<?php echo $ciudad_llegada; ?>" id="destino" name="destino" required>
+                </div>
+                <div class="campo">
+                    <label for="origen">Ciudad Origen:</label>
+                    <!-- Cambio: Mostrar el valor actual de ciudad_salida en el campo de entrada -->
+                    <input class="input" type="text" value="<?php echo $ciudad_salida; ?>" id="origen" name="origen" required>
+                </div>
+                <div class="campo">
+                    <label for="fecha">Fecha:</label>
+                    <!-- Cambio: Mostrar el valor actual de fecha en el campo de entrada -->
+                    <input class="input" type="date" value="<?php echo $fecha; ?>" id="fecha" name="fecha" required>
+                </div>
+                <div class="campo">
+                    <label for="pasajeros">Numero Pasajeros:</label>
+                    <!-- Cambio: Mostrar el valor actual de numero_pasajeros en el campo de entrada -->
+                    <input class="input" type="text" value="<?php echo $numero_pasajeros; ?>" id="pasajeros" name="pasajeros" required>
+                </div>
+                <div style="margin-top: 20px;">
+                    <button class="input" type="button" id="botactualizar">Actualizar datos</button>
+                    <script>
+                        document.getElementById("botactualizar").addEventListener("click", function() {
+                            document.getElementById("Formulario").submit();
+                            alert("Has cambiado los datos del vuelo con éxito!");
+                            limpiarForm();
+                        });
+                    </script>
+                </div>
+            </form>
+        </div>
     </div>
 </body>
 <footer class="footer">
