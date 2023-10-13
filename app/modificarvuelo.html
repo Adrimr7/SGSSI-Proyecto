@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!--IMPORTANTE ESTE HTML ES UNA COPIA DEL DE REGISTRO, PARA USARLO COMO PLANTILLA, POR LO QUE, HAY QUE REVISARLO BIEN-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MODIFICAR VUELO - AVIONAIR</title>
@@ -45,12 +44,9 @@
     </header>
 
     <?php
-    // Verifica si el número de vuelo se ha establecido en la sesión.
-    if (isset($_SESSION['numcallsign'])) {
-        $callsign = $_SESSION['numcallsign'];
-        // Realiza la consulta para obtener los datos del vuelo.
-        $query = "SELECT * FROM vuelo WHERE callsign = '$callsign'";
-        $result = $conn->query($query);
+    $callsign = $_SESSION['callsign'];
+    $query = "SELECT * FROM vuelo WHERE callsign = '$callsign'";
+    $result = $conn->query($query);
 
         if (!$result) {
             die("Error en la consulta: " . $conn->error);
@@ -58,12 +54,11 @@
 
         $row = $result->fetch_assoc();
 
-        $callsign = $row['callsign'];  // Debe coincidir con el nombre del campo en la base de datos.
-        $fecha = $row['fecha'];  // Debe coincidir con el nombre del campo en la base de datos.
-        $ciudad_salida = $row['ciudad_salida'];  // Debe coincidir con el nombre del campo en la base de datos.
-        $ciudad_llegada = $row['ciudad_llegada'];  // Debe coincidir con el nombre del campo en la base de datos.
-        $numero_pasajeros = $row['numero_pasajeros'];  // Debe coincidir con el nombre del campo en la base de datos.
-    }
+        $callsign = $row['callsign']; 
+        $fecha = $row['fecha'];  
+        $ciudad_salida = $row['ciudad_salida']; 
+        $ciudad_llegada = $row['ciudad_llegada'];  
+        $numero_pasajeros = $row['numero_pasajeros']; 
     ?>
 
     <div class="formulario-container">
@@ -76,27 +71,22 @@
                 <div class="campo">
                     <br>
                     <label for="calls">CallSign:</label>
-                    <!-- Cambio: Mostrar el valor actual del callsign en el campo de entrada -->
-                    <input class="input" type="text" value="<?php echo $callsign; ?>" id="calls" name="calls" required>
+                    <input class="input" type="text" placeholder="Callsign (Identificador del vuelo)" value="<?php echo $callsign; ?>" id="callsign" name="callsign" required>
                 </div>
                 <div class="campo">
                     <label for="destino">Ciudad Destino:</label>
-                    <!-- Cambio: Mostrar el valor actual de ciudad_llegada en el campo de entrada -->
                     <input class="input" type="text" value="<?php echo $ciudad_llegada; ?>" id="destino" name="destino" required>
                 </div>
                 <div class="campo">
                     <label for="origen">Ciudad Origen:</label>
-                    <!-- Cambio: Mostrar el valor actual de ciudad_salida en el campo de entrada -->
                     <input class="input" type="text" value="<?php echo $ciudad_salida; ?>" id="origen" name="origen" required>
                 </div>
                 <div class="campo">
                     <label for="fecha">Fecha:</label>
-                    <!-- Cambio: Mostrar el valor actual de fecha en el campo de entrada -->
                     <input class="input" type="date" value="<?php echo $fecha; ?>" id="fecha" name="fecha" required>
                 </div>
                 <div class="campo">
-                    <label for="pasajeros">Numero Pasajeros:</label>
-                    <!-- Cambio: Mostrar el valor actual de numero_pasajeros en el campo de entrada -->
+                    <label for="pasajeros">Número de pasajeros:</label>
                     <input class="input" type="text" value="<?php echo $numero_pasajeros; ?>" id="pasajeros" name="pasajeros" required>
                 </div>
                 <div style="margin-top: 20px;">
