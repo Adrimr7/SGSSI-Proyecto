@@ -57,8 +57,10 @@ while ($row = $result->fetch_assoc())
                 });
                 document.getElementById('botEliminar$i').addEventListener('click', function() 
                 {
-                    alert('A eliminar el vuelo!')
-                    document.getElementById('botEliminar$i').submit();
+                    if (confirm('El vuelo {$row['callsign']} se va a eliminar')) {
+                    	document.getElementById('botEliminar$i').submit();
+                    }
+                    
                 });
             </script>
             </div>
