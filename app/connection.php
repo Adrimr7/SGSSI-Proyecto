@@ -6,7 +6,7 @@ $password = "test";
 $db = "database";
 
 //Abre la conexion al servidor de MySQL
-$conn = new mysqli($hostname, $username, $password, $db);
+$conn = mysqli_connect($hostname, $username, $password, $db);
 
 //Si la concexion falla cerramos la concexion
 if ($conn->connect_error) {
