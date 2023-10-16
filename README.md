@@ -18,12 +18,14 @@ $ docker image rm web:latest
 $ docker build -t="web" .
 ```
 
-Enter the following command to start your containers:
+To start the container:
 ```bash
 $ docker-compose up -d
 ```
+Then, import the database to localhost:8890/
+After, go to localhost:81/
 
-To stop them, use this:
+To stop the container:
 ```bash
 $ docker-compose stop
 ```
