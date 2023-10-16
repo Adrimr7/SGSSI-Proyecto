@@ -4,9 +4,10 @@ $hostname = "db";
 $username = "admin";
 $password = "test";
 $db = "database";
+$db_port = "3306";
 
 //Abre la conexion al servidor de MySQL
-$conn = new mysqli($hostname, $username, $password, $db);
+$conn = new mysqli($hostname, $username, $password, $db, $db_port);
 
 //Si la concexion falla cerramos la concexion
 if ($conn->connect_error) {
