@@ -20,7 +20,7 @@ $ docker build -t="web" .
 
 To start the container:
 ```bash
-$ docker-compose up -d
+$ docker-compose up 
 ```
 Then, import the database to localhost:8890/
 After, go to localhost:81/
