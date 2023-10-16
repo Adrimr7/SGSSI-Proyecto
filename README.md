@@ -27,7 +27,7 @@ After, go to localhost:81/
 
 To stop the container:
 ```bash
-$ docker-compose stop
+Crtl + C
 ```
 
 Feel free to make pull requests and help to improve this.
