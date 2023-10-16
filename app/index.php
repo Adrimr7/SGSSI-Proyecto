@@ -1,4 +1,5 @@
 <?php
+session_start();
 //Ejecuta el archivo connection.php
 include 'connection.php';     
 //Y lo mismo para la pagina HOME
