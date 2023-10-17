@@ -4,7 +4,7 @@ include 'connection.php';
 
 //Obtenemos los datos del submit usando los id de cada apartado
 $nombre = $_POST["nombre"];
-$apellidos = $_POST["apellidos"];
+$apellidos = $_POST["apellidos"]; 
 $telef = $_POST["telef"];
 $fnacimiento = $_POST["fnacimiento"];
 $email = $_POST["email"];
