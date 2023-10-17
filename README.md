@@ -22,7 +22,7 @@ To start the container:
 ```bash
 $ docker-compose up 
 ```
-Then, import the database to localhost:8890/
+Then, import the database in localhost:8890/
 After, go to localhost:81/
 
 To stop the container:
@@ -35,6 +35,7 @@ Feel free to make pull requests and help to improve this.
 If you are looking for phpMyAdmin, take a look at [this](https://github.com/celsocelante/docker-lamp/issues/2).
 
 NOMBRES DE LOS INTEGRANTES
+
 "Adrian Mena"
 "Ander Gutierrez"
 "Asier Cardoso"
