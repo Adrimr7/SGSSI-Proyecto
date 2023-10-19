@@ -74,7 +74,7 @@
         function comprobarnombreapellidos(textoInput)
         {
             // Patrón que permite solo letras (mayúsculas o minúsculas) y espacios
-            var patron = /^[a-zA-Z\s]+$/;
+            var patron = /^[a-zA-ZñÑüÜáéíóúÁÉÍÓÚ]+$/;
 
             // Verificar si el valor coincide con el patrón
             if (patron.test(textoInput)) 

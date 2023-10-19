@@ -9,7 +9,7 @@ $ciudad_salida = $_POST["origen"];
 $ciudad_llegada = $_POST["destino"];
 
 //Preparamos la instruccion SQL con los datos del formulario, en este caso un update
-$sql = "UPDATE vuelo SET callsign = '$calls', fecha = '$fecha', numero_pasajeros = '$numero_pasajeros', ciudad_salida = '$ciudad_salida', ciudad_llegada = '$ciudad_llegada' WHERE callsign = '$calls' ";
+$sql = "UPDATE vuelo SET fecha = '$fecha', numero_pasajeros = '$numero_pasajeros', ciudad_salida = '$ciudad_salida', ciudad_llegada = '$ciudad_llegada' WHERE callsign = '$calls' ";
 
 
 //A traves del objeto de conexion $conn ejecutamos query() para enviar la instruccion de SQL

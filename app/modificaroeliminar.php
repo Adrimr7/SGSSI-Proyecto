@@ -17,8 +17,7 @@ if (isset($_POST['accion']) && $_POST['accion'] === 'eliminar')
 	$sql = "DELETE FROM vuelo WHERE callsign = '$calls'";
 
 	if ($conn->query($sql) === TRUE){
-		echo '<script> alert("Vuelo eliminado correctamente.");
-		       window.location.replace("vuelos.php");</script>';
+		echo '<script> window.location.replace("vuelos.php");</script>';
 		exit;
 		$conn->close();
 	} 

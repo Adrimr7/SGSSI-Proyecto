@@ -83,8 +83,7 @@ else
 $sql = "INSERT INTO vuelo (callsign, fecha, numero_pasajeros, ciudad_salida, ciudad_llegada) VALUES ('$callsign','$fvuelo','$npasajeros','$origen','$destino')";
 
 if ($conn->query($sql) === TRUE){
-	echo '<script> alert("Vuelo introducido correctamente.");
-		       window.location.replace("vuelos.php")</script>';
+	echo '<script> window.location.replace("vuelos.php")</script>';
 	exit;
 	$conn->close();
 } else {

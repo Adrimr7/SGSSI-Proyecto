@@ -15,13 +15,52 @@
                 <div class="campo" >
                     <input class="input" type="text" placeholder="Callsign (Identificador del vuelo)" id="callsign" size="" name="callsign" required>
                 </div>
-                <div class="campo">
-                    <input class="input" type="text" placeholder="Ciudad ORIGEN" id="origen" name="origen" required>
-                </div>
-                
-                <div class="campo">
-                    <input class="input" type="text" placeholder="Ciudad DESTINO" id="destino" name="destino" required>
-                </div>
+                <label for="origen">Ciudad Origen:</label>
+		    <select name="origen" id="origen" class= "select">
+		    <option value="" disabled selected>Selecciona una ciudad de Origen:</option>
+			<?php
+			include 'connection.php';
+
+			$sql = 'SELECT * FROM ciudad ORDER BY nombre';
+
+			$resultado = $conn->query($sql);
+
+			if ($resultado) {
+    				while ($row = $resultado->fetch_assoc()) { 
+        				$nombre = $row['nombre'];
+        				echo "<option value='$nombre'>$nombre</option>";
+    				}
+    			$resultado->free();
+			} else {
+    				echo "Error: " . $conn->error;
+			}
+
+			$conn->close();
+			?>
+			</select>
+		    <label for="destino">Ciudad Destino:</label>
+		    <select name="destino" id="destino" class= "select">
+		    <option value="" disabled selected>Selecciona una ciudad de Destino:</option>
+			<?php
+			include 'connection.php';
+
+			$sql = 'SELECT * FROM ciudad ORDER BY nombre';
+
+			$resultado = $conn->query($sql);
+
+			if ($resultado) {
+    				while ($row = $resultado->fetch_assoc()) { 
+        				$nombre = $row['nombre'];
+        				echo "<option value='$nombre'>$nombre</option>";
+    				}
+    			$resultado->free();
+			} else {
+    				echo "Error: " . $conn->error;
+			}
+
+			$conn->close();
+			?>
+			</select>
                 <div class="campo">
                     <input class="input" type="number" placeholder="Número de Pasajeros" id="npasajeros" name="npasajeros" required>
                 </div>

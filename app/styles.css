@@ -132,14 +132,24 @@ a {
     &:focus{
         outline:none;
     }
-    /*opacity: 0.4;
-    transition: 0.3s;*/
 }
 
 .input:hover{
     opacity: 1;
     border: 1.5px solid #5655ac;
 
+}
+
+.select {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 3rem;
+    border: 1px solid #949292;
+    padding: 0.7rem 0.8rem;
+}
+
+.select:focus {
+    outline: none;
 }
 
 .index {
