@@ -21,7 +21,7 @@ if ($num_resultados > 0) {
     
 } 
 else {
-    
+    echo '<script> alert("Usuario no registrado.");</script>';
     include 'iniciosesion.php';
     exit;
 }
