@@ -52,7 +52,7 @@ while ($row = $result->fetch_assoc())
             <script>
                 document.getElementById('botModificar$i').addEventListener('click', function() 
                 {
-                    alert('A modificar el archivo!')
+                    
                     document.getElementById('botModificar$i').submit();
                 });
                 document.getElementById('botEliminar$i').addEventListener('click', function() 

@@ -16,7 +16,7 @@ $sql = "UPDATE vuelo SET fecha = '$fecha', numero_pasajeros = '$numero_pasajeros
 if ($conn->query($sql) === TRUE){
 //Teniendo el usuario cambiado, cerramos la conexion a la base de datos
 $conn->close();
-echo '<script> alert("Vuelo modificado correctamente.");
+echo '<script> 
 	 window.location.replace("vuelos.php");
 </script>';
 exit;
