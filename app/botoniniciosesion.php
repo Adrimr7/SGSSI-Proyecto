@@ -22,7 +22,6 @@ if ($num_resultados > 0) {
 } 
 else {
     
-    echo "<h1>Inicio de sesión fallido</h1>";   
     include 'iniciosesion.php';
     exit;
 }
