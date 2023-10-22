@@ -75,7 +75,7 @@
                 </div>
                 <div class="campo">
                     <label for="origen">Ciudad Origen:</label>
-		    <select name="origen" id="origen" class= "select">
+		    <select name="origen" id="origen" class= "select" required>
 		    <option value="" disabled selected>Selecciona una ciudad de Origen:</option>
 			<?php
 			include 'connection.php';
@@ -98,7 +98,7 @@
 			?>
 			</select>
 		    <label for="destino">Ciudad Destino:</label>
-		    <select name="destino" id="destino" class= "select">
+		    <select name="destino" id="destino" class= "select" required>
 		    <option value="" disabled selected>Selecciona una ciudad de Destino:</option>
 			<?php
 			include 'connection.php';
@@ -127,16 +127,17 @@
                 </div>
                 <div class="campo">
                     <label for="pasajeros">Número de pasajeros:</label>
-                    <input class="input" type="text" value="<?php echo $numero_pasajeros; ?>" id="pasajeros" name="pasajeros" required>
+                    <input class="input" type="number" value="<?php echo $numero_pasajeros; ?>" id="pasajeros" name="pasajeros" required>
                 </div>
                 <div style="margin-top: 20px;">
-                    <button class="input" type="button" id="botactualizar">Actualizar datos</button>
-                    <script>
+                    <button class="input" type="submit" id="botactualizar">Actualizar datos</button>
+<!--                    <script>
                         document.getElementById("botactualizar").addEventListener("click", function() {
                             document.getElementById("Formulario").submit();
                             limpiarForm();
                         });
                     </script>
+                    -->
                 </div>
             </form>
         </div>
