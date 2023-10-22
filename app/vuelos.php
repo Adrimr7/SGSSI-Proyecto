@@ -60,6 +60,10 @@ while ($row = $result->fetch_assoc())
                     if (confirm('El vuelo {$row['callsign']} se va a eliminar')) {
                     	document.getElementById('botEliminar$i').submit();
                     }
+                    else
+                    {
+                        event.preventDefault();
+                    }
                     
                 });
             </script>

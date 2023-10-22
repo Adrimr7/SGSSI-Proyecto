@@ -117,9 +117,6 @@
                                     alert("Has cambiado los datos con éxito!");
                                     limpiarForm();
                                 } 
-                                else {
-                                    alert("El formulario no es válido. Por favor, revise sus datos.");
-                                }
                             });
                         </script>
     
@@ -136,7 +133,7 @@
 <script> 
     //Añadimos el codigo en JS directamente al HTML
 
-            function comprobarCorreo(correo)
+        function comprobarCorreo(correo)
         {
             // Expresión regular para validar direcciones de correo electrónico
             var patron =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/ ;
@@ -216,7 +213,9 @@
 
             // Verificar si la letra calculada coincide con la letra proporcionada
             if (letra !== letraCalculada) {
+                window.alert("El DNI es incorrecto. ")
                 return false; // La letra no es válida para el número dado
+
             }
 
             return true; // El DNI es válido
@@ -275,6 +274,7 @@
             else
             {
                 console.log("Error : Correo no valido");
+                window.alert("Introduce un correo válido. ")
             }
 	    return estado;
 	 }
