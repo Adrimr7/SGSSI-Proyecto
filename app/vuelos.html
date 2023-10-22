@@ -16,7 +16,7 @@
                     <input class="input" type="text" placeholder="Callsign (Identificador del vuelo): AVA0007" id="callsign" size="" name="callsign" required>
                 </div>
                 <label for="origen">Ciudad Origen:</label>
-		    <select name="origen" id="origen" class= "select">
+		    <select name="origen" id="origen" class= "select" required>
 		    <option value="" disabled selected>Selecciona una ciudad de Origen:</option>
 			<?php
 			include 'connection.php';
@@ -39,7 +39,7 @@
 			?>
 			</select>
 		    <label for="destino">Ciudad Destino:</label>
-		    <select name="destino" id="destino" class= "select">
+		    <select name="destino" id="destino" class= "select" required>
 		    <option value="" disabled selected>Selecciona una ciudad de Destino:</option>
 			<?php
 			include 'connection.php';
