@@ -70,16 +70,56 @@
             <form id="Formulario" method="POST" action="botoncambiarvuelo.php">
                 <div class="campo">
                     <br>
-                    <label for="calls">CallSign:</label>
-                    <input class="input" type="text" placeholder="Callsign (Identificador del vuelo)" value="<?php echo $callsign; ?>" id="callsign" name="callsign" required>
-                </div>
-                <div class="campo">
-                    <label for="destino">Ciudad Destino:</label>
-                    <input class="input" type="text" value="<?php echo $ciudad_llegada; ?>" id="destino" name="destino" required>
+                    <label for="calls">CallSign: "<?php echo $callsign; ?>"  </label>
+                    <input class="input" type="hidden" value="<?php echo $callsign; ?>" id="callsign" name="callsign" required>
                 </div>
                 <div class="campo">
                     <label for="origen">Ciudad Origen:</label>
-                    <input class="input" type="text" value="<?php echo $ciudad_salida; ?>" id="origen" name="origen" required>
+		    <select name="origen" id="origen" class= "select" required>
+		    <option value="" disabled selected>Selecciona una ciudad de Origen:</option>
+			<?php
+			include 'connection.php';
+
+			$sql = 'SELECT * FROM ciudad ORDER BY nombre';
+
+			$resultado = $conn->query($sql);
+
+			if ($resultado) {
+    				while ($row = $resultado->fetch_assoc()) { 
+        				$nombre = $row['nombre'];
+        				echo "<option value='$nombre'>$nombre</option>";
+    				}
+    			$resultado->free();
+			} else {
+    				echo "Error: " . $conn->error;
+			}
+
+			$conn->close();
+			?>
+			</select>
+		    <label for="destino">Ciudad Destino:</label>
+		    <select name="destino" id="destino" class= "select" required>
+		    <option value="" disabled selected>Selecciona una ciudad de Destino:</option>
+			<?php
+			include 'connection.php';
+
+			$sql = 'SELECT * FROM ciudad ORDER BY nombre';
+
+			$resultado = $conn->query($sql);
+
+			if ($resultado) {
+    				while ($row = $resultado->fetch_assoc()) { 
+        				$nombre = $row['nombre'];
+        				echo "<option value='$nombre'>$nombre</option>";
+    				}
+    			$resultado->free();
+			} else {
+    				echo "Error: " . $conn->error;
+			}
+
+			$conn->close();
+			?>
+			</select>
                 </div>
                 <div class="campo">
                     <label for="fecha">Fecha:</label>
@@ -87,16 +127,54 @@
                 </div>
                 <div class="campo">
                     <label for="pasajeros">Número de pasajeros:</label>
-                    <input class="input" type="text" value="<?php echo $numero_pasajeros; ?>" id="pasajeros" name="pasajeros" required>
+                    <input class="input" type="number" min="0" max="9" value="<?php echo $numero_pasajeros; ?>" id="pasajeros" name="pasajeros" required>
                 </div>
                 <div style="margin-top: 20px;">
                     <button class="input" type="button" id="botactualizar">Actualizar datos</button>
                     <script>
                         document.getElementById("botactualizar").addEventListener("click", function() {
+                          if (comprobar())
+                          {                      
                             document.getElementById("Formulario").submit();
-                            alert("Has cambiado los datos del vuelo con éxito!");
                             limpiarForm();
+                          }else{
+   		            alert("El formulario no es válido. Por favor, revise los datos.");
+                          }
                         });
+                        
+                        function comprobarPasajeros(){
+                          var numeroInput = document.getElementById("pasajeros");
+                          var numero = numeroInput.value;
+                          var regex = /^[0-9]+$/;
+            
+                          if (!regex.test(numero)) {
+
+                            return false; // Evita que el formulario se envíe
+                          }
+                          return true;
+                        }
+                        
+                        function comprobarOrigenYDestino(){
+                          var dropdownOrigen = document.getElementById("origen");
+                          var origen = dropdownOrigen.options[dropdownOrigen.selectedIndex].value;
+                          var dropdownDestino = document.getElementById("destino");
+                          var destino = dropdownDestino.options[dropdownDestino.selectedIndex].value;
+                          if ((origen === "")&&(destino === "")){
+                            return false
+                          }else{
+                            return true;
+                          }
+                        }
+                        
+                        function comprobar(){
+                          if (comprobarPasajeros()){
+                            if (comprobarOrigenYDestino()){
+                              return true;
+                            }
+                          }else{
+                            return false;
+                          }
+                        }
                     </script>
                 </div>
             </form>

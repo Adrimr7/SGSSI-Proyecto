@@ -11,33 +11,141 @@
     <div class="formulario-container">
         <div class="formulario">
             <h2 style="margin-top: 0px;">Añadir nuevo vuelo</h2>
-            <form action="botonanadirvuelo.php" method="POST">
+            <form action="botonanadirvuelo.php" method="POST" id="Formulario">
                 <div class="campo" >
-                    <input class="input" type="text" placeholder="Callsign (Identificador del vuelo)" id="callsign" size="" name="callsign" required>
+                    <input class="input" type="text" placeholder="Callsign (Identificador del vuelo): AVA0007" id="callsign" size="" name="callsign" required>
                 </div>
+                <label for="origen">Ciudad Origen:</label>
+		    <select name="origen" id="origen" class= "select">
+		    <option value="" disabled selected>Selecciona una ciudad de Origen:</option>
+			<?php
+			include 'connection.php';
+
+			$sql = 'SELECT * FROM ciudad ORDER BY nombre';
+
+			$resultado = $conn->query($sql);
+
+			if ($resultado) {
+    				while ($row = $resultado->fetch_assoc()) { 
+        				$nombre = $row['nombre'];
+        				echo "<option value='$nombre'>$nombre</option>";
+    				}
+    			$resultado->free();
+			} else {
+    				echo "Error: " . $conn->error;
+			}
+
+			$conn->close();
+			?>
+			</select>
+		    <label for="destino">Ciudad Destino:</label>
+		    <select name="destino" id="destino" class= "select">
+		    <option value="" disabled selected>Selecciona una ciudad de Destino:</option>
+			<?php
+			include 'connection.php';
+
+			$sql = 'SELECT * FROM ciudad ORDER BY nombre';
+
+			$resultado = $conn->query($sql);
+
+			if ($resultado) {
+    				while ($row = $resultado->fetch_assoc()) { 
+        				$nombre = $row['nombre'];
+        				echo "<option value='$nombre'>$nombre</option>";
+    				}
+    			$resultado->free();
+			} else {
+    				echo "Error: " . $conn->error;
+			}
+
+			$conn->close();
+			?>
+			</select>
                 <div class="campo">
-                    <input class="input" type="text" placeholder="Ciudad ORIGEN" id="origen" name="origen" required>
-                </div>
-                
-                <div class="campo">
-                    <input class="input" type="text" placeholder="Ciudad DESTINO" id="destino" name="destino" required>
-                </div>
-                <div class="campo">
-                    <input class="input" type="number" placeholder="Número de Pasajeros" id="npasajeros" name="npasajeros" required>
+                    <input class="input" type="number" placeholder="Número de Pasajeros: 33" id="npasajeros" name="npasajeros" required>
                 </div>
                 <div class="campo">
                     <label for="fnacimiento">Fecha del vuelo:</label>
                     <input class="input" type="date" id="fvuelo" name="fvuelo" required>
                 </div>
                 <div style="margin-bottom: 12px;">
-                    <button  class="input" type="submit">Añadir Vuelo</button>
+                    <button  class="input" type="button" id="botonAnadirVuelo">Añadir Vuelo</button>
+                    <script>
+                        document.getElementById("botonAnadirVuelo").addEventListener("click", function() {
+                          if (comprobar())
+                          {       
+                            alert("envio");               
+                            document.getElementById("Formulario").submit();
+                            limpiarForm();
+                          }else{
+   		            alert("El formulario no es válido. Por favor, revise los datos.");
+                          }
+                        });
+                        
+                        function comprobarPasajeros(){
+                          var numeroInput = document.getElementById("npasajeros");
+                          var numero = numeroInput.value;
+                          var regex = /^[0-9]+$/;
+            
+                          if (!regex.test(numero)) {
+
+                            return false; // Evita que el formulario se envíe
+                          }
+                           return true;
+                        }
+                        
+                        function comprobarOrigenYDestino(){
+                          var dropdownOrigen = document.getElementById("origen");
+                          var origen = dropdownOrigen.options[dropdownOrigen.selectedIndex].value;
+                          var dropdownDestino = document.getElementById("destino");
+                          var destino = dropdownDestino.options[dropdownDestino.selectedIndex].value;
+                          if ((origen === "")&&(destino === "")){
+                            return false;
+                          }else{
+                            return true;
+                          }
+                        }
+                        
+                        function comprobarCall() {
+                          alert("entro");
+                          var inputCallSign = document.getElementById("callsign");
+                          var callsigntxt = inputCallSign.value;
+                          var regexCall = /^[A-Za-z0-9]+$/;
+                          if (regexCall.test(callsigntxt)) {
+                            if (callsigntxt !== "") { // Corrección en esta línea
+                              alert("true");
+                              return true;
+                            } else {
+                              alert("false");
+                              return false;
+                            }
+                          } else {
+                              alert("false");
+                              return false;
+                          }
+                        }
+                        function comprobar(){
+                          if (comprobarPasajeros()){
+                            alert("1")
+                            if (comprobarOrigenYDestino()){
+                              alert("2")
+                              if (comprobarCall()){
+                                alert("3")
+                                return true;
+                              }
+                            }
+                          }else{
+                            return false;
+                          }
+                        }
+                    </script>
                 </div >
             </form>
         <div class="formulario">
             <h2 style="margin-top: -10px;">Añadir nueva ciudad</h2>
             <form action="botonanadirciudad.php" method="POST">
                 <div class="campo" >
-                    <input class="input" type="text" placeholder="Ciudad" id="ciudad" size="" name="ciudad" required>
+                    <input class="input" type="text" placeholder="Ciudad: Tokyo" id="ciudad" size="" name="ciudad" required>
                 </div>
                 <div style="margin-bottom: 0px;">
                     <button class="input" type="submit">Añadir Ciudad</button>
