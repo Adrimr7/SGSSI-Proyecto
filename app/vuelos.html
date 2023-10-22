@@ -8,6 +8,70 @@
     <link rel="icon" href="Logo1.png" type="image/png">
 </head>
 <body>
+<script>
+ function comprobarPasajeros(){
+                          var numeroInput = document.getElementById("npasajeros");
+                          var numero = numeroInput.value;
+                          var regex = /^[0-9]+$/;
+            
+                          if (!regex.test(numero)) {
+
+                            return false; // Evita que el formulario se envíe
+                          }
+                           return true;
+                        }
+                        
+                        function comprobarOrigenYDestino(){
+                          var dropdownOrigen = document.getElementById("origen");
+                          var origen = dropdownOrigen.options[dropdownOrigen.selectedIndex].value;
+                          var dropdownDestino = document.getElementById("destino");
+                          var destino = dropdownDestino.options[dropdownDestino.selectedIndex].value;
+                          if ((origen === "")&&(destino === "")){
+                            return false;
+                          }else{
+                            return true;
+                          }
+                        }
+                        
+                        function comprobarCall() {
+                          alert("entro");
+                          var inputCallSign = document.getElementById("callsign");
+                          var callsigntxt = inputCallSign.value;
+                          var regexCall = /^[A-Za-z0-9][A-Za-z0-9]*+$/;
+                          if (regexCall.test(callsigntxt)) 
+                          {
+                            if (callsigntxt !== "") 
+                            { // Corrección en esta línea
+                              alert("true (callsigntxt !== '')");
+                              return true;
+                            } 
+                            else 
+                            {
+                              alert("false");
+                              return false;
+                            }
+                          } 
+                          else 
+                          {
+                              alert("false (regexCall.test(callsigntxt)");
+                              return false;
+                          }
+                        }
+                        function comprobar(){
+                          if (comprobarPasajeros()){
+                            alert("1")
+                            if (comprobarOrigenYDestino()){
+                              alert("2")
+                              if (comprobarCall()){
+                                alert("3")
+                                return true;
+                              }
+                            }
+                          }else{
+                            return false;
+                          }
+                        }
+</script>
     <div class="formulario-container">
         <div class="formulario">
             <h2 style="margin-top: 0px;">Añadir nuevo vuelo</h2>
@@ -81,69 +145,6 @@
    		            alert("El formulario no es válido. Por favor, revise los datos.");
                           }
                         });
-                        
-                        function comprobarPasajeros(){
-                          var numeroInput = document.getElementById("npasajeros");
-                          var numero = numeroInput.value;
-                          var regex = /^[0-9]+$/;
-            
-                          if (!regex.test(numero)) {
-
-                            return false; // Evita que el formulario se envíe
-                          }
-                           return true;
-                        }
-                        
-                        function comprobarOrigenYDestino(){
-                          var dropdownOrigen = document.getElementById("origen");
-                          var origen = dropdownOrigen.options[dropdownOrigen.selectedIndex].value;
-                          var dropdownDestino = document.getElementById("destino");
-                          var destino = dropdownDestino.options[dropdownDestino.selectedIndex].value;
-                          if ((origen === "")&&(destino === "")){
-                            return false;
-                          }else{
-                            return true;
-                          }
-                        }
-                        
-                        function comprobarCall() {
-                          alert("entro");
-                          var inputCallSign = document.getElementById("callsign");
-                          var callsigntxt = inputCallSign.value;
-                          var regexCall = /^[A-Za-z0-9][A-Za-z0-9]*+$/;
-                          if (regexCall.test(callsigntxt)) 
-                          {
-                            if (callsigntxt !== "") 
-                            { // Corrección en esta línea
-                              alert("true (callsigntxt !== '')");
-                              return true;
-                            } 
-                            else 
-                            {
-                              alert("false");
-                              return false;
-                            }
-                          } 
-                          else 
-                          {
-                              alert("false (regexCall.test(callsigntxt)");
-                              return false;
-                          }
-                        }
-                        function comprobar(){
-                          if (comprobarPasajeros()){
-                            alert("1")
-                            if (comprobarOrigenYDestino()){
-                              alert("2")
-                              if (comprobarCall()){
-                                alert("3")
-                                return true;
-                              }
-                            }
-                          }else{
-                            return false;
-                          }
-                        }
                     </script>
                 </div >
             </form>
