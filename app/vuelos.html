@@ -110,17 +110,23 @@
                           alert("entro");
                           var inputCallSign = document.getElementById("callsign");
                           var callsigntxt = inputCallSign.value;
-                          var regexCall = /^[A-Za-z0-9]+$/;
-                          if (regexCall.test(callsigntxt)) {
-                            if (callsigntxt !== "") { // Corrección en esta línea
-                              alert("true");
+                          var regexCall = /^[A-Za-z0-9][A-Za-z0-9]*+$/;
+                          if (regexCall.test(callsigntxt)) 
+                          {
+                            if (callsigntxt !== "") 
+                            { // Corrección en esta línea
+                              alert("true (callsigntxt !== '')");
                               return true;
-                            } else {
+                            } 
+                            else 
+                            {
                               alert("false");
                               return false;
                             }
-                          } else {
-                              alert("false");
+                          } 
+                          else 
+                          {
+                              alert("false (regexCall.test(callsigntxt)");
                               return false;
                           }
                         }
