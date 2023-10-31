@@ -102,7 +102,7 @@
                     </div>
                     <div class="campo">
                         <label for="contraseña">Contraseña:</label>
-                        <input class="input"type="password" value="<?php echo $contraseña; ?>" id="contraseña" name="contraseña" required>
+                        <input class="input" type="password" placeholder="Introduce una contraseña." id="contraseña" name="contraseña" required>
                     </div>
                     <div style="margin-top: 20px;">
                         <!-- le damos un id al boton y luego ponemos una parte del codigo a "escuchar" las acciones de este-->
@@ -112,7 +112,6 @@
                                 var esValido = comprobar();
                                 if (esValido) 
                                 {
-                              
                                     document.getElementById("Formulario").submit();
                                     alert("Has cambiado los datos con éxito!");
                                     limpiarForm();
@@ -225,6 +224,14 @@
             var formulario = document.getElementById("Formulario");
             formulario.reset();
         }
+        function comprobarContrasena(contra)
+        {
+            if (contra.length==0)
+            {
+               return false;
+            }
+            return true;
+        }
 
         function comprobar()
         {
@@ -245,11 +252,19 @@
                             if (comprobarTelefono(document.getElementById("telef").value))
                             {
                                 console.log("Telefono Valido");
-                                
-                                console.log("Errorn't");
+                            	if (comprobarContrasena(document.getElementById("contraseña").value))
+                            	{
 
-                                //Si todo sale correcto el valor que se devolvera es true
-                                var estado = true;
+                                     	console.log("Contraseña Válida");
+                                	console.log("Errorn't");
+	
+                                	//Si todo sale correcto el valor que se devolvera es true
+                                	var estado = true;
+                                }
+                                else
+                            	{
+                                   console.log("Error : Contraseña no válida");
+                            	}
                             }
                             else
                             {

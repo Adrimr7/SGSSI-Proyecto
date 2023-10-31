@@ -1,43 +1,52 @@
 <?php
 session_start();
-include 'connection.php'; 
+include 'connection.php';
 
 $dni = $_POST["dni"];
-$contrasena = $_POST["contrasena"];
+$contraseña = $_POST["contrasena"];
 
-// SQL para buscar el usuario por email y contraseña
-//$sql = "SELECT COUNT(nombre) FROM usuarios WHERE email='$email' AND contraseña='$contrasena'";
-if($consulta = $conn->prepare("SELECT * FROM usuarios WHERE dni = ? AND contraseña = ?")){
-   $consulta->bind_param("ss", $dni, $contrasena);
+// Preparar la consulta para recuperar el hash y la salt
+$sql = "SELECT contraseña, salt FROM usuarios WHERE dni = ?";
 
-   $dni = $_POST["dni"];
-   $contrasena = $_POST["contrasena"];
-   
-   $consulta->execute();
-   $resultado = $consulta->get_result();
-   $num_resultados = $resultado->num_rows;
-   
-   if ($num_resultados > 0) {
-    // Si hay mas de 0 lineas quiere decir que ha habido una busqueda exitosa por lo que deberia de ser un inicio correcto por correo y contraseña
-    session_start();
-    $_SESSION['autenticado'] = true;
-    $_SESSION['dni'] = $dni;
-    include 'vuelos.php';
-    exit;
-    
-   } else {
-    echo '<script> alert("Usuario no registrado.");</script>';
-    echo '<script> alert($num_resultados);</script>';
-    include 'iniciosesion.php';
-    exit;
-   }
+if ($consulta = $conn->prepare($sql)) {
+    $consulta->bind_param("s", $dni);
+    $consulta->execute();
+    $resultado = $consulta->get_result();
 
+    if ($resultado->num_rows > 0) {
+        $fila = $resultado->fetch_assoc();
+        $hashAlmacenado = $fila['contraseña'];
+        $saltAlmacenado = $fila['salt'];
+
+        // Concatenar la contraseña proporcionada con la salt almacenada
+        $contraseñaConSalt = $contraseña . $saltAlmacenado;
+
+        if (password_verify($contraseñaConSalt, $hashAlmacenado)) {
+            // Contraseña verificada con éxito
+            // Inicia la sesión y realiza las acciones necesarias
+            session_start();
+            $_SESSION['autenticado'] = true;
+            $_SESSION['dni'] = $dni;
+            include 'vuelos.php';
+            exit;
+        } else {
+            echo '<script> alert("Contraseña incorrecta.");</script>';
+            include 'iniciosesion.php';
+            exit;
+        }
+    } else {
+        echo '<script> alert("Usuario no registrado.");</script>';
+        include 'iniciosesion.php';
+        exit;
+    }
 } else {
-
- //Gestion de errores de la consulta
- echo '<script> alert("Error en la consulta");</script>';
+    // Gestion de errores de la consulta
+    echo '<script> alert("Error en la consulta");</script>';
 }
-
+function generateHash($password) {
+    return password_hash($password, PASSWORD_DEFAULT);
+}
 $consulta->close();
-$conn->close(); 
+$conn->close();
 ?>
+

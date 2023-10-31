@@ -36,6 +36,7 @@ CREATE TABLE usuarios (
     telefono VARCHAR(9) CHECK (telefono REGEXP '^[0-9]{9}$'),
     email VARCHAR(50) CHECK(email LIKE '%@%.%'),
     contraseña longtext,
+    salt longtext,
     nacimiento DATE
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
