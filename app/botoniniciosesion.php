@@ -9,10 +9,12 @@ $contraseña = $_POST["contrasena"];
 $sql = "SELECT contraseña, salt FROM usuarios WHERE dni = ?";
 
 if ($consulta = $conn->prepare($sql)) {
+    //Asignamos el valor del dni al ? en la consulta
     $consulta->bind_param("s", $dni);
     $consulta->execute();
     $resultado = $consulta->get_result();
 
+    //Si obtenemos algun resultado
     if ($resultado->num_rows > 0) {
         $fila = $resultado->fetch_assoc();
         $hashAlmacenado = $fila['contraseña'];
