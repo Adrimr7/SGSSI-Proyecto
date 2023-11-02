@@ -57,7 +57,7 @@
             <h2 style="margin-top: -10px;">Inicio de sesión</h2>
             <form id="form-inicio-sesion" action="botoniniciosesion.php" method="POST">
                 <div class="campo" >
-                    <input class="input" type="text" placeholder="DNI" id="email" size="" name="dni" required>
+                    <input class="input" type="text" placeholder="DNI" id="dni" size="" name="dni" required>
                 </div>
                 <div class="campo">
                     <input class="input" type="password" placeholder="Contraseña" id="contrasena" name="contrasena" required>
@@ -72,11 +72,29 @@
 </body>
 <script>
     document.getElementById("botiniciosesion").addEventListener("click", function() {
-    // Llamamos a la función iniciarSesion() y almacenamos su resultado en una variable
-    document.getElementById("form-inicio-sesion").submit();
-    limpiarForm();                 
+        var dni = document.getElementById("dni").value;
+        var message = "Intento de inicio de sesión con DNI: " + dni;
+        
+	var xhr = new XMLHttpRequest();
+        xhr.open("POST", "logger.php", true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.send("message=" + message);
+        
+	xhr.onload = function() {
+            if (xhr.status === 200) {
+                // La solicitud fue exitosa
+                console.log("Registro exitoso");
+            } else {
+                // La solicitud falló, muestra un mensaje de error
+                console.error("Error en el registro: " + xhr.status);
+            }
+        };
+        alert("ssss");
+        document.getElementById("form-inicio-sesion").submit();
+        limpiarForm();
     });
 </script>
+
 
 
 <footer class="footer">
