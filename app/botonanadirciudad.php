@@ -13,8 +13,8 @@ $nombre = $_POST["ciudad"];
 $sql = "INSERT INTO ciudad (nombre) VALUES ('$nombre')";
 
 if ($conn->query($sql) === TRUE){
-	echo '<script> alert("Ciudad introducida correctamente.");
-		       window.location.replace("vuelos.php")</script>';
+	echo '<script> alert("Ciudad introducida correctamente.");</script>';
+	echo '<script> window.location.replace("vuelos.php");</script>';
 	exit;
 	$conn->close();
 		
