@@ -1,6 +1,7 @@
 <?php
-$msg = $_POST['message']; // Obtén el mensaje de la solicitud POST
-$archivoLog = __DIR__ . "/log.txt"; // Ruta absoluta al directorio raíz del servidor web
+$msg = $_POST['message'];
+
+$archivoLog =  "/var/log/logAvionair.txt";
 
 if (!file_exists($archivoLog)) {
     touch($archivoLog);

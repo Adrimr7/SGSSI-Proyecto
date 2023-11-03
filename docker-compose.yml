@@ -8,6 +8,7 @@ web:
      - db
    volumes:
      - ./app:/var/www/html/
+     - ./app/logger:/var/log/
 
 db:
   image: mariadb:10.8.2
