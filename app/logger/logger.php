@@ -1,4 +1,5 @@
 <?php
+echo '<script>alert("Entra en logger");</script>';
 $msg = $_POST['message'];
 
 $archivoLog =  "/var/log/logAvionair.txt";
@@ -21,6 +22,7 @@ $log = fopen($archivoLog, "a");
 if ($log)
 {
     $logMsg = "[" . date("Y-m-d H:i:s") . "] " . $msg . "\n";
+    echo '<script>alert("Entra en el if");</script>';
     fwrite($log, $logMsg);
     fclose($log);
     http_response_code(200);     // Codigo de estado HTTP 200 (OK)

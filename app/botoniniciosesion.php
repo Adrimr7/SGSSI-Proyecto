@@ -8,7 +8,8 @@ $contraseña = $_POST["contrasena"];
 // Preparar la consulta para recuperar el hash y la salt
 $sql = "SELECT contraseña, salt FROM usuarios WHERE dni = ?";
 
-if ($consulta = $conn->prepare($sql)) {
+if ($consulta = $conn->prepare($sql))
+{
     //Asignamos el valor del dni al ? en la consulta
     $consulta->bind_param("s", $dni);
     $consulta->execute();
@@ -41,9 +42,13 @@ if ($consulta = $conn->prepare($sql)) {
         include 'iniciosesion.php';
         exit;
     }
-} else {
+} 
+else
+{
     // Gestion de errores de la consulta
     echo '<script> alert("Error en la consulta");</script>';
+    include 'iniciosesion.php';
+    exit;
 }
 function generateHash($password) {
     return password_hash($password, PASSWORD_DEFAULT);
