@@ -26,6 +26,10 @@
         } else {
             echo '<p>Usuario <strong>Anónimo</strong></p>';
         }
+        if (!isset($_SESSION['csrf_token'])){
+        	$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+        }
+        $csrf_token = $_SESSION['csrf_token'];
         ?>
     </div>
     <div class="logo">
@@ -61,6 +65,7 @@
                 <div class="campo">
                     <input class="input" type="password" placeholder="Contraseña" id="contrasena" name="contrasena" required>
                 </div>
+                <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
                 <div style="margin-bottom: 20px;">
                     <button  class="input" type="button" id="botiniciosesion">Iniciar Sesión</button>
                 </div >
