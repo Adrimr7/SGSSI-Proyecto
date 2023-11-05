@@ -9,7 +9,6 @@ web:
    volumes:
      - ./app:/var/www/html/
      - ./app/logger:/var/log/
-   user: "www-data:www-data"
    
 db:
   image: mariadb:10.8.2

@@ -3,7 +3,6 @@ echo '<script>alert("Entra en logger");</script>';
 $msg = $_POST['message'];
 
 $archivoLog =  "/var/log/logAvionair.txt";
-
 if (!file_exists($archivoLog)) {
     touch($archivoLog);
     $log = fopen($archivoLog, "w");
