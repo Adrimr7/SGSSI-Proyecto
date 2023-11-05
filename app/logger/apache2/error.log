@@ -83,3 +83,7 @@ AH00558: apache2: Could not reliably determine the server's fully qualified doma
 [Sun Nov 05 12:00:46.935610 2023] [php7:error] [pid 22] [client 172.17.0.1:43832] script '/var/www/html/info.php' not found or unable to stat
 [Sun Nov 05 12:00:46.937436 2023] [php7:error] [pid 22] [client 172.17.0.1:43832] script '/var/www/html/i.php' not found or unable to stat
 [Sun Nov 05 12:00:46.939127 2023] [php7:error] [pid 22] [client 172.17.0.1:43832] script '/var/www/html/test.php' not found or unable to stat
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.4. Set the 'ServerName' directive globally to suppress this message
+[Sun Nov 05 20:09:24.463994 2023] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.25 (Debian) PHP/7.2.2 configured -- resuming normal operations
+[Sun Nov 05 20:09:24.465865 2023] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Sun Nov 05 20:37:42.861457 2023] [mpm_prefork:notice] [pid 1] AH00169: caught SIGTERM, shutting down

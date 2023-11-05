@@ -16,17 +16,27 @@ $contraseñaConSalt = $contraseña . $salt;
 $hash = generarHash($contraseñaConSalt);
 
 // Preparamos la instrucción SQL con los datos del formulario
-$sql = "INSERT INTO usuarios (dni, nombre, apellidos, telefono, email, contraseña, salt, nacimiento) VALUES ('$dni','$nombre','$apellidos','$telef','$email','$hash','$salt','$fnacimiento')";
+$sql = "INSERT INTO usuarios (dni, nombre, apellidos, telefono, email, contraseña, salt, nacimiento) VALUES (?,?,?,?,?,?,?,?)";
 
-// A través del objeto de conexión $conn, ejecutamos query() para enviar la instrucción SQL
-if ($conn->query($sql) === TRUE) {
-    // Teniendo el usuario registrado, cerramos la conexión a la base de datos
-    $conn->close();
-    include 'iniciosesion.php';
+if ($consulta = $conn->prepare($sql))
+{
+    //Asignamos el valor del dni al ? en la consulta
+    $consulta->bind_param("sssissss", $dni, $nombre, $apellidos, $telef, $email, $hash, $salt, $fnacimiento);
+    $resultado = $consulta->execute();
+    
+    if($resultado) {
+    	echo '<script> alert("Cuenta creada con exito.");</script>';
+    	include 'iniciosesion.php';
+        exit;
+    } else {
+    	echo '<script> alert("Se ha producido un error al crear la cuenta.");</script>';
+    } 
+}else
+{
+    // Gestion de errores de la consulta
+    echo '<script> alert("Error en la consulta");</script>';
+    include 'registro.php';
     exit;
-} else {
-    echo "Error: " . $conn->error;
-    $conn->close();
 }
 
 function generarHash($password) {
@@ -36,5 +46,7 @@ function generarHash($password) {
 function generarSalt() {
     return bin2hex(random_bytes(16)); // Genera una salt de 16 bytes y la convierte en una cadena hexadecimal
 }
+$consulta->close();
+$conn->close();
 ?>
 
