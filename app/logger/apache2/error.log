@@ -172,3 +172,18 @@ AH00558: apache2: Could not reliably determine the server's fully qualified doma
 [Mon Nov 06 12:29:58.631739 2023] [php7:error] [pid 28] [client 172.17.0.1:41376] script '/var/www/html/info.php' not found or unable to stat
 [Mon Nov 06 12:29:58.637167 2023] [php7:error] [pid 28] [client 172.17.0.1:41376] script '/var/www/html/i.php' not found or unable to stat
 [Mon Nov 06 12:29:58.643936 2023] [php7:error] [pid 28] [client 172.17.0.1:41376] script '/var/www/html/test.php' not found or unable to stat
+[Mon Nov 06 12:35:04.833982 2023] [mpm_prefork:notice] [pid 1] AH00169: caught SIGTERM, shutting down
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.3. Set the 'ServerName' directive globally to suppress this message
+[Mon Nov 06 12:35:32.314235 2023] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.25 (Debian) PHP/7.2.2 configured -- resuming normal operations
+[Mon Nov 06 12:35:32.314403 2023] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon Nov 06 12:36:12.271350 2023] [php7:error] [pid 22] [client 172.17.0.1:37526] script '/var/www/html/1385254034866682300.php' not found or unable to stat
+[Mon Nov 06 12:37:13.145980 2023] [php7:error] [pid 22] [client 172.17.0.1:48332] script '/var/www/html/8477055968260713153.php' not found or unable to stat
+[Mon Nov 06 12:39:26.273456 2023] [authz_core:error] [pid 24] [client 172.17.0.1:39598] AH01630: client denied by server configuration: /var/www/html/.htaccess
+[Mon Nov 06 12:39:26.354440 2023] [php7:error] [pid 24] [client 172.17.0.1:39598] script '/var/www/html/lfm.php' not found or unable to stat
+[Mon Nov 06 12:39:26.410754 2023] [authz_core:error] [pid 25] [client 172.17.0.1:39614] AH01630: client denied by server configuration: /var/www/html/server-status
+[Mon Nov 06 12:39:26.592576 2023] [php7:error] [pid 25] [client 172.17.0.1:39614] script '/var/www/html/adminer.php' not found or unable to stat
+[Mon Nov 06 12:39:26.598581 2023] [php7:error] [pid 25] [client 172.17.0.1:39614] script '/var/www/html/vb_test.php' not found or unable to stat
+[Mon Nov 06 12:39:26.647123 2023] [php7:error] [pid 25] [client 172.17.0.1:39614] script '/var/www/html/phpinfo.php' not found or unable to stat
+[Mon Nov 06 12:39:26.652191 2023] [php7:error] [pid 25] [client 172.17.0.1:39614] script '/var/www/html/info.php' not found or unable to stat
+[Mon Nov 06 12:39:26.657104 2023] [php7:error] [pid 25] [client 172.17.0.1:39614] script '/var/www/html/i.php' not found or unable to stat
+[Mon Nov 06 12:39:26.662009 2023] [php7:error] [pid 25] [client 172.17.0.1:39614] script '/var/www/html/test.php' not found or unable to stat
