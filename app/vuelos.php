@@ -27,6 +27,10 @@ $i = 0;
 //Entonces row contiene los datos de un vuelo
 while ($row = $result->fetch_assoc()) 
 {
+    if (!isset($_SESSION['csrf_token'])){
+	       $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+	       }
+	       $csrf_token = $_SESSION['csrf_token'];	
     echo "<div id='Avion$i' class='avion caja texto' style='width: 200px; height: 220px;'>
             <div class='div-imagen'>
                 
@@ -45,6 +49,8 @@ while ($row = $result->fetch_assoc())
 
                     <input type='hidden' name='fecha' value='{$row['fecha']}'>
                     <b>Fecha:</b> {$row['fecha']}<br>
+                    
+		   <input type='hidden' name='csrf_token' value='<?php echo $csrf_token; ?>'>
 
                     <button class='input' type='submit' id='botModificar$i' name='accion' value = 'modificar' >Modificar</button>
                     <button class='input' type='submit' id='botEliminar$i' name='accion' value = 'eliminar' >Eliminar</button>

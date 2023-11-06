@@ -27,6 +27,10 @@
         } else {
             echo '<p>Usuario <strong>Anónimo</strong></p>';
         }
+        if (!isset($_SESSION['csrf_token'])){
+        	$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+        }
+        $csrf_token = $_SESSION['csrf_token'];
         ?>
         </div>
         <div class="logo">
@@ -109,6 +113,7 @@
                     </div>
                     <div style="margin-top: 20px;">
                         <!-- le damos un id al boton y luego ponemos una parte del codigo a "escuchar" las acciones de este-->
+                        <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
                         <button class="input" type="button" id="botactualizar">Actualizar datos</button>
                         <script>
                             	document.getElementById("botactualizar").addEventListener("click", function() {
