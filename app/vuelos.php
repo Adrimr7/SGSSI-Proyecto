@@ -50,7 +50,7 @@ while ($row = $result->fetch_assoc())
                     <input type='hidden' name='fecha' value='{$row['fecha']}'>
                     <b>Fecha:</b> {$row['fecha']}<br>
                     
-		   <input type='hidden' name='csrf_token' value='<?php echo $csrf_token; ?>'>
+		   <input type='hidden' name='csrf_token' value= $csrf_token>
 
                     <button class='input' type='submit' id='botModificar$i' name='accion' value = 'modificar' >Modificar</button>
                     <button class='input' type='submit' id='botEliminar$i' name='accion' value = 'eliminar' >Eliminar</button>
