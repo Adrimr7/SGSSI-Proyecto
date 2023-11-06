@@ -14,31 +14,34 @@ $contraseña = $_POST["contraseña"];
 $salt = generarSalt();
 $contraseñaConSalt = $contraseña . $salt;
 $hash = generarHash($contraseñaConSalt);
+if (!empty($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
 
-// Preparamos la instrucción SQL con los datos del formulario
-$sql = "INSERT INTO usuarios (dni, nombre, apellidos, telefono, email, contraseña, salt, nacimiento) VALUES (?,?,?,?,?,?,?,?)";
+	// Preparamos la instrucción SQL con los datos del formulario
+	$sql = "INSERT INTO usuarios (dni, nombre, apellidos, telefono, email, contraseña, salt, nacimiento) VALUES (?,?,?,?,?,?,?,?)";
 
-if ($consulta = $conn->prepare($sql))
-{
-    //Asignamos el valor del dni al ? en la consulta
-    $consulta->bind_param("sssissss", $dni, $nombre, $apellidos, $telef, $email, $hash, $salt, $fnacimiento);
-    $resultado = $consulta->execute();
-    
-    if($resultado) {
-    	echo '<script> alert("Cuenta creada con exito.");</script>';
-    	include 'iniciosesion.php';
-        exit;
-    } else {
-    	echo '<script> alert("Se ha producido un error al crear la cuenta.");</script>';
-    } 
-}else
-{
-    // Gestion de errores de la consulta
-    echo '<script> alert("Error en la consulta");</script>';
-    include 'registro.php';
-    exit;
+	if ($consulta = $conn->prepare($sql))
+	{
+	    //Asignamos el valor del dni al ? en la consulta
+	    $consulta->bind_param("sssissss", $dni, $nombre, $apellidos, $telef, $email, $hash, $salt, $fnacimiento);
+	    $resultado = $consulta->execute();
+	    
+	    if($resultado) {
+	    	echo '<script> alert("Cuenta creada con exito.");</script>';
+	    	include 'iniciosesion.php';
+		exit;
+	    } else {
+	    	echo '<script> alert("Se ha producido un error al crear la cuenta.");</script>';
+	    } 
+	}else
+	{
+	    // Gestion de errores de la consulta
+	    echo '<script> alert("Error en la consulta");</script>';
+	    include 'registro.php';
+	    exit;
+	}
+}else{
+echo "Error token CSRF";	
 }
-
 function generarHash($password) {
     return password_hash($password, PASSWORD_DEFAULT);
 }

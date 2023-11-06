@@ -10,8 +10,18 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="Logo1.png" type="image/png">
 </head>
+<?php
+	
+	if (!isset($_SESSION['csrf_token'])){
+        	$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+        }
+        $csrf_token = $_SESSION['csrf_token'];
+       
+?>
 <body>
+        
     <div class="formulario-container">
+    	
         <div class="formulario">
             <h2 style="margin-top: 0px;">Añadir nuevo vuelo</h2>
             <form action="botonanadirvuelo.php" method="POST">
@@ -71,6 +81,7 @@
                     <label for="fnacimiento">Fecha del vuelo:</label>
                     <input class="input" type="date" id="fvuelo" name="fvuelo" required>
                 </div>
+                <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
                 <div style="margin-bottom: 12px;">
                     <button  class="input" type="submit">Añadir Vuelo</button>
                 </div >
@@ -81,6 +92,7 @@
                 <div class="campo" >
                     <input class="input" type="text" placeholder="Ciudad: Tokyo" id="ciudad" size="" name="ciudad" required>
                 </div>
+                <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
                 <div style="margin-bottom: 0px;">
                     <button class="input" type="submit">Añadir Ciudad</button>
                 </div >
