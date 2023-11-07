@@ -14,82 +14,41 @@ $fvuelo = $_POST["fvuelo"];
 //meter datos tabla
 
 
-$nombreCiudadOrigen = $_POST["origen"];
-$nombreCiudadDestino = $_POST["destino"];
+//$nombreCiudadOrigen = $_POST["origen"];
+//$nombreCiudadDestino = $_POST["destino"];
+
+$sql = "INSERT INTO vuelo (callsign, fecha, numero_pasajeros, ciudad_salida, ciudad_llegada) VALUES (?,?,?,?,?)";
 
 if (!empty($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
-
-	//meter datos tabla
-
-	$sql = "SELECT nombre FROM ciudad WHERE nombre = '$nombreCiudadOrigen'";
-
-	$result = $conn->query($sql);
-
-
-	if ($result->fetch_assoc()['nombre'] == $_POST["origen"])
+	if ($consulta = $conn->prepare($sql))
 	{
-	    echo '<script>console.log("Origen en base de datos")</script>';
-	} 
-	else 
-	{
-		$sql = "INSERT INTO ciudad (nombre) VALUES ('$nombreCiudadOrigen')";
-
-	    if ($conn->query($sql) === TRUE){
-		    //echo "Ciudad introducida correctamente.";
-			echo '<script>console.log("Ciudad añadida")</script>';
-			    //$conn->close();
-			    exit;
-	    } 
-	    else 
-	    {
-		    echo "Error: " . $conn->error;
-			    $conn->close(); 
-	    }   
-	}
-
-	//Comprobamos si la ciudad de destino se encuentra en la base de datos
-	$sql = "SELECT nombre FROM ciudad WHERE nombre = '$nombreCiudadDestino'";
-
-	$result = $conn->query($sql);
-
-	if ($result->fetch_assoc()['nombre'] == $_POST["destino"])
-	{
-	    echo '<script>console.log("Destino en base de datos")</script>';
-	} 
-	else 
-	{
-		$sql = "INSERT INTO ciudad (nombre) VALUES ('$nombreCiudadDestino')";
-
-	    if ($conn->query($sql) === TRUE){
-		    //echo "Ciudad introducida correctamente.";
-			echo '<script>console.log("Ciudad añadida")</script>';
-		
-			    //$conn->close();
-			    exit;
-	    } 
-	    else 
-	    {
-		    echo "Error: " . $conn->error;
-			    $conn->close(); 
-	    }   
-	}
-
-
-	//Comprobamos si la ciudad de origen se encuentra en la base de datos
-
-	//Por ultimo introducimos el vuelo en la base de datos
-
-	$sql = "INSERT INTO vuelo (callsign, fecha, numero_pasajeros, ciudad_salida, ciudad_llegada) VALUES ('$callsign','$fvuelo','$npasajeros','$origen','$destino')";
-
-	if ($conn->query($sql) === TRUE){
-		echo '<script> window.location.replace("vuelos.php")</script>';
-		exit;
+	    $consulta->bind_param("ssiss", $callsign, $fvuelo, $npasajeros, $origen, $destino);
+	    $resultado = $consulta->execute();
+	    
+	    if($resultado) {
+		echo '<script> alert("Vuelo añadido con exito");</script>';
+		echo '<script> window.location.replace("vuelos.php");</script>';
+	    	$consulta->close();
 		$conn->close();
-	} else {
-		echo "Error: " . $conn->error;
-			$conn->close(); 
+		exit;
+	    } else {
+	    	echo '<script> alert("Se ha producido un error al añadir un vuelo.");</script>';
+	    	$consulta->close();
+		$conn->close();
+	    	exit;
+	    } 
+	}else
+	{
+	    // Gestion de errores de la consulta
+	    echo '<script> alert("Error en la consulta");</script>';
+	    include 'registro.php';
+	    $consulta->close();
+	    $conn->close();
+	    exit;
 	}
 }else{
 echo "Error con el token CSRF";
 }
 ?>
+$consulta->close();
+$conn->close();

@@ -8,27 +8,41 @@ $apellidos = $_POST["apellidos"];
 $telef = $_POST["telef"];
 $fnacimiento = $_POST["fnacimiento"];
 $email = $_POST["email"];
-$contraseña = $_POST["contraseña"];
+$contrasena = $_POST["contraseña"];
 $dni = $_SESSION['dni'];
 
+$sql = "UPDATE usuarios SET nombre = ?, apellidos = ?, telefono = ?, email = ?, contraseña = ?, nacimiento = ? WHERE dni = ? ";
+
 if (!empty($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
-	//Preparamos la instruccion SQL con los datos del formulario, en este caso un update
-	$sql = "UPDATE usuarios SET nombre = '$nombre', apellidos = '$apellidos', telefono = '$telef', email = '$email', contraseña = '$contraseña', nacimiento = '$fnacimiento' WHERE dni = '$dni' ";
-
-
-	//A traves del objeto de conexion $conn ejecutamos query() para enviar la instruccion de SQL
-	if ($conn->query($sql) === TRUE){
-			//Teniendo el usuario cambiado, cerramos la conexion a la base de datos
-			$conn->close();
-			include "vuelos.php";
-			exit;
-	} 
-	else 
+	if ($consulta = $conn->prepare($sql))
 	{
-		echo "Error: " . $conn->error;
-			$conn->close(); 
+	    $consulta->bind_param("ssissss", $nombre, $apellidos, $telef, $email, $contrasena, $fnacimiento, $dni);
+	    $resultado = $consulta->execute();
+	    
+	    if($resultado) {
+	    	echo '<script> alert("Datos actualizados con exito");</script>';
+		include "vuelos.php"; //o seria window location replace?
+	    	$consulta->close();
+		$conn->close();
+		exit;
+	    } else {
+	    	echo '<script> alert("Se ha producido un error al actualizar tus datos.");</script>';
+	    	$consulta->close();
+		$conn->close();
+	    	exit;
+	    } 
+	}else
+	{
+	    // Gestion de errores de la consulta
+	    echo '<script> alert("Error en la consulta");</script>';
+	    include 'registro.php';
+	    $consulta->close();
+	    $conn->close();
+	    exit;
 	}
 }else{
-echo "Error con el token CSRF";
+	echo "Error con el token CSRF";
 }
 ?>
+$consulta->close();
+$conn->close();

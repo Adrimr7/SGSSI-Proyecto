@@ -37,10 +37,12 @@ if (!empty($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST[
 	    // Gestion de errores de la consulta
 	    echo '<script> alert("Error en la consulta");</script>';
 	    include 'registro.php';
+	    $consulta->close();
+	    $conn->close();
 	    exit;
 	}
 }else{
-echo "Error token CSRF";	
+	echo "Error token CSRF";	
 }
 function generarHash($password) {
     return password_hash($password, PASSWORD_DEFAULT);
