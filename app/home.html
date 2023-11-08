@@ -25,7 +25,7 @@
             $dni = $_SESSION['dni'];
             echo '<a href="cerrarsesion.php"> <strong>Cerrar sesión</strong></a>';
             echo '<p>Sesión iniciada usuario con DNI <strong>' . $dni . '</strong> </p>';
-            setcookie("miCookie", "miValor", [
+            setcookie("sesion", "iniciada", [
     		'expires' => time() + 3600,
     		'path' => '/',
     		'domain' => '',
