@@ -215,3 +215,79 @@ AH00558: apache2: Could not reliably determine the server's fully qualified doma
 [Wed Nov 08 14:21:53.631700 2023] [php7:error] [pid 24] [client 172.17.0.1:34464] script '/var/www/html/info.php' not found or unable to stat
 [Wed Nov 08 14:21:53.636968 2023] [php7:error] [pid 24] [client 172.17.0.1:34464] script '/var/www/html/i.php' not found or unable to stat
 [Wed Nov 08 14:21:53.642029 2023] [php7:error] [pid 24] [client 172.17.0.1:34464] script '/var/www/html/test.php' not found or unable to stat
+[Wed Nov 08 14:34:35.100731 2023] [mpm_prefork:notice] [pid 1] AH00169: caught SIGTERM, shutting down
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.4. Set the 'ServerName' directive globally to suppress this message
+[Wed Nov 08 14:40:15.117229 2023] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.25 (Debian) PHP/7.2.2 configured -- resuming normal operations
+[Wed Nov 08 14:40:15.117384 2023] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Wed Nov 08 14:47:25.890735 2023] [php7:error] [pid 19] [client 172.17.0.1:48388] script '/var/www/html/1497879244586581979.php' not found or unable to stat
+[Wed Nov 08 14:49:40.228378 2023] [authz_core:error] [pid 23] [client 172.17.0.1:55696] AH01630: client denied by server configuration: /var/www/html/.htaccess
+[Wed Nov 08 14:49:40.301747 2023] [php7:error] [pid 23] [client 172.17.0.1:55696] script '/var/www/html/lfm.php' not found or unable to stat
+[Wed Nov 08 14:49:40.367533 2023] [authz_core:error] [pid 24] [client 172.17.0.1:55708] AH01630: client denied by server configuration: /var/www/html/server-status
+[Wed Nov 08 14:49:40.550073 2023] [php7:error] [pid 24] [client 172.17.0.1:55708] script '/var/www/html/adminer.php' not found or unable to stat
+[Wed Nov 08 14:49:40.561063 2023] [php7:error] [pid 24] [client 172.17.0.1:55708] script '/var/www/html/vb_test.php' not found or unable to stat
+[Wed Nov 08 14:49:40.608213 2023] [php7:error] [pid 24] [client 172.17.0.1:55708] script '/var/www/html/phpinfo.php' not found or unable to stat
+[Wed Nov 08 14:49:40.613955 2023] [php7:error] [pid 24] [client 172.17.0.1:55708] script '/var/www/html/info.php' not found or unable to stat
+[Wed Nov 08 14:49:40.620055 2023] [php7:error] [pid 24] [client 172.17.0.1:55708] script '/var/www/html/i.php' not found or unable to stat
+[Wed Nov 08 14:49:40.628318 2023] [php7:error] [pid 24] [client 172.17.0.1:55708] script '/var/www/html/test.php' not found or unable to stat
+[Wed Nov 08 15:18:47.471615 2023] [php7:error] [pid 24] [client 172.17.0.1:39574] script '/var/www/html/2374955894116808068.php' not found or unable to stat
+[Wed Nov 08 15:21:04.304965 2023] [authz_core:error] [pid 18] [client 172.17.0.1:55956] AH01630: client denied by server configuration: /var/www/html/.htaccess
+[Wed Nov 08 15:21:04.381180 2023] [php7:error] [pid 18] [client 172.17.0.1:55956] script '/var/www/html/lfm.php' not found or unable to stat
+[Wed Nov 08 15:21:04.454401 2023] [authz_core:error] [pid 17] [client 172.17.0.1:55966] AH01630: client denied by server configuration: /var/www/html/server-status
+[Wed Nov 08 15:21:04.641061 2023] [php7:error] [pid 17] [client 172.17.0.1:55966] script '/var/www/html/adminer.php' not found or unable to stat
+[Wed Nov 08 15:21:04.646334 2023] [php7:error] [pid 17] [client 172.17.0.1:55966] script '/var/www/html/vb_test.php' not found or unable to stat
+[Wed Nov 08 15:21:04.686753 2023] [php7:error] [pid 17] [client 172.17.0.1:55966] script '/var/www/html/phpinfo.php' not found or unable to stat
+[Wed Nov 08 15:21:04.706445 2023] [php7:error] [pid 17] [client 172.17.0.1:55966] script '/var/www/html/info.php' not found or unable to stat
+[Wed Nov 08 15:21:04.713056 2023] [php7:error] [pid 17] [client 172.17.0.1:55966] script '/var/www/html/i.php' not found or unable to stat
+[Wed Nov 08 15:21:04.723847 2023] [php7:error] [pid 17] [client 172.17.0.1:55966] script '/var/www/html/test.php' not found or unable to stat
+[Wed Nov 08 15:31:27.005451 2023] [mpm_prefork:notice] [pid 1] AH00169: caught SIGTERM, shutting down
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.3. Set the 'ServerName' directive globally to suppress this message
+[Wed Nov 08 15:31:35.294917 2023] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.25 (Debian) PHP/7.2.2 configured -- resuming normal operations
+[Wed Nov 08 15:31:35.295064 2023] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Wed Nov 08 15:31:45.013869 2023] [php7:error] [pid 19] [client 172.17.0.1:51734] script '/var/www/html/5089867261341783471.php' not found or unable to stat
+[Wed Nov 08 15:34:00.686261 2023] [authz_core:error] [pid 16] [client 172.17.0.1:50282] AH01630: client denied by server configuration: /var/www/html/.htaccess
+[Wed Nov 08 15:34:00.769556 2023] [php7:error] [pid 16] [client 172.17.0.1:50282] script '/var/www/html/lfm.php' not found or unable to stat
+[Wed Nov 08 15:34:00.830448 2023] [authz_core:error] [pid 22] [client 172.17.0.1:50284] AH01630: client denied by server configuration: /var/www/html/server-status
+[Wed Nov 08 15:34:00.984780 2023] [php7:error] [pid 22] [client 172.17.0.1:50284] script '/var/www/html/adminer.php' not found or unable to stat
+[Wed Nov 08 15:34:00.991058 2023] [php7:error] [pid 22] [client 172.17.0.1:50284] script '/var/www/html/vb_test.php' not found or unable to stat
+[Wed Nov 08 15:34:01.036576 2023] [php7:error] [pid 22] [client 172.17.0.1:50284] script '/var/www/html/phpinfo.php' not found or unable to stat
+[Wed Nov 08 15:34:01.051110 2023] [php7:error] [pid 22] [client 172.17.0.1:50284] script '/var/www/html/info.php' not found or unable to stat
+[Wed Nov 08 15:34:01.056451 2023] [php7:error] [pid 22] [client 172.17.0.1:50284] script '/var/www/html/i.php' not found or unable to stat
+[Wed Nov 08 15:34:01.065024 2023] [php7:error] [pid 22] [client 172.17.0.1:50284] script '/var/www/html/test.php' not found or unable to stat
+[Wed Nov 08 15:44:52.995066 2023] [mpm_prefork:notice] [pid 1] AH00169: caught SIGTERM, shutting down
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.4. Set the 'ServerName' directive globally to suppress this message
+[Wed Nov 08 15:45:01.643759 2023] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.25 (Debian) PHP/7.2.2 configured -- resuming normal operations
+[Wed Nov 08 15:45:01.643917 2023] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Wed Nov 08 15:45:11.440470 2023] [php7:error] [pid 18] [client 172.17.0.1:33714] script '/var/www/html/4144597677107600772.php' not found or unable to stat
+[Wed Nov 08 15:47:28.500410 2023] [authz_core:error] [pid 19] [client 172.17.0.1:34654] AH01630: client denied by server configuration: /var/www/html/.htaccess
+[Wed Nov 08 15:47:28.597937 2023] [php7:error] [pid 19] [client 172.17.0.1:34654] script '/var/www/html/lfm.php' not found or unable to stat
+[Wed Nov 08 15:47:28.675398 2023] [authz_core:error] [pid 19] [client 172.17.0.1:34654] AH01630: client denied by server configuration: /var/www/html/server-status
+[Wed Nov 08 15:47:28.847196 2023] [php7:error] [pid 19] [client 172.17.0.1:34654] script '/var/www/html/adminer.php' not found or unable to stat
+[Wed Nov 08 15:47:28.853203 2023] [php7:error] [pid 19] [client 172.17.0.1:34654] script '/var/www/html/vb_test.php' not found or unable to stat
+[Wed Nov 08 15:47:28.904079 2023] [php7:error] [pid 19] [client 172.17.0.1:34654] script '/var/www/html/phpinfo.php' not found or unable to stat
+[Wed Nov 08 15:47:28.912312 2023] [php7:error] [pid 19] [client 172.17.0.1:34654] script '/var/www/html/info.php' not found or unable to stat
+[Wed Nov 08 15:47:28.919427 2023] [php7:error] [pid 19] [client 172.17.0.1:34654] script '/var/www/html/i.php' not found or unable to stat
+[Wed Nov 08 15:47:28.928358 2023] [php7:error] [pid 19] [client 172.17.0.1:34654] script '/var/www/html/test.php' not found or unable to stat
+[Wed Nov 08 15:50:00.723701 2023] [php7:error] [pid 23] [client 172.17.0.1:34982] script '/var/www/html/1910401707498745820.php' not found or unable to stat
+[Wed Nov 08 15:52:12.597413 2023] [authz_core:error] [pid 25] [client 172.17.0.1:35686] AH01630: client denied by server configuration: /var/www/html/.htaccess
+[Wed Nov 08 15:52:12.652521 2023] [php7:error] [pid 25] [client 172.17.0.1:35686] script '/var/www/html/lfm.php' not found or unable to stat
+[Wed Nov 08 15:52:12.706067 2023] [authz_core:error] [pid 25] [client 172.17.0.1:35686] AH01630: client denied by server configuration: /var/www/html/server-status
+[Wed Nov 08 15:52:12.883111 2023] [php7:error] [pid 25] [client 172.17.0.1:35686] script '/var/www/html/adminer.php' not found or unable to stat
+[Wed Nov 08 15:52:12.891333 2023] [php7:error] [pid 25] [client 172.17.0.1:35686] script '/var/www/html/vb_test.php' not found or unable to stat
+[Wed Nov 08 15:52:12.930442 2023] [php7:error] [pid 25] [client 172.17.0.1:35686] script '/var/www/html/phpinfo.php' not found or unable to stat
+[Wed Nov 08 15:52:12.936906 2023] [php7:error] [pid 25] [client 172.17.0.1:35686] script '/var/www/html/info.php' not found or unable to stat
+[Wed Nov 08 15:52:12.942207 2023] [php7:error] [pid 25] [client 172.17.0.1:35686] script '/var/www/html/i.php' not found or unable to stat
+[Wed Nov 08 15:52:12.947894 2023] [php7:error] [pid 25] [client 172.17.0.1:35686] script '/var/www/html/test.php' not found or unable to stat
+[Wed Nov 08 15:52:44.543172 2023] [mpm_prefork:notice] [pid 1] AH00169: caught SIGTERM, shutting down
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.4. Set the 'ServerName' directive globally to suppress this message
+[Wed Nov 08 15:52:52.668566 2023] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.25 (Debian) PHP/7.2.2 configured -- resuming normal operations
+[Wed Nov 08 15:52:52.668723 2023] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Wed Nov 08 15:57:56.374739 2023] [php7:error] [pid 20] [client 172.17.0.1:53446] script '/var/www/html/7756470205139534251.php' not found or unable to stat
+[Wed Nov 08 16:00:13.114154 2023] [authz_core:error] [pid 25] [client 172.17.0.1:53804] AH01630: client denied by server configuration: /var/www/html/.htaccess
+[Wed Nov 08 16:00:13.193157 2023] [php7:error] [pid 25] [client 172.17.0.1:53804] script '/var/www/html/lfm.php' not found or unable to stat
+[Wed Nov 08 16:00:13.262890 2023] [authz_core:error] [pid 25] [client 172.17.0.1:53804] AH01630: client denied by server configuration: /var/www/html/server-status
+[Wed Nov 08 16:00:13.429353 2023] [php7:error] [pid 25] [client 172.17.0.1:53804] script '/var/www/html/adminer.php' not found or unable to stat
+[Wed Nov 08 16:00:13.434642 2023] [php7:error] [pid 25] [client 172.17.0.1:53804] script '/var/www/html/vb_test.php' not found or unable to stat
+[Wed Nov 08 16:00:13.473384 2023] [php7:error] [pid 25] [client 172.17.0.1:53804] script '/var/www/html/phpinfo.php' not found or unable to stat
+[Wed Nov 08 16:00:13.482337 2023] [php7:error] [pid 25] [client 172.17.0.1:53804] script '/var/www/html/info.php' not found or unable to stat
+[Wed Nov 08 16:00:13.487707 2023] [php7:error] [pid 25] [client 172.17.0.1:53804] script '/var/www/html/i.php' not found or unable to stat
+[Wed Nov 08 16:00:13.493053 2023] [php7:error] [pid 25] [client 172.17.0.1:53804] script '/var/www/html/test.php' not found or unable to stat

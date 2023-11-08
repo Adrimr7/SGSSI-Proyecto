@@ -25,6 +25,14 @@
             $dni = $_SESSION['dni'];
             echo '<a href="cerrarsesion.php"> <strong>Cerrar sesión</strong></a>';
             echo '<p>Sesión iniciada usuario con DNI <strong>' . $dni . '</strong> </p>';
+            setcookie("miCookie", "miValor", [
+    		'expires' => time() + 3600,
+    		'path' => '/',
+    		'domain' => '',
+    		'secure' => true,
+    		'httponly' => true,
+   		'samesite' => 'Lax'
+	    ]);
         } else {
             echo '<p>Usuario <strong>Anónimo</strong></p>';
         }
