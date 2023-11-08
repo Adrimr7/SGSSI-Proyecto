@@ -40,8 +40,6 @@ if (!empty($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST[
 	    } else {
 		echo '<script> alert("Usuario no registrado.");</script>';
 		include 'iniciosesion.php';
-		$consulta->close();
-		$conn->close();
 		exit;
 	    }
 	} 

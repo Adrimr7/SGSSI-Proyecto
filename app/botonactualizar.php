@@ -22,13 +22,9 @@ if (!empty($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST[
 	    if($resultado) {
 	    	echo '<script> alert("Datos actualizados con exito");</script>';
 		include "vuelos.php"; //o seria window location replace?
-	    	$consulta->close();
-		$conn->close();
 		exit;
 	    } else {
 	    	echo '<script> alert("Se ha producido un error al actualizar tus datos.");</script>';
-	    	$consulta->close();
-		$conn->close();
 	    	exit;
 	    } 
 	}else
@@ -36,8 +32,6 @@ if (!empty($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST[
 	    // Gestion de errores de la consulta
 	    echo '<script> alert("Error en la consulta");</script>';
 	    include 'registro.php';
-	    $consulta->close();
-	    $conn->close();
 	    exit;
 	}
 }else{
