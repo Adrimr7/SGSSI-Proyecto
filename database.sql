@@ -60,9 +60,8 @@ CREATE TABLE vuelo (
 );-- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO usuarios (Dni, nombre, apellidos, telefono, email, nacimiento, contraseña) VALUES
-('14678903L', 'test', 'apell', '123456789', 'test@gmail.com', '2000-01-01', '123'),
-('15464903K', 'test2', 'apell', '987654321', 'test2@gmail.com', '1995-05-05', '123');
+INSERT INTO usuarios (Dni, nombre, apellidos, telefono, email, nacimiento, contraseña, salt) VALUES
+('84617917-C', 'test', 'apell', '123456789', 'test@gmail.com', '2000-01-01', '$2y$10$CAYQLjJ3F1uPW0bRSpT/ruenRbGC5u5Lx4leRCDGCZXN95shJZeKS', '81875ae15157309eeed64dc942f2e318');
 
 INSERT INTO ciudad (nombre) VALUES ('Bilbao'),('Dublin'),('Oporto'),('Sao Paulo'),('Buenos Aires');
 
