@@ -18,7 +18,13 @@
         //Introducimos el codigo de PHP directamente en HTML y asi podemos comprobar que si hemos inicado sesion nos muestre la opcion de cerrar sesion
 
         //Reaundamos la sesion en PHP previamente abierta
-        session_start();
+        session_start([
+    		'cookie_lifetime' => 0,           // Sesión cerrada al salir
+   		'cookie_path' => '/',             
+    		'cookie_secure' => true,          // Solo se envía la cookie sobre conexiones HTTPS.
+    		'cookie_httponly' => true,        // No se puede acceder a  las cookies mediante JS
+    		'cookie_samesite' => 'Lax',       
+	]);
 
         //Comprobamos si la variable de sesion 'autenticado' ha sido establecida (isset) y la "obtenemos" ($_SESSION['autenticado']) 
         if (isset($_SESSION['autenticado']) && $_SESSION['autenticado']) {
@@ -26,7 +32,7 @@
             echo '<a href="cerrarsesion.php"> <strong>Cerrar sesión</strong></a>';
             echo '<p>Sesión iniciada usuario con DNI <strong>' . $dni . '</strong> </p>';
            
-           setcookie("sesion", "iniciada", time() +3600, '/', '', true, true);
+           
         } else {
             echo '<p>Usuario <strong>Anónimo</strong></p>';
         }
