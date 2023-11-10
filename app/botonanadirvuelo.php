@@ -1,8 +1,7 @@
 <?php
 session_start();
 include 'connection.php';
-
-//Aqui navbar
+include 'logger/mensajeLog.php';
 
 $callsign = $_POST["callsign"];
 $origen = $_POST["origen"];
@@ -10,12 +9,6 @@ $destino = $_POST["destino"];
 $npasajeros = $_POST["npasajeros"];
 $fvuelo = $_POST["fvuelo"];
 
-
-//meter datos tabla
-
-
-//$nombreCiudadOrigen = $_POST["origen"];
-//$nombreCiudadDestino = $_POST["destino"];
 
 $sql = "INSERT INTO vuelo (callsign, fecha, numero_pasajeros, ciudad_salida, ciudad_llegada) VALUES (?,?,?,?,?)";
 

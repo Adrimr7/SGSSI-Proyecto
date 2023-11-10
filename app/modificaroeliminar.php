@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'connection.php';
-
+include 'logger/mensajeLog.php';
 if (!empty($_POST['csrf_token'])) {
 	if (hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
 		if (isset($_POST['accion']) && $_POST['accion'] === 'modificar') 

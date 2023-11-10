@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'connection.php';
-
+include 'logger/mensajeLog.php';
 //Obtenemos los datos del submit usando los id de cada apartado
 $nombre = $_POST["nombre"];
 $apellidos = $_POST["apellidos"];

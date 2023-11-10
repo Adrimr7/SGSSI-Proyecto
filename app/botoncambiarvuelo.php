@@ -1,7 +1,8 @@
 <?php
 session_start();
 include 'connection.php';
-
+include 
+'logger/mensajeLog.php';
 $calls = $_POST["callsign"];
 $fecha = $_POST["fecha"];
 $numero_pasajeros = $_POST["pasajeros"];
@@ -18,7 +19,6 @@ if (!empty($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST[
 	    if($resultado) {
 	    	echo '<script> alert("Vuelo modificado con exito.");</script>';
 	    	echo '<script> window.location.replace("vuelos.php"); </script>';
-	    	//include 'iniciosesion.php'; CREO QUE ESTO SOBRA
 	    	$consulta->close();
 		$conn->close();
 		exit;

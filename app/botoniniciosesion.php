@@ -1,7 +1,8 @@
 <?php
 session_start();
 include 'connection.php';
-
+include 'logger/mensajeLog.php';
+        
 $dni = $_POST["dni"];
 $contraseña = $_POST["contrasena"];
 
@@ -24,58 +25,50 @@ if (!empty($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST[
 		// Concatenar la contraseña proporcionada con la salt almacenada
 		$contraseñaConSalt = $contraseña . $saltAlmacenado;
 
-		if (password_verify($contraseñaConSalt, $hashAlmacenado)) {
+		if (password_verify($contraseñaConSalt, $hashAlmacenado)) 
+		{
 		    // Contraseña verificada con éxito
 		    // Inicia la sesión y realiza las acciones necesarias
-		    echo '<script> var message = "Contraseña correcta de DNI: ' . $dni . '";
-				   var xhr = new XMLHttpRequest();
-                                   xhr.open("POST", "../logger/logger.php", true);
-                                   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                                   xhr.send("message=" + message);</script>';
+		    $msg = "Contraseña correcta de DNI: $dni";
+    		    echo '<script>mensajeLog("' . $msg . '");</script>';
+    		    
 		    session_start();
 		    $_SESSION['autenticado'] = true;
 		    $_SESSION['dni'] = $dni;
 		    include 'vuelos.php';
 		    exit;
-		} else {
-		    echo '<script> var message = "Contraseña incorrecta de DNI: ' . $dni . '";
-				   var xhr = new XMLHttpRequest();
-                                   xhr.open("POST", "../logger/logger.php", true);
-                                   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                                   xhr.send("message=" + message);</script>';
-		    
+		} 
+		else
+		{
+		    $msg = "Contraseña incorrecta de DNI: $dni";
+		    echo '<script>mensajeLog("' . $msg . '");</script>';
 		    include 'iniciosesion.php';
 		    exit;
+
 		}
-	    } else 
+	    } 
+	    else 
 	    {
-		echo '<script> var message = "Usuario con DNI: ' . $dni . ' no registrado.";
-			       var xhr = new XMLHttpRequest();
-                               xhr.open("POST", "../logger/logger.php", true);
-                               xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                               xhr.send("message=" + message);</script>';
+		$msg = "Usuario no registrado con DNI: $dni";
+    		echo '<script>mensajeLog("' . $msg . '");</script>';
 		include 'iniciosesion.php';
 		exit;
 	    }
 	} 
 	else
 	{
-	    echo '<script> var message = "Error en la consulta." ;
-			   var xhr = new XMLHttpRequest();
-                           xhr.open("POST", "../logger/logger.php", true);
-                           xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                           xhr.send("message=" + message);</script>';
+	    $msg = "Error en la consulta.";
+            echo '<script>mensajeLog("' . $msg . '");</script>';
 	    include 'iniciosesion.php';
 	    exit;
 	}
-}else{
-	echo '<script> var message = "Error en el token CSRF." ;
-			   var xhr = new XMLHttpRequest();
-                           xhr.open("POST", "../logger/logger.php", true);
-                           xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                           xhr.send("message=" + message);</script>';
-	    include 'iniciosesion.php';
-	    exit;
+}
+else
+{
+	$msg = "Error en el Token CSRF";
+    	echo '<script>mensajeLog("' . $msg . '");</script>';
+	include 'iniciosesion.php';
+	exit;
 }
 function generateHash($password) {
     return password_hash($password, PASSWORD_DEFAULT);

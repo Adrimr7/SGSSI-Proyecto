@@ -10,9 +10,8 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="Logo1.png" type="image/png">
 </head>
-
 <body style="background-color: rgb(183, 195, 231);">
-    
+
     <header id="main-header">
     <div class="titulo">
         <h1>Inicio de Sesión</h1>
@@ -77,27 +76,16 @@
 <script>
     document.getElementById("botiniciosesion").addEventListener("click", function() {
         var dni = document.getElementById("dni").value;
-        var message = "Intento de inicio de sesión con DNI: " + dni;
-        
+        var msg = "Intento de inicio de sesión con DNI: " + dni;
 	var xhr = new XMLHttpRequest();
         xhr.open("POST", "../logger/logger.php", true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhr.send("message=" + message);
-        console.log("Antes de registro");
-	xhr.onload = function() {
-            if (xhr.status === 200) {
-                // La solicitud fue exitosa
-                console.log("Inicio de sesión exitoso");
-            } else {
-                // La solicitud falló, muestra un mensaje de error
-                console.log("Error en el inicio de sesion: " + xhr.status);
-            }
-        };
+        xhr.send("message=" + msg);
         
         document.getElementById("form-inicio-sesion").submit();
-        alert("ddd");
         limpiarForm();
     });
+    
 </script>
 
 
