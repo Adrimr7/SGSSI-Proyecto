@@ -16,24 +16,30 @@ if (!empty($_POST['csrf_token'])) {
 
 		if (isset($_POST['accion']) && $_POST['accion'] === 'eliminar') 
 		   {
-		   	$calls = $_POST['numcallsign'];
-		   	echo $calls;
-			$sql = "DELETE FROM vuelo WHERE callsign = '$calls'";
+		   	// Sentencia preparada para evitar SQL injection
+		   	$calls = $_POST["numcallsign"];
+			$sql = "DELETE FROM vuelo WHERE callsign = ?";
+			$stmt = $conn->prepare($sql);
+			$stmt->bind_param("s", $calls);
 
-			if ($conn->query($sql) === TRUE){
-				echo '<script> window.location.replace("vuelos.php");</script>';
-				exit;
-				$conn->close();
-			} 
-			else {
-				echo "Error: " . $conn->error;
-				$conn->close(); 
-				}
-		}
+			if ($stmt->execute()) {
+			    $msg = "Vuelo con callsign: '$calls' eliminado.";
+ 			    echo '<script>mensajeLog("' . $msg . '");
+ 			    alert("Vuelo eliminado correctamente.");
+          		    window.location.replace("vuelos.php")</script>';
+    			    exit;
+			} else {
+			    $msg = "Error: " . $conn->error;
+			    echo '<script>mensajeLog("' . $msg . '");</script>';
+			}
+
+			$stmt->close();
+			$conn->close();
+		 }
 	}else{
 	echo $_SESSION['csrf_token'];
-	
-	echo "Error token CSRF no cuadra";
+	$msg = "Error con el CSRF Token, modificaroeliminar.php";
+	echo '<script>mensajeLog("' . $msg . '");</script>';
 	echo $_POST['csrf_token'];
 	}
 }else{

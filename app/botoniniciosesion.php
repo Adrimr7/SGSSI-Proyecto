@@ -28,7 +28,7 @@ if (!empty($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST[
 		if (password_verify($contraseñaConSalt, $hashAlmacenado)) 
 		{
 		    // Contraseña verificada con éxito
-		    // Inicia la sesión y realiza las acciones necesarias
+
 		    $msg = "Contraseña correcta de DNI: $dni";
     		    echo '<script>mensajeLog("' . $msg . '");</script>';
     		    

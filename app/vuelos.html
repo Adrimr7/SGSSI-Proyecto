@@ -11,17 +11,14 @@
     <link rel="icon" href="Logo1.png" type="image/png">
 </head>
 <?php
-	
 	if (!isset($_SESSION['csrf_token'])){
         	$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
         }
         $csrf_token = $_SESSION['csrf_token'];
-       
 ?>
 <body>
         
     <div class="formulario-container">
-    	
         <div class="formulario">
             <h2 style="margin-top: 0px;">Añadir nuevo vuelo</h2>
             <form action="botonanadirvuelo.php" method="POST">
@@ -56,11 +53,8 @@
 		    <option value="" disabled selected>Selecciona una ciudad de Destino:</option>
 			<?php
 			include 'connection.php';
-
 			$sql = 'SELECT * FROM ciudad ORDER BY nombre';
-
 			$resultado = $conn->query($sql);
-
 			if ($resultado) {
     				while ($row = $resultado->fetch_assoc()) { 
         				$nombre = $row['nombre'];
@@ -70,7 +64,6 @@
 			} else {
     				echo "Error: " . $conn->error;
 			}
-
 			$conn->close();
 			?>
 			</select>
@@ -78,7 +71,7 @@
                     <input class="input" type="number" min="0" placeholder="Número de Pasajeros: 33" id="npasajeros" name="npasajeros" required>
                 </div>
                 <div class="campo">
-                    <label for="fnacimiento">Fecha del vuelo:</label>
+                    <label for="fvuelo">Fecha del vuelo:</label>
                     <input class="input" type="date" id="fvuelo" name="fvuelo" required>
                 </div>
                 <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
