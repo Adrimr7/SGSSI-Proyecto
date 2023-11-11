@@ -144,6 +144,46 @@
             return true; // El DNI es válido
         }
 
+        function comprobarContrasena(cont)
+        {
+            // Expresión regular para el formato "11111111-Z"
+            var mayuscula = /^[^A-Z]*[A-Z]+[^A-Z]*$/;
+            var minuscula = /^[^a-z]*[a-z]+[^a-z]*$/;
+            var numero = /^[^0-9]*[0-9]+[^0-9]*$/;
+            var caracter = /^\w*\W+\w*$/;
+        
+            
+            
+            if (!mayuscula.test(cont)) {
+            	window.alert("La contraseña no contiene ninguna mayuscula")
+                return false; // No coincide con el formato esperado
+                
+            }
+
+            if (!minuscula.test(cont)) {
+            	window.alert("La contraseña no contiene ninguna minuscula")
+                return false; // No coincide con el formato esperado
+            }
+
+            if (!numero.test(cont)) {
+            	window.alert("La contraseña no contiene ningun numero")
+                return false; // No coincide con el formato esperado
+            }
+
+            if (!caracter.test(cont)) {
+            	window.alert("La contraseña no contiene ningun caracter especial")
+                return false; // No coincide con el formato esperado
+            }
+
+            if (cont.length < 8) {
+            	window.alert("La contraseña debe tener mas de 8 caracteres")
+                return false; // No coincide con el formato esperado
+            }
+            
+
+            return true; // El DNI es válido
+        }
+
         function limpiarForm(){
             var formulario = document.getElementById("Formulario");
             formulario.reset();
@@ -171,10 +211,19 @@
                                 if (comprobarDNI(document.getElementById("dni").value))
                                 {
                                     console.log("DNI Valido");
-                                    console.log("Errorn't");
 
-                                    //Si todo sale correcto el valor que se devolvera es true
-                                    var estado = true;
+                                    if (comprobarContrasena(document.getElementById("contraseña").value))
+                                    {
+                                        console.log("Contraseña Valida");
+                                        console.log("Errorn't");
+
+                                        //Si todo sale correcto el valor que se devolvera es true
+                                        var estado = true;
+                                    }
+                                    else
+                                    {
+                                        console.log("Error : Contraseña no valido");
+                                    }
                                 }
                                 else
                                 {
@@ -239,7 +288,7 @@
                     <input class="input" type="email" placeholder="Correo Electrónico: jmarcos021@ikasle.ehu.eus" id="email" name="email" required>
                 </div>
                 <div class="campo">
-                    <input class="input"type="password" placeholder="Contraseña: 123" id="contraseña" name="contraseña" required>
+                    <input class="input"type="password" placeholder="Contraseña: Contras3na*" id="contraseña" name="contraseña" required>
                 </div>
                 <div class="campo">
                     <label>
