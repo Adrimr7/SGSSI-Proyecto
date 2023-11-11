@@ -146,36 +146,36 @@
 
         function comprobarContrasena(cont)
         {
-            // Expresión regular para el formato "11111111-Z"
             var mayuscula = /^[^A-Z]*[A-Z]+[^A-Z]*$/;
-            var minuscula = /^[^a-z]*[a-z]+[^a-z]*$/;
-            var numero = /^[^0-9]*[0-9]+[^0-9]*$/;
-            var caracter = /^\w*\W+\w*$/;
-        
-            
-            
-            if (!mayuscula.test(cont)) {
+            if (!mayuscula.test(cont)) 
+            {
             	window.alert("La contraseña no contiene ninguna mayuscula")
-                return false; // No coincide con el formato esperado
-                
+                return false; // No coincide con el formato esperado 
             }
 
-            if (!minuscula.test(cont)) {
+            var minuscula = /^[^a-z]*[a-z]+[^a-z]*$/;
+            if (!minuscula.test(cont)) 
+            {
             	window.alert("La contraseña no contiene ninguna minuscula")
                 return false; // No coincide con el formato esperado
             }
 
-            if (!numero.test(cont)) {
+            var numero = /^[^0-9]*[0-9]+[^0-9]*$/;
+            if (!numero.test(cont)) 
+            {
             	window.alert("La contraseña no contiene ningun numero")
                 return false; // No coincide con el formato esperado
             }
 
-            if (!caracter.test(cont)) {
+            var caracter = /^\w*\W+\w*$/;
+            if (!caracter.test(cont)) 
+            {
             	window.alert("La contraseña no contiene ningun caracter especial")
                 return false; // No coincide con el formato esperado
             }
 
-            if (cont.length < 8) {
+            if (cont.length < 8) 
+            {
             	window.alert("La contraseña debe tener mas de 8 caracteres")
                 return false; // No coincide con el formato esperado
             }
