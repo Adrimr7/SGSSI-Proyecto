@@ -30,6 +30,7 @@ phpmyadmin:
   ports:
     - 8890:80
   environment:
+    MYSQL_ROOT_PASSWORD: root
     MYSQL_USER: admin
     MYSQL_PASSWORD: test
     MYSQL_DATABASE: database

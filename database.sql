@@ -26,8 +26,13 @@ SET time_zone = "+00:00";
 --
 -- Estructura de tabla para la tabla `usuarios`
 --
-
-
+DROP USER 'user'@'%';
+FLUSH PRIVILEGES;
+CREATE USER 'user'@'%' IDENTIFIED BY 'clave';
+GRANT SELECT ON *.* to 'usuario'@'%';
+GRANT INSERT ON *.* to 'usuario'@'%';
+GRANT UPDATE ON *.* to 'usuario'@'%';
+FLUSH PRIVILEGES;
 
 CREATE TABLE usuarios (
     dni VARCHAR(10) PRIMARY KEY,
