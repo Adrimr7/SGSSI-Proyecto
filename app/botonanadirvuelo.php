@@ -19,29 +19,35 @@ if (!empty($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST[
 	    $resultado = $consulta->execute();
 	    
 	    if($resultado) {
-		echo '<script> alert("Vuelo añadido con exito");</script>';
-		echo '<script> window.location.replace("vuelos.php");</script>';
-	    	$consulta->close();
-		$conn->close();
+	    	$msg = "Añadido correctamente el vuelo: " . $callsign;
+		echo '<script>mensajeLog("' . $msg . '"); 
+			      alert("Vuelo añadido con exito"); 
+			      window.location.replace("vuelos.php");
+		     </script>';
+	    	
 		exit;
 	    } else {
-	    	echo '<script> alert("Se ha producido un error al añadir un vuelo.");</script>';
-	    	$consulta->close();
-		$conn->close();
+			$msg = "ERROR al añadir el vuelo: " . $callsign;
+			echo '<script>mensajeLog("' . $msg . '"); 
+			      window.location.replace("vuelos.php");
+		     </script>';
 	    	exit;
 	    } 
+	    $consulta->close();
+	    $conn->close();
 	}else
 	{
 	    // Gestion de errores de la consulta
-	    echo '<script> alert("Error en la consulta");</script>';
-	    include 'registro.php';
-	    $consulta->close();
-	    $conn->close();
-	    exit;
+		$msg = "Error en la consulta del vuelo: " . $callsign;
+		echo '<script>mensajeLog("' . $msg . '"); </script>';
+	    	include 'registro.php';
+	    	$consulta->close();
+	    	$conn->close();
+	    	exit;
 	}
 }else{
-echo "Error con el token CSRF";
+$msg = "Error con el token CSRF";
+echo '<script>mensajeLog("' . $msg . '"); </script>';
 }
 ?>
-$consulta->close();
-$conn->close();
+

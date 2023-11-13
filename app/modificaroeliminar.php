@@ -25,7 +25,6 @@ if (!empty($_POST['csrf_token'])) {
 			if ($stmt->execute()) {
 			    $msg = "Vuelo con callsign: '$calls' eliminado.";
  			    echo '<script>mensajeLog("' . $msg . '");
- 			    alert("Vuelo eliminado correctamente.");
           		    window.location.replace("vuelos.php")</script>';
     			    exit;
 			} else {
@@ -37,10 +36,8 @@ if (!empty($_POST['csrf_token'])) {
 			$conn->close();
 		 }
 	}else{
-	echo $_SESSION['csrf_token'];
-	$msg = "Error con el CSRF Token, modificaroeliminar.php";
+	$msg = "Error con el CSRF Token.";
 	echo '<script>mensajeLog("' . $msg . '");</script>';
-	echo $_POST['csrf_token'];
 	}
 }else{
 

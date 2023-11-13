@@ -5,7 +5,6 @@ include 'logger/mensajeLog.php';
 //Aqui navbar
 
 $nombre = $_POST["ciudad"];
-echo $_SESSION['csrf_token'];
 
 $sql = "INSERT INTO ciudad (nombre) VALUES (?)";
 
@@ -16,30 +15,31 @@ if (!empty($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST[
 	    $resultado = $consulta->execute();
 	    
 	    if($resultado) {
-		echo '<script> alert("Ciudad introducida correctamente.");</script>';
-		echo '<script> window.location.replace("vuelos.php");</script>';
-	    	$consulta->close();
-		$conn->close();
+		$msg = "Añadida la ciudad: " . $nombre;
+		echo '<script>mensajeLog("' . $msg . '"); 
+	              window.location.replace("vuelos.php")</script>';
 		exit;
 	    } else {
-	    	echo '<script> alert("Se ha producido un error al añadir una nueva ciudad.");</script>';
-	    	$consulta->close();
-		$conn->close();
+		$msg = "ERROR al añadir la ciudad: " . $nombre;
+		echo '<script>mensajeLog("' . $msg . '");;
+		window.location.replace("vuelos.php")</script>';
 	    	exit;
 	    } 
-	}else
+	}
+	else
 	{
 	    // Gestion de errores de la consulta
-	    echo '<script> alert("Error en la consulta");</script>';
+	    $msg = "ERROR en consulta al añadir la ciudad: " . $nombre;
+	    echo '<script>mensajeLog("' . $msg . '"); </script>';
 	    include 'registro.php';
-	    $consulta->close();
-	    $conn->close();
+	    
 	    exit;
 	}
+	$consulta->close();
+	$conn->close();
 }else{
-	echo $_SESSION['csrf_token'];
-	echo "Error con el token CSRF";
-	echo $_POST['csrf_token'];
+	$msg = "ERROR con el token CSRF.";
+        echo '<script>mensajeLog("' . $msg . '"); </script>';
 }
 ?>
 $consulta->close();

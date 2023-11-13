@@ -18,3 +18,12 @@
 [2023-11-10 16:16:58] Vuelo con callsign: 'AVA0001' eliminado.
 [2023-11-12 15:52:37] Intento de inicio de sesión con DNI: 84617917-C
 [2023-11-12 15:52:37] Contraseña correcta de DNI: 84617917-C
+[2023-11-13 14:55:44] Intento de inicio de sesión con DNI: 84617917-C
+[2023-11-13 14:55:44] Contraseña correcta de DNI: 84617917-C
+[2023-11-13 21:45:50] Intento de inicio de sesión con DNI: 84617917-C
+[2023-11-13 21:45:50] Contraseña correcta de DNI: 84617917-C
+[2023-11-13 21:46:17] Añadido correctamente el vuelo: AVA0009
+[2023-11-13 21:46:28] Añadida la ciudad: Miami
+[2023-11-13 21:48:16] Vuelo con callsign: 'AVA0009' eliminado.
+[2023-11-13 21:48:30] Añadida la ciudad: Barcelona
+[2023-11-13 21:49:38] Vuelo con callsign: 'AVA0005' eliminado.
