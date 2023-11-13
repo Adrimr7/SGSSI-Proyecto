@@ -69,13 +69,13 @@ CREATE TABLE vuelo (
 INSERT INTO usuarios (Dni, nombre, apellidos, telefono, email, nacimiento, contraseña, salt) VALUES
 ('84617917-C', 'test', 'apell', '123456789', 'test@gmail.com', '2000-01-01', '$2y$10$CAYQLjJ3F1uPW0bRSpT/ruenRbGC5u5Lx4leRCDGCZXN95shJZeKS', '81875ae15157309eeed64dc942f2e318');
 
-INSERT INTO ciudad (nombre) VALUES ('Bilbao'),('Dublin'),('Oporto'),('Sao Paulo'),('Buenos Aires');
+INSERT INTO ciudad (nombre) VALUES ('Bilbao'),('Dublin'),('Oporto'),('Sao Paulo'),('Buenos Aires'),('Tokyo');
 
 INSERT INTO vuelo (callsign, fecha, numero_pasajeros, ciudad_salida, ciudad_llegada) VALUES
 ('AVA0001','2024-02-09','45','Bilbao','Oporto'),
 ('AVA0002','2024-04-02','122','Sao Paulo','Buenos Aires'),
 ('AVA0004','2024-03-15','110','Dublin','Sao Paulo'),
-('AVA0005','2024-05-20','60','Buenos Aires','Bilbao');
+('AVA0005','2024-05-20','60','Buenos Aires','Tokyo');
 
 
 --
