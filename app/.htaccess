@@ -1,0 +1,9 @@
+#  creo que esto que está comentado no es necesario
+<IfModule mod_headers.c>
+	Header always set Content-Security-Policy "frame-ancestors 'self'"
+</IfModule>
+
+#Cabecera X-Content-Type
+<IfModule mod_headers.c>
+	Header always set X-Content-Type-Options "nosniff"
+</IfModule>
