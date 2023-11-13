@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <title>REGISTRO - AVIONAIR</title>
     <link rel="stylesheet" href="styles.css">
@@ -263,6 +264,7 @@
                         Aceptar los Términos y Condiciones de la Empresa
                     </label>
                 </div>
+                <div class="g-recaptcha" data-sitekey="6Le-Iw4pAAAAAHWPiE6yODoiJpy3y980qGQIbdYk"></div>
                 <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
                 <div style="margin-top: 20px;">
                     <!-- le damos un id al boton y luego ponemos una parte del codigo a "escuchar" las acciones de este-->
