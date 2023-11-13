@@ -16,3 +16,5 @@
 [2023-11-10 16:09:56] Contraseña correcta de DNI: 84617917-C
 [2023-11-10 16:16:12] Vuelo con callsign: 'AVA0005' eliminado.
 [2023-11-10 16:16:58] Vuelo con callsign: 'AVA0001' eliminado.
+[2023-11-12 15:52:37] Intento de inicio de sesión con DNI: 84617917-C
+[2023-11-12 15:52:37] Contraseña correcta de DNI: 84617917-C
