@@ -3,10 +3,11 @@
 #	Header always set Content-Security-Policy "frame-ancestors 'self'"
 #</IfModule>
 
-
+#No se ejecuta por que el mod_headers.c no esta habilitado
+#HAbria que habilitarlo en apache, en httpd.conf
 #Header add Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; form-action 'self'; frame-ancestors 'self';"
 
-#Header add Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; form-action 'self';"
+#Header always set Content-Security-Policy "default-src 'self'"
 
 #Cabecera X-Content-Type
 <IfModule mod_headers.c>
