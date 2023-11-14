@@ -1,4 +1,5 @@
 <?php
+header_remove('X-Powered-By');
 session_start();
 session_unset();
 session_destroy();

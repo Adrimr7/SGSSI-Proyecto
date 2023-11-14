@@ -1,4 +1,5 @@
 <?php
+header_remove('X-Powered-By');
 //Preparamos los datos para la conexion con mysqli (una interfaz de MySQL para PHP)
 $hostname = "db";
 $username = "admin";

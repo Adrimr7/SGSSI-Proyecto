@@ -1,4 +1,5 @@
 <?php
+header_remove('X-Powered-By');
 //Iniciamos o continuamos la sesion de PHPs
 session_start();
 //Nos conectamos a la base de datos
