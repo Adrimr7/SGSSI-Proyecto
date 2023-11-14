@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'connection.php';
-
+include 'logger/mensajeLog.php';
 //Ponemos la cabecera de la pagina
 include 'navbar.html';
 
@@ -16,6 +16,8 @@ $result = $conn->query($query);
 //Comprobamos que el resultado sea correcto
 if (!$result) {
     die("Error en la consulta: " . $conn->error);
+    $msg = "ERROR en la consulta de los vuelos. ";
+    echo '<script>mensajeLog("' . $msg . '");</script>';	
 }
 
 //Crea una tabla con los datos de la consulta

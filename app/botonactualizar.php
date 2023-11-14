@@ -20,22 +20,27 @@ if (!empty($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST[
 	    $resultado = $consulta->execute();
 	    
 	    if($resultado) {
-	    	echo '<script> alert("Datos actualizados con exito");</script>';
-		include "vuelos.php"; //o seria window location replace?
-		exit;
+	    	$msg = "Actualizados los datos del usuario: " . $dni;
+		echo '<script>mensajeLog("' . $msg . '");
+		alert("Datos actualizados correctamente!");
+		window.location.replace("vuelos.php");</script>';
 	    } else {
-	    	echo '<script> alert("Se ha producido un error al actualizar tus datos.");</script>';
-	    	exit;
+	    	$msg = "ERROR al actualizar los datos del usuario: " . $dni;
+		echo '<script> mensajeLog("' . $msg . '");
+		alert("Datos actualizados correctamente!");
+		</script>';
 	    } 
 	}else
 	{
 	    // Gestion de errores de la consulta
-	    echo '<script> alert("Error en la consulta");</script>';
-	    include 'registro.php';
+	    $msg = "ERROR en la consulta del usuario: " . $dni;
+	    echo '<script>mensajeLog("' . $msg . '");
+	    window.location.replace("registro.php");</script>';
 	    exit;
 	}
 }else{
-	echo "Error con el token CSRF";
+	$msg = "ERROR con el token CSRF";
+	echo '<script>mensajeLog("' . $msg . '"); </script>';
 }
 ?>
 $consulta->close();

@@ -54,8 +54,6 @@
     
 
     <?php
-
-    //AQUI SE REALIZA LA CONSULTA, LOS DATOS OBTENIDOS DE ELLA SE USAN POSTERIORMENTE EN EL HTML MEDIANTE ECHOS
 	session_start();
         $dni = $_SESSION['dni'];
     
@@ -243,59 +241,42 @@
         function comprobar()
         {
             var estado = false;
-            console.log("Funciona");
             if (comprobarCorreo(document.getElementById("email").value))
             {
-                console.log("Correo Valido");
                 if (true || comprobarEdad(document.getElementById("fnacimiento").value))
                 {
-                    console.log("Fecha Valida");
                     if (comprobarnombreapellidos(document.getElementById("nombre").value))
                     {
-                        console.log("Nombre Valido");
                         if (comprobarnombreapellidos(document.getElementById("apellidos").value))
                         { 
-                            console.log("Apellidos Validos");
                             if (comprobarTelefono(document.getElementById("telef").value))
                             {
-                                console.log("Telefono Valido");
                             	if (comprobarContrasena(document.getElementById("contraseña").value))
                             	{
-
-                                     	console.log("Contraseña Válida");
-                                	console.log("Errorn't");
-	
-                                	//Si todo sale correcto el valor que se devolvera es true
                                 	var estado = true;
                                 }
                                 else
                             	{
-                                   console.log("Error : Contraseña no válida");
                             	}
                             }
                             else
                             {
-                                console.log("Error : Telefono no valido");
                             }
                         }
                         else
                         {
-                            console.log("Error : Apellido no valido");
                         }
                     }
                     else
                     {
-                        console.log("Error : Nombre no valido");
                     }
                 }
                 else
                 {
-                    console.log("Error : Edad no valido");
                 }
             }
             else
             {
-                console.log("Error : Correo no valido");
                 window.alert("Introduce un correo válido. ")
             }
 	    return estado;

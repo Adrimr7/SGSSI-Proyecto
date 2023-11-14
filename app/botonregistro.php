@@ -34,27 +34,37 @@ if ($data->success) {
 		    $consulta->bind_param("sssissss", $dni, $nombre, $apellidos, $telef, $email, $hash, $salt, $fnacimiento);
 		    $resultado = $consulta->execute();
 		    
-		    if($resultado) {
-		    	echo '<script> alert("Cuenta creada con exito.");</script>';
-		    	include 'iniciosesion.php';
+		    if($resultado)
+		    {
+		    	$msg = "Cuenta creada correctamente para el usuario: " . $dni;
+		        echo '<script>mensajeLog("' . $msg . '");
+		             window.location.replace("iniciosesion.php");
+		    	     </script>';
 			exit;
 		    } else {
-		    	echo '<script> alert("Se ha producido un error al crear la cuenta.");</script>';
+		    	$msg = "ERROR al crear la cuenta de de: " . $dni;
+		        echo '<script>mensajeLog("' . $msg . '");
+		    	      alert("Se ha producido un error al crear la cuenta.");
+		    	     </script>';
 		    } 
-		}else
+		}
+		else
 		{
 		    // Gestion de errores de la consulta
-		    echo '<script> alert("Error en la consulta");</script>';
-		    include 'registro.php';
-		    $consulta->close();
-		    $conn->close();
+		    $msg = "ERROR con la consulta en el registro de: " . $dni;
+		    echo '<script>mensajeLog("' . $msg . '");
+		    	  window.location.replace("registro.php");
+		    	 </script>';
 		    exit;
 		}
 	}else{
-		echo "Error token CSRF";	
+		$msg = "ERROR con el token CSRF ";
+		echo '<script>mensajeLog("' . $msg . '");</script>';	
 	}
 }else{
-	echo "Error con el reCAPTCHA. Reintentalo";
+	$msg = "ERROR con el CAPTCHA ";
+	echo '<script>mensajeLog("' . $msg . '");
+	      alert("Error con el CAPTCHA");</script>';
 }
 function generarHash($password) {
     return password_hash($password, PASSWORD_DEFAULT);
