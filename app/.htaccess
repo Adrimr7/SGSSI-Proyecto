@@ -10,6 +10,6 @@
 #Header always set Content-Security-Policy "default-src 'self'"
 
 #Cabecera X-Content-Type
-<IfModule mod_headers.c>
-	Header always set X-Content-Type-Options "nosniff"
-</IfModule>
+#<IfModule mod_headers.c>
+#	Header always set X-Content-Type-Options "nosniff"
+#</IfModule>
