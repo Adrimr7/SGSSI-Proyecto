@@ -4,3 +4,23 @@
 [2023-11-14 15:16:36] Archivo: botonactualizar.php, Mensaje: Actualizados los datos del usuario: 84617917-C
 [2023-11-14 15:20:04] Archivo: botoncambiarvuelo.php, Mensaje: Modificado correctamente el vuelo: AVA0009
 [2023-11-14 15:20:20] Archivo: botonanadirciudad.php, Mensaje: Añadida la ciudad: Santander
+[2023-11-17 16:17:39] Archivo: botonregistro.php, Mensaje: Cuenta creada correctamente para el usuario: 20232682-L
+[2023-11-17 16:17:48] Archivo: iniciosesion.php, Mensaje: Intento de inicio de sesión con DNI: 20232682-L
+[2023-11-17 16:17:49] Archivo: botoniniciosesion.php, Mensaje: Contraseña correcta de DNI: 20232682-L
+[2023-11-17 16:27:28] Archivo: iniciosesion.php, Mensaje: Intento de inicio de sesión con DNI: 
+[2023-11-17 16:27:28] Archivo: botoniniciosesion.php, Mensaje: Usuario no registrado con DNI: 
+[2023-11-17 16:27:31] Archivo: botoniniciosesion.php, Mensaje: Intento de inicio de sesión con DNI: 
+[2023-11-17 16:27:31] Archivo: botoniniciosesion.php, Mensaje: Usuario no registrado con DNI: 
+[2023-11-17 16:27:38] Archivo: iniciosesion.php, Mensaje: Intento de inicio de sesión con DNI: 
+[2023-11-17 16:27:38] Archivo: botoniniciosesion.php, Mensaje: Usuario no registrado con DNI: 
+[2023-11-17 16:28:59] Archivo: botoniniciosesion.php, Mensaje: Usuario no registrado con DNI: 
+[2023-11-17 16:29:00] Archivo: botoniniciosesion.php, Mensaje: Intento de inicio de sesión con DNI: 
+[2023-11-17 16:29:00] Archivo: botoniniciosesion.php, Mensaje: Usuario no registrado con DNI: 
+[2023-11-17 16:29:01] Archivo: botoniniciosesion.php, Mensaje: Intento de inicio de sesión con DNI: 
+[2023-11-17 16:29:01] Archivo: botoniniciosesion.php, Mensaje: Usuario no registrado con DNI: 
+[2023-11-17 16:29:03] Archivo: botoniniciosesion.php, Mensaje: Intento de inicio de sesión con DNI: 
+[2023-11-17 16:29:03] Archivo: botoniniciosesion.php, Mensaje: Usuario no registrado con DNI: 
+[2023-11-17 16:29:03] Archivo: botoniniciosesion.php, Mensaje: Intento de inicio de sesión con DNI: 
+[2023-11-17 16:29:03] Archivo: botoniniciosesion.php, Mensaje: Usuario no registrado con DNI: 
+[2023-11-17 16:29:11] Archivo: botoniniciosesion.php, Mensaje: Intento de inicio de sesión con DNI: 20232682-L
+[2023-11-17 16:29:11] Archivo: botoniniciosesion.php, Mensaje: Contraseña correcta de DNI: 20232682-L

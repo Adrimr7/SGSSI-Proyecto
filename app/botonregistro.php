@@ -1,5 +1,5 @@
 <?php
-header_remove('X-Powered-By');
+#header_remove('X-Powered-By');
 session_start();
 include 'connection.php';
 include 'logger/mensajeLog.php';

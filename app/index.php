@@ -1,6 +1,6 @@
 <?php
 //Iniciamos la sesion de PHP 
-header_remove('X-Powered-By');
+#header_remove('X-Powered-By');
 
 session_start();
 //Ejecuta el archivo connection.php

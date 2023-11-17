@@ -5,9 +5,18 @@
 
 #No se ejecuta por que el mod_headers.c no esta habilitado
 #HAbria que habilitarlo en apache, en httpd.conf
+
 #Header add Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; form-action 'self'; frame-ancestors 'self';"
 
-#Header always set Content-Security-Policy "default-src 'self'"
+#Header always set Content-Security-Policy "default-src 'self';"
+
+# vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+#header_remove('X-Powered-By');
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Hay que meterlo en este archivo, para que tenga conflictos
+#Antes estaba en todos los php (Ahora esta comentado)
+
+
+
 
 #Cabecera X-Content-Type
 #<IfModule mod_headers.c>
