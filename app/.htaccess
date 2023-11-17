@@ -8,7 +8,7 @@
 
 #Header add Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; form-action 'self'; frame-ancestors 'self';"
 
-Header add Content-Security-Policy "frame-ancestors 'self';"
+#Header add Content-Security-Policy "frame-ancestors 'self';"
 
 # vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 #header_remove('X-Powered-By');
