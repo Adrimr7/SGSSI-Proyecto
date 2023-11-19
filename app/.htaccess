@@ -22,3 +22,10 @@
 <IfModule mod_headers.c>
 	Header always set X-Content-Type-Options "nosniff"
 </IfModule>
+
+#Cabecera CORS
+<IfModule mod_headers.c>
+	Header set Access-Control-Allow-Origin "*"
+	Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+	Header set Access-Control-Allow-Headers "Content-Type"
+</IfModule>

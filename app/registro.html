@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <script src="https://www.google.com/recaptcha/api.js" integrity="x7VDJjZZQNBivOJu1BV57ry0lGqGuigHkLYDkmaSvVk=" crossorigin="anonymous" async defer></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <title>REGISTRO - AVIONAIR</title>
     <link rel="stylesheet" href="styles.css">
@@ -156,6 +156,17 @@
             var formulario = document.getElementById("Formulario");
             formulario.reset();
         }
+        
+        function verificarRecaptcha(){
+        	var response = grecaptcha.getResponse();
+        	if (response.length === 0){
+        		alert("Compelta el recaptcha");
+        		return false;
+        	}
+        	else{
+        	return true;
+        	}
+        }
 
         function comprobar()
         {
@@ -184,9 +195,14 @@
                                     {
                                         console.log("Contraseña Valida");
                                         console.log("Errorn't");
+                                        if (verificarRecaptcha()){
+                                        	var estado=true;
+                                        }
 
                                         //Si todo sale correcto el valor que se devolvera es true
-                                        var estado = true;
+                                        else{
+                                        	console.log("Error : reCaptcha");
+                                        } 
                                     }
                                     else
                                     {
@@ -264,29 +280,29 @@
                         Aceptar los Términos y Condiciones de la Empresa
                     </label>
                 </div>
-                <div class="g-recaptcha" data-sitekey="6Le-Iw4pAAAAAHWPiE6yODoiJpy3y980qGQIbdYk"></div>
+                <div class="g-recaptcha" data-sitekey="6Le-Iw4pAAAAAHWPiE6yODoiJpy3y980qGQIbdYk" data-callback="verificarRecaptcha"></div>
                 <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
                 <div style="margin-top: 20px;">
                     <!-- le damos un id al boton y luego ponemos una parte del codigo a "escuchar" las acciones de este-->
                     <button class="input" type="button" id="botregistro">Registrarse</button>
 		<script>
-   		 //Aqui usamos un listener al boton del formulario
-   		 //El EventListener ejecutara la funcion definida cuando se de la accion "click", en este caso cuando se intente el usuario registrar
+		
+
     		document.getElementById("botregistro").addEventListener("click", function() {
-      		  // Llamamos a la función comprobar y almacenamos su resultado en una variable
+
         	var esValido = comprobar();
 
       		  if (esValido) 
       		  {
-          		  //Si los datos del formulario pasan la comprobacion, se toman los datos de este (document.getElementById("Formulario")) y se envian 
-    		        // a botonregistro.php usando .submit()
+
+
       		      document.getElementById("Formulario").submit();
   		          window.alert("Te has registrado con exito!");
    		         limpiarForm();
 
     		    } 
   		      else {
-   		         // Si no es válido, puedes mostrar un mensaje de error o tomar otra acción
+
    		         alert("El formulario no es válido. Por favor, revise sus datos.");
       		  }
     		});
