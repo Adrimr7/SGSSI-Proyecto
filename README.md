@@ -41,7 +41,5 @@ NOMBRES DE LOS INTEGRANTES
 
 "Adrian Mena"
 "Ander Gutierrez"
-"Asier Cardoso"
-"Aritz Blasco"
 "Eneko Etxaniz"
 "Jon Marcos"
