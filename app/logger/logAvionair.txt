@@ -24,3 +24,66 @@
 [2023-11-17 16:29:03] Archivo: botoniniciosesion.php, Mensaje: Usuario no registrado con DNI: 
 [2023-11-17 16:29:11] Archivo: botoniniciosesion.php, Mensaje: Intento de inicio de sesión con DNI: 20232682-L
 [2023-11-17 16:29:11] Archivo: botoniniciosesion.php, Mensaje: Contraseña correcta de DNI: 20232682-L
+[2023-11-20 14:44:42] Archivo: iniciosesion.php, Mensaje: Intento de inicio de sesión con DNI: 84617917-C
+[2023-11-20 14:44:42] Archivo: botoniniciosesion.php, Mensaje: Contraseña incorrecta de DNI: 84617917-C
+[2023-11-20 14:44:47] Archivo: botoniniciosesion.php, Mensaje: Intento de inicio de sesión con DNI: 84617917-C
+[2023-11-20 14:44:47] Archivo: botoniniciosesion.php, Mensaje: Contraseña incorrecta de DNI: 84617917-C
+[2023-11-20 14:45:49] Archivo: botoniniciosesion.php, Mensaje: Intento de inicio de sesión con DNI: 84617917-C
+[2023-11-20 14:45:49] Archivo: botoniniciosesion.php, Mensaje: Contraseña correcta de DNI: 84617917-C
+[2023-11-20 14:46:03] Archivo: botonactualizar.php, Mensaje: Actualizados los datos del usuario: 84617917-C
+[2023-11-20 14:46:12] Archivo: iniciosesion.php, Mensaje: Intento de inicio de sesión con DNI: 84617917-C
+[2023-11-20 14:46:12] Archivo: botoniniciosesion.php, Mensaje: Contraseña incorrecta de DNI: 84617917-C
+[2023-11-20 14:46:17] Archivo: botoniniciosesion.php, Mensaje: Intento de inicio de sesión con DNI: 84617917-C
+[2023-11-20 14:46:17] Archivo: botoniniciosesion.php, Mensaje: Contraseña incorrecta de DNI: 84617917-C
+[2023-11-20 15:43:23] Archivo: iniciosesion.php, Mensaje: Intento de inicio de sesión con DNI: 84617917-C
+[2023-11-20 15:43:24] Archivo: botoniniciosesion.php, Mensaje: Contraseña correcta de DNI: 84617917-C
+[2023-11-20 15:47:08] Archivo: botonactualizar.php, Mensaje: Actualizados los datos del usuario: 84617917-C
+[2023-11-20 15:47:18] Archivo: iniciosesion.php, Mensaje: Intento de inicio de sesión con DNI: 84617917-C
+[2023-11-20 15:47:18] Archivo: botoniniciosesion.php, Mensaje: Contraseña incorrecta de DNI: 84617917-C
+[2023-11-20 15:48:54] Archivo: iniciosesion.php, Mensaje: Intento de inicio de sesión con DNI: 84617917-C
+[2023-11-20 15:48:54] Archivo: botoniniciosesion.php, Mensaje: Contraseña correcta de DNI: 84617917-C
+[2023-11-20 15:49:00] Archivo: botonactualizar.php, Mensaje: ERROR al actualizar los datos del usuario: 84617917-C
+[2023-11-20 15:49:35] Archivo: botonactualizar.php, Mensaje: ERROR al actualizar los datos del usuario: 84617917-C
+[2023-11-20 15:49:44] Archivo: botonactualizar.php, Mensaje: ERROR al actualizar los datos del usuario: 84617917-C
+[2023-11-20 15:50:08] Archivo: botonactualizar.php, Mensaje: ERROR al actualizar los datos del usuario: 84617917-C
+[2023-11-20 15:51:12] Archivo: botonactualizar.php, Mensaje: Actualizados los datos del usuario: 84617917-C
+[2023-11-20 15:51:21] Archivo: iniciosesion.php, Mensaje: Intento de inicio de sesión con DNI: 84617917-C
+[2023-11-20 15:51:21] Archivo: botoniniciosesion.php, Mensaje: Contraseña incorrecta de DNI: 84617917-C
+[2023-11-20 16:20:32] Archivo: botoniniciosesion.php, Mensaje: Intento de inicio de sesión con DNI: 84617917-C
+[2023-11-20 16:20:32] Archivo: botoniniciosesion.php, Mensaje: Contraseña incorrecta de DNI: 84617917-C
+[2023-11-20 16:20:38] Archivo: botoniniciosesion.php, Mensaje: Intento de inicio de sesión con DNI: 84617917-C
+[2023-11-20 16:20:39] Archivo: botoniniciosesion.php, Mensaje: Contraseña incorrecta de DNI: 84617917-C
+[2023-11-20 16:22:45] Archivo: iniciosesion.php, Mensaje: Intento de inicio de sesión con DNI: 84617917-C
+[2023-11-20 16:22:45] Archivo: botoniniciosesion.php, Mensaje: Contraseña correcta de DNI: 84617917-C
+[2023-11-20 16:24:31] Archivo: botonactualizar.php, Mensaje: Actualizados los datos del usuario: 84617917-C
+[2023-11-20 16:24:50] Archivo: iniciosesion.php, Mensaje: Intento de inicio de sesión con DNI: 84617917-C
+[2023-11-20 16:24:50] Archivo: botoniniciosesion.php, Mensaje: Contraseña incorrecta de DNI: 84617917-C
+[2023-11-20 16:29:00] Archivo: botoniniciosesion.php, Mensaje: Contraseña incorrecta de DNI: 84617917-C
+[2023-11-20 16:29:43] Archivo: botoniniciosesion.php, Mensaje: Contraseña incorrecta de DNI: 84617917-C
+[2023-11-20 16:29:52] Archivo: botoniniciosesion.php, Mensaje: Contraseña incorrecta de DNI: 84617917-C
+[2023-11-20 16:34:10] Archivo: botoniniciosesion.php, Mensaje: Intento de inicio de sesión con DNI: 84617917-C
+[2023-11-20 16:34:10] Archivo: botoniniciosesion.php, Mensaje: Contraseña correcta de DNI: 84617917-C
+[2023-11-20 16:34:47] Archivo: botonactualizar.php, Mensaje: Actualizados los datos del usuario: 84617917-C
+[2023-11-20 16:34:55] Archivo: iniciosesion.php, Mensaje: Intento de inicio de sesión con DNI: 84617917-C
+[2023-11-20 16:34:56] Archivo: botoniniciosesion.php, Mensaje: Contraseña correcta de DNI: 84617917-C
+[2023-11-20 16:53:53] Archivo: botonregistro.php, Mensaje: ERROR al crear la cuenta de de: 84617917-C
+[2023-11-20 16:54:48] Archivo: botonregistro.php, Mensaje: ERROR con el CAPTCHA 
+[2023-11-20 16:54:49] Archivo: botonregistro.php, Mensaje: ERROR con el CAPTCHA 
+[2023-11-20 17:23:41] Archivo: botonregistro.php, Mensaje: Cuenta creada correctamente para el usuario: 79050991-Z
+[2023-11-20 17:24:34] Archivo: botonregistro.php, Mensaje: Ya existe un usuario con el DNI: 84617917-C
+[2023-11-20 17:25:45] Archivo: botonregistro.php, Mensaje: ERROR con el CAPTCHA 
+[2023-11-20 17:26:02] Archivo: botonregistro.php, Mensaje: ERROR con el CAPTCHA 
+[2023-11-20 17:26:43] Archivo: botonregistro.php, Mensaje: Ya existe un usuario con el DNI: 84617917-C
+[2023-11-20 17:28:23] Archivo: botonregistro.php, Mensaje: Ya existe un usuario con el DNI: 84617917-C
+[2023-11-20 17:29:40] Archivo: botonregistro.php, Mensaje: Ya existe un usuario con el DNI: 84617917-C
+[2023-11-20 17:31:09] Archivo: botonregistro.php, Mensaje: Ya existe un usuario con el DNI: 84617917-C
+[2023-11-20 17:33:15] Archivo: botonregistro.php, Mensaje: ERROR con la consulta en el registro de: 79050991-Z
+[2023-11-20 17:36:12] Archivo: botonregistro.php, Mensaje: ERROR con la consulta en el registro de: 79050991-Z
+[2023-11-20 17:38:42] Archivo: botonregistro.php, Mensaje: Ya existe un usuario con el DNI: 84617917-C
+[2023-11-20 17:39:11] Archivo: botonregistro.php, Mensaje: ERROR con la consulta en el registro de: 79050991-Z
+[2023-11-20 17:46:11] Archivo: botonregistro.php, Mensaje: Cuenta creada correctamente para el usuario: 79050991-Z
+[2023-11-20 17:46:32] Archivo: iniciosesion.php, Mensaje: Intento de inicio de sesión con DNI: 79050991-Z
+[2023-11-20 17:46:32] Archivo: botoniniciosesion.php, Mensaje: Contraseña correcta de DNI: 79050991-Z
+[2023-11-20 17:46:44] Archivo: iniciosesion.php, Mensaje: Intento de inicio de sesión con DNI: 79050991-Z
+[2023-11-20 17:46:44] Archivo: botoniniciosesion.php, Mensaje: Contraseña incorrecta de DNI: 79050991-Z
+[2023-11-20 17:47:49] Archivo: botoniniciosesion.php, Mensaje: Contraseña incorrecta de DNI: 79050991-Z

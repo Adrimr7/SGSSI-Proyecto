@@ -17,7 +17,6 @@
         <div class="titulo">
             <h1>Registro</h1>
             <?php
-            //El codigo de la cabecera se repite con el de home.html
         session_start();
         if (isset($_SESSION['autenticado']) && $_SESSION['autenticado']) {
             $dni = $_SESSION['dni'];
@@ -206,7 +205,8 @@
                                     }
                                     else
                                     {
-                                        console.log("Error : Contraseña no valido");
+                                        console.log("Error : Contraseña no valida");
+                                        window.alert("Debe contener al menos una minúscula, una mayúscula, un número, un carácter no alfanumérico y más de 8 caracteres.");
                                     }
                                 }
                                 else
@@ -259,17 +259,17 @@
                     <input class="input" type="text" placeholder="Apellido: Marcos"id="apellidos" name="apellidos" required>
                 </div>
                 <div class="campo">
-                    <input class="input"type="text" placeholder="DNI Formato : 79435399-E"id="dni" name="dni" required>
+                    <input class="input"type="text" placeholder="DNI Formato : 78998756-F"id="dni" name="dni" required>
                 </div>
                 <div class="campo">
-                    <input class="input"type="text" placeholder="Teléfono: 635 57 44 02"id="telef" name="telef" required>
+                    <input class="input"type="text" placeholder="Teléfono: 688 78 90 44"id="telef" name="telef" required>
                 </div>
                 <div class="campo">
                     <label for="fnacimiento">Fecha de nacimiento:</label>
                     <input class="input" type="date" id="fnacimiento" name="fnacimiento" required>
                 </div>
                 <div class="campo">
-                    <input class="input" type="email" placeholder="Correo Electrónico: jmarcos021@ikasle.ehu.eus" id="email" name="email" required>
+                    <input class="input" type="email" placeholder="Correo Electrónico: ejemplo@dominio.com" id="email" name="email" required>
                 </div>
                 <div class="campo">
                     <input class="input"type="password" placeholder="Contraseña: Contras3na*" id="contraseña" name="contraseña" required>
@@ -283,28 +283,17 @@
                 <div class="g-recaptcha" data-sitekey="6Le-Iw4pAAAAAHWPiE6yODoiJpy3y980qGQIbdYk" data-callback="verificarRecaptcha"></div>
                 <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
                 <div style="margin-top: 20px;">
-                    <!-- le damos un id al boton y luego ponemos una parte del codigo a "escuchar" las acciones de este-->
                     <button class="input" type="button" id="botregistro">Registrarse</button>
 		<script>
-		
-
     		document.getElementById("botregistro").addEventListener("click", function() {
 
         	var esValido = comprobar();
-
-      		  if (esValido) 
-      		  {
-
-
-      		      document.getElementById("Formulario").submit();
-  		          window.alert("Te has registrado con exito!");
-   		         limpiarForm();
-
-    		    } 
-  		      else {
-
-   		         
-      		  }
+      		if (esValido) 
+      		{
+      		    document.getElementById("Formulario").submit();
+   		    limpiarForm();
+    		} 
+  		else {}
     		});
 		</script>
 

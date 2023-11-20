@@ -22,7 +22,7 @@ if (!empty($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST[
 		$fila = $resultado->fetch_assoc();
 		$hashAlmacenado = $fila['contraseña'];
 		$saltAlmacenado = $fila['salt'];
-
+		
 		// Concatenar la contraseña proporcionada con la salt almacenada
 		$contraseñaConSalt = $contraseña . $saltAlmacenado;
 
@@ -42,7 +42,7 @@ if (!empty($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST[
 		else
 		{
 		    $msg = "Contraseña incorrecta de DNI: $dni";
-		    echo '<script>mensajeLog("' . $msg . '");</script>';
+		    echo '<script>mensajeLog("' . $msg . '"); alert("Contraseña incorrecta, vuelve a intentarlo.");</script>';
 		    include 'iniciosesion.php';
 		    exit;
 
@@ -51,7 +51,7 @@ if (!empty($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST[
 	    else 
 	    {
 		$msg = "Usuario no registrado con DNI: $dni";
-    		echo '<script>mensajeLog("' . $msg . '");</script>';
+    		echo '<script>mensajeLog("' . $msg . '"); alert("Ese DNI no existe, compruebalo.");</script>';
 		include 'iniciosesion.php';
 		exit;
 	    }

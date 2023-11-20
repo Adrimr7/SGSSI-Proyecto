@@ -12,12 +12,16 @@ $email = $_POST["email"];
 $contrasena = $_POST["contraseña"];
 $dni = $_SESSION['dni'];
 
-$sql = "UPDATE usuarios SET nombre = ?, apellidos = ?, telefono = ?, email = ?, contraseña = ?, nacimiento = ? WHERE dni = ? ";
+$salt = generarSalt();
+$contrasenaConSalt = $contrasena . $salt;
+$hash = generarHash($contrasenaConSalt);
+
+$sql = "UPDATE usuarios SET nombre = ?, apellidos = ?, telefono = ?, email = ?, contraseña = ?, nacimiento = ?, salt = ? WHERE dni = ? ";
 
 if (!empty($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
 	if ($consulta = $conn->prepare($sql))
 	{
-	    $consulta->bind_param("ssissss", $nombre, $apellidos, $telef, $email, $contrasena, $fnacimiento, $dni);
+	    $consulta->bind_param("ssisssss", $nombre, $apellidos, $telef, $email, $hash, $fnacimiento, $salt, $dni);
 	    $resultado = $consulta->execute();
 	    
 	    if($resultado) {
@@ -39,10 +43,19 @@ if (!empty($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST[
 	    window.location.replace("registro.php");</script>';
 	    exit;
 	}
+
 }else{
 	$msg = "ERROR con el token CSRF";
 	echo '<script>mensajeLog("' . $msg . '"); </script>';
 }
-?>
+function generarHash($password) {
+    return password_hash($password, PASSWORD_DEFAULT);
+}
+
+function generarSalt() {
+    return bin2hex(random_bytes(16)); // Genera una salt de 16 bytes y la convierte en una cadena hexadecimal
+}
 $consulta->close();
 $conn->close();
+?>
+
