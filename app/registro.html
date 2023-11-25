@@ -170,73 +170,73 @@
         function comprobar()
         {
             var estado = false;
-            console.log("Funciona");
+
             if (comprobarCorreo(document.getElementById("email").value))
             {
-                console.log("Correo Valido");
+
                 if (true || comprobarEdad(document.getElementById("fnacimiento").value))
                 {
-                    console.log("Fecha Valida");
+
                     if (comprobarnombreapellidos(document.getElementById("nombre").value))
                     {
-                        console.log("Nombre Valido");
+
                         if (comprobarnombreapellidos(document.getElementById("apellidos").value))
                         { 
-                            console.log("Apellidos Validos");
+
                             if (comprobarTelefono(document.getElementById("telef").value))
                             {
-                                console.log("Telefono Valido");
+
                                 if (comprobarDNI(document.getElementById("dni").value))
                                 {
-                                    console.log("DNI Valido");
+
 
                                     if (comprobarContrasena(document.getElementById("contraseña").value))
                                     {
-                                        console.log("Contraseña Valida");
-                                        console.log("Errorn't");
+
+
                                         if (verificarRecaptcha()){
                                         	var estado=true;
                                         }
 
                                         //Si todo sale correcto el valor que se devolvera es true
                                         else{
-                                        	console.log("Error : reCaptcha");
+
                                         } 
                                     }
                                     else
                                     {
-                                        console.log("Error : Contraseña no valida");
+
                                         window.alert("Debe contener al menos una minúscula, una mayúscula, un número, un carácter no alfanumérico y más de 8 caracteres.");
                                     }
                                 }
                                 else
                                 {
-                                    console.log("Error : DNI no valido");
+
                                 }
                             }
                             else
                             {
-                                console.log("Error : Telefono no valido");
+
                             }
                         }
                         else
                         {
-                            console.log("Error : Apellido no valido");
+
                         }
                     }
                     else
                     {
-                        console.log("Error : Nombre no valido");
+
                     }
                 }
                 else
                 {
-                    console.log("Error : Edad no valido");
+
                 }
             }
             else
             {
-                console.log("Error : Correo no valido");
+                
             }
 	    return estado;
             //TODO: Comprobar contraseña

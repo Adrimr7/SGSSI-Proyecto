@@ -27,4 +27,5 @@
 <IfModule mod_headers.c>
 	Header unset X-Powered-By
 	Header always append X-Frame-Options SAMEORIGIN
+	Header set Set-Cookie HttpOnly;Secure
 </IfModule>
